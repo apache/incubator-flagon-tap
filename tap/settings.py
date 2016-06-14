@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'custom_user',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -51,6 +52,8 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'tap.urls'
+
+AUTH_USER_MODEL = 'custom_user.EmailUser'
 
 TEMPLATES = [
     {
