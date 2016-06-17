@@ -17,5 +17,12 @@ INSTALLED_APPS += (
 )
 
 DEBUG = False
-TEMPLATE_DEBUG = False
+
+TEMPLATES = [
+    {
+        'OPTIONS': {
+            'debug': DEBUG,
+        },
+    },
+]
 
