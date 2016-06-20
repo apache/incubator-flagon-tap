@@ -26,7 +26,25 @@ SECRET_KEY = MY_SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+SITE_ROOT = os.path.realpath(os.path.dirname(os.path.dirname(__file__)))
+
+SITE_ID = 1
+
+# Email integration setup
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'email-smtp.us-east-1.amazonaws.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'AKIAJJDM2ZC67STGF4IA'
+EMAIL_HOST_PASSWORD = MY_EMAIL_PASSWORD
+
+# Configurable email addresses
+# These are addresses where mail is sent from...
+EMAIL_FROM_NOMINAL_ADDRESS = "onlinetesting@xdataonline.com"
+EMAIL_FROM_ERROR_ADDRESS = "no-reply@xdataonline.com"
+# These are addresses used to send mail to...
+EMAIL_TO_ERROR_ADDRESS = "errors@xdataonline.com"
 
 
 # Application definition
@@ -37,9 +55,11 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
     'django.contrib.staticfiles',
     'custom_user',
     'AppMgr',
+    'axes',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -55,12 +75,16 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'tap.urls'
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    )
+
 AUTH_USER_MODEL = 'custom_user.EmailUser'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(SITE_ROOT, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,7 +101,7 @@ WSGI_APPLICATION = 'tap.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
     'default': {
@@ -96,7 +120,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/New_York'
 
 USE_I18N = True
 
@@ -109,3 +133,31 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'NOTSET',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        }
+    },
+    'loggers': {
+        '': {
+            'handlers': ['console'],
+            'level': 'NOTSET',
+        },
+        'django.request': {
+            'handlers': ['console'],
+            'propagate': False,
+            'level': 'ERROR'
+        }
+    }
+}

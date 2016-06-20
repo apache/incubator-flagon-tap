@@ -18,11 +18,6 @@ INSTALLED_APPS += (
 
 DEBUG = False
 
-TEMPLATES = [
-    {
-        'OPTIONS': {
-            'debug': DEBUG,
-        },
-    },
-]
+for T in TEMPLATES:
+    T['OPTIONS']['debug'] = DEBUG
 
