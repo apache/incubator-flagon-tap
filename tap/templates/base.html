@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    {% block head %}
+    {% endblock %}
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>XDATA | Online </title>
+    <!--<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+  </head>
+  <body>
+    {% block body %}
+    {% endblock %}
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js"></script>
+    <!-- // <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{% static 'javascript/lib/d3.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'javascript/base.js' %}"></script>
+    <script type="text/javascript" src="{% static 'javascript/userale.js' %}"></script>
+  </body>
+</html>
