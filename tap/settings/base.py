@@ -50,6 +50,7 @@ EMAIL_TO_ERROR_ADDRESS = "errors@xdataonline.com"
 # Application definition
 
 INSTALLED_APPS = (
+    'grappelli', # must be before django.contrib.admin
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -131,6 +132,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_DIR, '../static')
 
 STATIC_URL = '/static/'
 

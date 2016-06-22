@@ -15,7 +15,7 @@ class UserProfile(models.Model):
 class Organization(models.Model):
     name = models.CharField(max_length=255)
 
-    members = models.ManyToManyField(UserProfile)
+    members = models.ManyToManyField(UserProfile, through='Membership')
 
     class Meta:
         permissions = (
@@ -27,14 +27,21 @@ class Organization(models.Model):
     def __unicode__(self):
         return self.name
 
+class Membership(models.Model):
+    user = models.ForeignKey(UserProfile,  null=True, blank=False)
+    org  = models.ForeignKey(Organization, null=True, blank=False)
+    join_date = models.DateTimeField()
+    
 class Application(models.Model):
     name = models.CharField(max_length=255)
 
     isPublic = models.BooleanField(default=True)
 
     #Application owner can be either a UserProfile or an Organization    
-    limit = models.Q(app_label='AppMgr', model='UserProfile') | \
-            models.Q(app_label='AppMgr', model='Organization') 
+    limit = models.Q(app_label='AppMgr', model='userprofile') | \
+            models.Q(app_label='AppMgr', model='organization') 
+    #limit = {'app_label__in': ('AppMgr',), 
+    #         'model__in': ('UserProfile', 'Organization', ), }
     content_type = models.ForeignKey(
             ContentType,
             verbose_name='application owner',
