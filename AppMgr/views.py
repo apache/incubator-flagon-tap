@@ -11,12 +11,64 @@ from django.conf import settings
 from django.db import IntegrityError
 
 from axes.decorators import watch_login
+from rest_framework import generics
 
 from AppMgr.models import UserProfile, Organization, Application, AppVersion
+from AppMgr.serializers import UserProfileSerializer, OrganizationSerializer, ApplicationSerializer
 
 import datetime
 
-# Create your views here.
+#
+# RESTFUL VIEWS
+#
+
+# LIST RETRIEVE
+class UserProfileListView(generics.ListCreateAPIView):
+    """
+    Returns a list of all user profiles.
+    """
+    queryset = UserProfile.objects.all()
+    serializer_class = UserProfileSerializer
+
+class OrganizationListView(generics.ListCreateAPIView):
+    """
+    Returns a list of all organizations.
+    """
+    queryset = Organization.objects.all()
+    serializer_class = OrganizationSerializer
+
+class ApplicationListView(generics.ListCreateAPIView):
+    """
+    Returns a list of all applications.
+    """
+    queryset = Application.objects.all()
+    serializer_class = ApplicationSerializer
+
+# SINGLE RETRIEVE/UPDATE/DESTROY
+class UserProfileInstanceView(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Returns a single user.
+    """
+    queryset = UserProfile.objects.all()
+    serializer_class = UserProfileSerializer
+
+class OrganizationInstanceView(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Returns a single org.
+    """
+    queryset = Organization.objects.all()
+    serializer_class = OrganizationSerializer
+
+class ApplicationInstanceView(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Returns a single app.
+    """
+    queryset = Application.objects.all()
+    serializer_class = ApplicationSerializer
+
+#
+# AUTHENTICATION VIEWS
+#
 
 # creates a new user 
 def register(request):

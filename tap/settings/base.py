@@ -61,6 +61,7 @@ INSTALLED_APPS = (
     'custom_user',
     'AppMgr',
     'axes',
+    'rest_framework',
 )
 
 MIDDLEWARE_CLASSES = (

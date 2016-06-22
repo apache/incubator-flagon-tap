@@ -18,6 +18,7 @@ from django.contrib import admin
 from AppMgr import views
 
 urlpatterns = [
+    # USER AUTHENTICATION
     url(r'^register/', views.register, name='register'),
     url(r'^login/$', views.login_user, name='login'),
     url(r'^logout/$', views.logout_user, name='logout'),
@@ -25,4 +26,13 @@ urlpatterns = [
     url(r'^reset/confirm/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$', views.reset_confirm, name='reset_confirm'),
     url(r'^reset/$', views.reset, name='reset'),
     url(r'^reset/sent/$', views.reset_sent, name='reset_sent'),
+
+    #RESTFUL API
+    url(r'^users/$', views.UserProfileListView.as_view(), name='user-list'),
+    url(r'^orgs/$', views.OrganizationListView.as_view(), name='org-list'),
+    url(r'^apps/$', views.ApplicationListView.as_view(), name='app-list'),
+
+    url(r'^user/(?P<pk>[\d]+)/$', views.UserProfileInstanceView.as_view(), name='user-instance'),
+    url(r'^org/(?P<pk>[\d]+)/$', views.OrganizationInstanceView.as_view(), name='user-instance'),
+    url(r'^app/(?P<pk>[\d]+)/$', views.ApplicationInstanceView.as_view(), name='user-instance'),
 ]
