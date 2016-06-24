@@ -13,7 +13,7 @@ from django.db import IntegrityError
 from axes.decorators import watch_login
 
 from rest_framework import generics
-from rest_framework.authentication import BasicAuthentication
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
@@ -34,7 +34,7 @@ class UserProfileListView(generics.ListCreateAPIView):
     """
     Returns a list of all user profiles.
     """
-    authentication_classes = (BasicAuthentication,)
+    authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
 
     queryset = UserProfile.objects.all()
@@ -59,7 +59,7 @@ class UserProfileInstanceView(generics.RetrieveUpdateDestroyAPIView):
     """
     Returns a single user.
     """
-    authentication_classes = (BasicAuthentication,)
+    authentication_classes = (TokenAuthentication,)
     #permission_classes = (IsAuthenticated,)
     permission_classes = (ViewControlObjectPermissions,)
     _ignore_model_permissions = True

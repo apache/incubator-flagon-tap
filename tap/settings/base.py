@@ -58,11 +58,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.sites',
     'django.contrib.staticfiles',
-    'guardian',
     'custom_user',
     'AppMgr',
     'axes',
     'rest_framework',
+    'rest_framework.authtoken',
+    'guardian',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -88,7 +89,7 @@ AUTH_USER_MODEL = 'AppMgr.UserProfile'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
     )
 }
 LOGIN_REDIRECT_URL = '/AppMgr/users'
