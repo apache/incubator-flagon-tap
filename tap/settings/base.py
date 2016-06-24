@@ -58,6 +58,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.sites',
     'django.contrib.staticfiles',
+    'guardian',
     'custom_user',
     'AppMgr',
     'axes',
@@ -79,9 +80,18 @@ ROOT_URLCONF = 'tap.urls'
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
+    'guardian.backends.ObjectPermissionBackend',
     )
+GUARDIAN_MONKEY_PATCH = False
 
-AUTH_USER_MODEL = 'custom_user.EmailUser'
+AUTH_USER_MODEL = 'AppMgr.UserProfile'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+    )
+}
+LOGIN_REDIRECT_URL = '/AppMgr/users'
 
 TEMPLATES = [
     {

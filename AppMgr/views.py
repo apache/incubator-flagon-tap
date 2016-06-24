@@ -11,8 +11,15 @@ from django.conf import settings
 from django.db import IntegrityError
 
 from axes.decorators import watch_login
-from rest_framework import generics
 
+from rest_framework import generics
+from rest_framework.authentication import BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+
+from guardian.shortcuts import assign_perm
+
+from AppMgr.permissions import ViewControlObjectPermissions
 from AppMgr.models import UserProfile, Organization, Application, AppVersion
 from AppMgr.serializers import UserProfileSerializer, OrganizationSerializer, ApplicationSerializer
 
@@ -27,6 +34,9 @@ class UserProfileListView(generics.ListCreateAPIView):
     """
     Returns a list of all user profiles.
     """
+    authentication_classes = (BasicAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
 
@@ -49,8 +59,21 @@ class UserProfileInstanceView(generics.RetrieveUpdateDestroyAPIView):
     """
     Returns a single user.
     """
+    authentication_classes = (BasicAuthentication,)
+    #permission_classes = (IsAuthenticated,)
+    permission_classes = (ViewControlObjectPermissions,)
+    _ignore_model_permissions = True
+
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
+
+    #def retrieve(self, request):
+    #    queryset = self.get_queryset()
+    #    serializer = UserProfileSerializer
+    #    print request.user.id
+    #    print request.user.email
+    #    print request.user.has_perms(view_userprofile)
+    #    return Response(serializer.data)
 
 class OrganizationInstanceView(generics.RetrieveUpdateDestroyAPIView):
     """
@@ -104,14 +127,23 @@ def register(request):
         # Now sort out the UserProfile instance.
         # Since we need to set the user attribute ourselves, we set commit=False.
         # This delays saving the model until we're ready to avoid integrity problems.
-        userprofile = UserProfile()
-        userprofile.user = user
+        ###userprofile = UserProfile()
+        ###userprofile.user = user
 
         # Now we save the UserProfile model instance.
-        userprofile.save()
+        ###userprofile.save()
+
+        # Set permissions for own profile
+        assign_perm('view_userprofile', user, user)
+        assign_perm('change_userprofile', user, user)
+        assign_perm('delete_userprofile', user, user)
+        #assign_perm('view_userprofile', user, userprofile)
+        #assign_perm('change_userprofile', user, userprofile)
+        #assign_perm('delete_userprofile', user, userprofile)
 
         # Update our variable to tell the template registration was successful.
         registrationSuccessful = True
+
         # add some logic to log events, log in users directly
         print "successful registration of " + request.POST['email'] +" "+ datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         request.POST['email_to'] = user.email
@@ -130,7 +162,7 @@ def logout_user(request):
     Log users out and re-direct them to the main page.
     """
     logout(request)
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect('/AppMgr/login')
 
 @watch_login
 def login_user(request):

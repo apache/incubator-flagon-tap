@@ -16,7 +16,7 @@ INSTALLED_APPS += (
     'django_extensions',
 )
 
-DEBUG = False
+#DEBUG = False
 
 for T in TEMPLATES:
     T['OPTIONS']['debug'] = DEBUG

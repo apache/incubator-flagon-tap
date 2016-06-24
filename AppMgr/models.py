@@ -5,12 +5,24 @@ from django.contrib.postgres.fields import JSONField
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 
+from django.contrib.auth import get_user_model
+
+from custom_user.models import AbstractEmailUser
+
+from guardian.mixins import GuardianUserMixin
+
 # Create your models here.
-class UserProfile(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL)
+class UserProfile(AbstractEmailUser, GuardianUserMixin):
+
+    public_contact = models.BooleanField(default=False)
+
+    class Meta:
+        permissions = (
+            ("view_userprofile", "view profile information"),
+        )
 
     def __unicode__(self):
-        return self.user.email
+        return self.email
 
 class Organization(models.Model):
     name = models.CharField(max_length=255)
@@ -19,9 +31,7 @@ class Organization(models.Model):
 
     class Meta:
         permissions = (
-            ("admin", "All organizational privileges"),
-            ("change_apps", "Create/Modify/Delete Org's Applications"),
-            ("change_members", "Add/Remove Users"),
+            ("view_organization", "view organization information"),
         )
 
     def __unicode__(self):
@@ -57,9 +67,7 @@ class Application(models.Model):
 
     class Meta:
         permissions = (
-            ("admin", "All application privileges"),
-            ("edit", "add/modify application attributes"),
-            ("view", "read access to the application"),
+            ("view_application", "read access to the application"),
         )
 
     def __unicode__(self):

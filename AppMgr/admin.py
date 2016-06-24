@@ -4,22 +4,20 @@ from django.contrib.contenttypes.admin import GenericTabularInline
 
 from django.forms import ModelChoiceField
 
-from custom_user.models import EmailUser 
+from django.contrib.auth import get_user_model
 from custom_user.admin import EmailUserAdmin as BaseUserAdmin
+
+from guardian.admin import GuardedModelAdmin
 
 from AppMgr.models import UserProfile, Organization, Membership, Application, AppVersion
 
 # Register your models here.
 
-class UserProfileInline(admin.StackedInline):
-    model = UserProfile
-    readonly_fields = ['id']
-    fields = ['id']
+class UserAdmin(BaseUserAdmin, GuardedModelAdmin):
+    list_display = ['id', 'email', 'public_contact']
+#    pass
 
-class UserAdmin(BaseUserAdmin):
-    inlines = (UserProfileInline, )
-
-class OrganizationAdmin(admin.ModelAdmin):
+class OrganizationAdmin(GuardedModelAdmin):
     search_fields = ['name']
     list_display = ['id', 'name']
 
@@ -32,7 +30,7 @@ class ApplicationInline(GenericTabularInline):
     ct_field = 'content_type'
     ct_fk_field = 'object_id'
 
-class ApplicationAdmin(admin.ModelAdmin):
+class ApplicationAdmin(GuardedModelAdmin):
     inlines = [ApplicationInline]
     search_fields = ['name']
 
@@ -41,8 +39,8 @@ class AppVersionAdmin(admin.ModelAdmin):
     search_fields = ['name', 'app']
     list_display = ['id', 'name', 'app', 'domain', 'aliases',]
 
-admin.site.unregister(EmailUser)
-admin.site.register(EmailUser, UserAdmin)
+#admin.site.unregister(get_user_model())
+admin.site.register(get_user_model(), UserAdmin)
 
 admin.site.register(Organization, OrganizationAdmin)
 admin.site.register(Membership, MembershipAdmin)

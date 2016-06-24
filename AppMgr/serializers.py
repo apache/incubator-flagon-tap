@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from custom_user.models import EmailUser
+from django.contrib.auth import get_user_model
 
 from AppMgr.models import UserProfile, Organization, Membership, Application, AppVersion
 
@@ -11,18 +11,13 @@ class MembershipSerializer(serializers.ModelSerializer):
         model = Membership
         fields = ('org', 'user', 'join_date')
 
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = EmailUser
-        fields = ('id', 'email', 'date_joined',
-                  'is_staff', 'is_active', )
-
 class UserProfileSerializer(serializers.ModelSerializer):
     memberships = MembershipSerializer(source='membership_set', many=True)
-    user_details = UserSerializer(source='user', many=False)
     class Meta:
         model = UserProfile
-        fields = ('id', 'user_details', 'memberships')
+        fields = ('id', 'email', 'date_joined',
+                  'is_staff', 'is_active', 'public_contact',
+                   'memberships')
 
 class OrganizationSerializer(serializers.ModelSerializer):
     memberships = MembershipSerializer(source='membership_set', many=True)
