@@ -59,7 +59,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.staticfiles',
     'custom_user',
-    'AppMgr',
+    'app_mgr',
     'axes',
     'rest_framework',
     'rest_framework.authtoken',
@@ -85,14 +85,14 @@ AUTHENTICATION_BACKENDS = (
     )
 GUARDIAN_MONKEY_PATCH = False
 
-AUTH_USER_MODEL = 'AppMgr.UserProfile'
+AUTH_USER_MODEL = 'app_mgr.UserProfile'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
     )
 }
-LOGIN_REDIRECT_URL = '/AppMgr/users'
+LOGIN_REDIRECT_URL = '/app_mgr/users'
 
 TEMPLATES = [
     {

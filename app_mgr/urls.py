@@ -15,7 +15,7 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
-from AppMgr import views
+from app_mgr import views
 
 urlpatterns = [
     # USER AUTHENTICATION

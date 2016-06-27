@@ -8,8 +8,7 @@ https://docs.djangoproject.com/en/1.8/howto/deployment/wsgi/
 """
 
 import os, sys
-sys.path.append('/var/www/AppMgr/tap')
-sys.path.append('/var/www/AppMgr')
+sys.path.append('/var/www/app_mgr')
 
 sys.path.append('./tap/settings')
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "production")

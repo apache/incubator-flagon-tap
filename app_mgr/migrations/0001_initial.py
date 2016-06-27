@@ -39,7 +39,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=255)),
                 ('aliases', django.contrib.postgres.fields.jsonb.JSONField()),
                 ('domain', models.URLField(max_length=255)),
-                ('app', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='AppMgr.Application')),
+                ('app', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='app_mgr.Application')),
             ],
         ),
         migrations.CreateModel(
@@ -81,12 +81,12 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='organization',
             name='members',
-            field=models.ManyToManyField(through='AppMgr.Membership', to=settings.AUTH_USER_MODEL),
+            field=models.ManyToManyField(through='app_mgr.Membership', to=settings.AUTH_USER_MODEL),
         ),
         migrations.AddField(
             model_name='membership',
             name='org',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='AppMgr.Organization'),
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='app_mgr.Organization'),
         ),
         migrations.AddField(
             model_name='membership',

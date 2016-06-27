@@ -9,7 +9,7 @@ from custom_user.admin import EmailUserAdmin as BaseUserAdmin
 
 from guardian.admin import GuardedModelAdmin
 
-from AppMgr.models import UserProfile, Organization, Membership, Application, AppVersion
+from app_mgr.models import UserProfile, Organization, Membership, Application, AppVersion
 
 # Register your models here.
 

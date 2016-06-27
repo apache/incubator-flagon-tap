@@ -2,7 +2,7 @@ from rest_framework import serializers
 
 from django.contrib.auth import get_user_model
 
-from AppMgr.models import UserProfile, Organization, Membership, Application, AppVersion
+from app_mgr.models import UserProfile, Organization, Membership, Application, AppVersion
 
 class MembershipSerializer(serializers.ModelSerializer):
     user = serializers.PrimaryKeyRelatedField(queryset=UserProfile.objects.all())

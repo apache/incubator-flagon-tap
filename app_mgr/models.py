@@ -58,9 +58,9 @@ class Application(models.Model):
     isPublic = models.BooleanField(default=True)
 
     #Application owner can be either a UserProfile or an Organization    
-    limit = models.Q(app_label='AppMgr', model='userprofile') | \
-            models.Q(app_label='AppMgr', model='organization') 
-    #limit = {'app_label__in': ('AppMgr',), 
+    limit = models.Q(app_label='app_mgr', model='userprofile') | \
+            models.Q(app_label='app_mgr', model='organization') 
+    #limit = {'app_label__in': ('app_mgr',), 
     #         'model__in': ('UserProfile', 'Organization', ), }
     content_type = models.ForeignKey(
             ContentType,

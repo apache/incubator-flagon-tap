@@ -21,9 +21,9 @@ from rest_framework.response import Response
 
 from guardian.shortcuts import assign_perm
 
-from AppMgr.permissions import ViewControlObjectPermissions
-from AppMgr.models import UserProfile, Organization, Application, AppVersion
-from AppMgr.serializers import UserProfileSerializer, OrganizationSerializer, ApplicationSerializer
+from app_mgr.permissions import ViewControlObjectPermissions
+from app_mgr.models import UserProfile, Organization, Application, AppVersion
+from app_mgr.serializers import UserProfileSerializer, OrganizationSerializer, ApplicationSerializer
 
 import datetime
 
@@ -114,7 +114,7 @@ class ApplicationInstanceView(generics.RetrieveUpdateDestroyAPIView):
 #        print request.user.id
 #        print request.auth
 #        kwargs['pk'] = request.user.id
-#        self.url = '/AppMgr/user/%s' % (request.user.id)
+#        self.url = '/app_mgr/user/%s' % (request.user.id)
 #        return super(UserRedirectView, self).get(request, args, **kwargs)
 
 #
@@ -176,7 +176,7 @@ def register(request):
         print "successful registration of " + request.POST['email'] +" "+ datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         request.POST['email_to'] = user.email
         request.POST['email_subject'] = 'Welcome to TAP'
-        request.POST['email_message'] = 'Your registration was successful!\n\nIn case you forget your password, please go to the following page and reset your password:\n\nhttps://' + get_current_site(request).domain + '/AppMgr/reset/\n\nYour username, in case you\'ve forgotten, is the email address this message was sent to.\n\nThanks for using our site!\n\nThe ' + get_current_site(request).name + ' team'
+        request.POST['email_message'] = 'Your registration was successful!\n\nIn case you forget your password, please go to the following page and reset your password:\n\nhttps://' + get_current_site(request).domain + '/app_mgr/reset/\n\nYour username, in case you\'ve forgotten, is the email address this message was sent to.\n\nThanks for using our site!\n\nThe ' + get_current_site(request).name + ' team'
 
         # Update this if TAP wants email on registration
         #exp_portal.email.send_email(request)
@@ -190,7 +190,7 @@ def logout_user(request):
     Log users out and re-direct them to the main page.
     """
     logout(request)
-    return HttpResponseRedirect('/AppMgr/login')
+    return HttpResponseRedirect('/app_mgr/login')
 
 @watch_login
 def login_user(request):
@@ -218,7 +218,7 @@ def login_user(request):
                 # If the account is valid and active, we can log the user in.
                 # We'll send the user back to the homepage.
                 login(request, user)
-                return HttpResponseRedirect('/AppMgr/user_profile')
+                return HttpResponseRedirect('/app_mgr/user_profile')
             else:
                 # An inactive account was used - no logging in!
                 return HttpResponse("Your TAP account is disabled.")
@@ -241,19 +241,19 @@ def login_user(request):
 def reset_confirm(request, uidb64=None, token=None):
     return password_reset_confirm(request, template_name='registration/reset_password_confirm.html',
                                   uidb64=uidb64, token=token,
-                                  post_reset_redirect=reverse('AppMgr:login'))
+                                  post_reset_redirect=reverse('app_mgr:login'))
 
 
 def reset(request):
     return password_reset(request, template_name='registration/reset_password_form.html',
                           email_template_name='registration/reset_password_email.html',
-                          post_reset_redirect=reverse('AppMgr:reset_sent'),
+                          post_reset_redirect=reverse('app_mgr:reset_sent'),
                           from_email=settings.EMAIL_FROM_NOMINAL_ADDRESS)
 
 def reset_sent(request):
     return render(request, 'registration/reset_password_done.html')
 
-@login_required(login_url='/AppMgr/login')
+@login_required(login_url='/app_mgr/login')
 def view_profile(request):
     user = request.user
     return render(request, 'user_profile.html',
