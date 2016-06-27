@@ -4,7 +4,7 @@
 
 {% block header %}
   <div id="header-navbar">
-    Signed in as {{user.email}} | <a class="header-navbar-link" href="{% url 'AppMgr:logout' %}">Sign Out</a>
+    Signed in as {{user.email}} | <a class="header-navbar-link" href="{% url 'app_mgr:logout' %}">Sign Out</a>
   </div>
 {% endblock %}
 
@@ -22,7 +22,7 @@
             </div>
             <div class="panel-body">
               <ul class="navigation-list">
-              <li><a class="navigation-item" href="{% url 'AppMgr:view_profile' %}">Manage user profile</a></li>
+              <li><a class="navigation-item" href="{% url 'app_mgr:view_profile' %}">Manage user profile</a></li>
               </ul>
             </div>
           </div>
@@ -33,7 +33,7 @@
           </div>
           <div class="panel-body">
             <ul class="navigation-list">
-              <li><a class="navigation-item" href="{% url 'AppMgr:view_profile' %}">Manage user profile</a></li>
+              <li><a class="navigation-item" href="{% url 'app_mgr:view_profile' %}">Manage user profile</a></li>
             </ul>
           </div>
         </div>

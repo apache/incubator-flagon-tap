@@ -11,7 +11,7 @@
 	{% elif error %}
 		<div class="form-signin-heading">There was an error processing your request. Please try again.<br/><br/>If the problem persists, please contact: software-evaluation@draper.com</div>
 	{% else %}
-		<form class="form-signin" role="form" name="user_form" id="user_form" onsubmit="return validateForm()" method="post" action="{% url 'AppMgr:register' %}" enctype="multipart/form-data">
+		<form class="form-signin" role="form" name="user_form" id="user_form" onsubmit="return validateForm()" method="post" action="{% url 'app_mgr:register' %}" enctype="multipart/form-data">
 			{% csrf_token %}
 			<div class="form-signin-heading">Create an account</div>
     	<div class="form-group">
@@ -37,9 +37,9 @@
   {% endif %}
 
   {% if registrationSuccessful or userExists %}
-    <div class="form-signin-heading">Click here to sign in: <a href="{% url 'AppMgr:login' %}">Sign in</a></div>
+    <div class="form-signin-heading">Click here to sign in: <a href="{% url 'app_mgr:login' %}">Sign in</a></div>
     {% if userExists %}
-    	<div class="form-signin-heading">Or click here if you've forgotten your password: <a href="{% url 'AppMgr:reset' %}">Password reset</a></div>
+    	<div class="form-signin-heading">Or click here if you've forgotten your password: <a href="{% url 'app_mgr:reset' %}">Password reset</a></div>
     {% endif %}
   {% endif %}
 </section>

@@ -3,14 +3,14 @@
 {% block container %}
   <section class="login-section">
   	<div class="login-title">LOGIN TO TAP ONLINE</div>
-    <form class="form-signin" id="login_form" method="post" action="{% url 'AppMgr:login' %}">
+    <form class="form-signin" id="login_form" method="post" action="{% url 'app_mgr:login' %}">
       {% csrf_token %}
       <h4 class="form-signin-heading">Please sign in</h4>
       <input class="form-control" name="email" value="" placeholder="Email" required autofocus/>
       <input class="form-control" type="password" name="password" value="" placeholder="Password" required/>
       <button class="btn-bordered btn-login" type="submit" value="submit">Sign in</button>
       <div class="login-forgot">
-        <a href="{% url 'AppMgr:reset' %}">Forgot password?</a>
+        <a href="{% url 'app_mgr:reset' %}">Forgot password?</a>
       </div>
     </form>
   </section>
