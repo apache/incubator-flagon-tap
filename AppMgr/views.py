@@ -10,6 +10,8 @@ from django.conf import settings
 
 from django.db import IntegrityError
 
+from django.views.generic.base import RedirectView
+
 from axes.decorators import watch_login
 
 from rest_framework import generics
@@ -60,20 +62,31 @@ class UserProfileInstanceView(generics.RetrieveUpdateDestroyAPIView):
     Returns a single user.
     """
     authentication_classes = (TokenAuthentication,)
-    #permission_classes = (IsAuthenticated,)
     permission_classes = (ViewControlObjectPermissions,)
     _ignore_model_permissions = True
 
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
 
-    #def retrieve(self, request):
-    #    queryset = self.get_queryset()
-    #    serializer = UserProfileSerializer
-    #    print request.user.id
-    #    print request.user.email
-    #    print request.user.has_perms(view_userprofile)
-    #    return Response(serializer.data)
+    def get(self, request, *args, **kwargs):
+        if kwargs['pk'] == 'current':
+            self.kwargs['pk'] = unicode(request.user.id)
+        return self.retrieve(request, *args, **kwargs)
+
+    def put(self, request, *args, **kwargs):
+        if kwargs['pk'] == 'current':
+            self.kwargs['pk'] = unicode(request.user.id)
+        return self.update(request, *args, **kwargs)
+
+    def patch(self, request, *args, **kwargs):
+        if kwargs['pk'] == 'current':
+            self.kwargs['pk'] = unicode(request.user.id)
+        return self.partial_update(request, *args, **kwargs)
+
+    def delete(self, request, *args, **kwargs):
+        if kwargs['pk'] == 'current':
+            self.kwargs['pk'] = unicode(request.user.id)
+        return self.destroy(request, *args, **kwargs)
 
 class OrganizationInstanceView(generics.RetrieveUpdateDestroyAPIView):
     """
@@ -88,6 +101,21 @@ class ApplicationInstanceView(generics.RetrieveUpdateDestroyAPIView):
     """
     queryset = Application.objects.all()
     serializer_class = ApplicationSerializer
+
+# REDIRECTS
+#class UserRedirectView(RedirectView):
+#
+#    permanent = False
+#    query_string = True
+#    #pattern_name = 'user-instance'
+#
+#    def get(self, request, *args, **kwargs):
+#        print request
+#        print request.user.id
+#        print request.auth
+#        kwargs['pk'] = request.user.id
+#        self.url = '/AppMgr/user/%s' % (request.user.id)
+#        return super(UserRedirectView, self).get(request, args, **kwargs)
 
 #
 # AUTHENTICATION VIEWS

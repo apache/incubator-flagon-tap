@@ -31,18 +31,18 @@ class ViewControlObjectPermissions(DjangoObjectPermissions):
 
         perms = self.get_required_object_permissions(request.method, model_cls)
 
-        print "-----------"
-        print request.method, perms
-        print obj.id, obj
-        if request.user.is_authenticated():
-            print user.id, user.email
-        else:
-            print "ANON"
-        print user.has_perms(perms, obj)
-        print get_perms(request.user, obj)
-        print get_perms_for_model(model_cls)
-        print get_users_with_perms(obj)
-        print "-----------"
+        #print "-----------"
+        #print request.method, perms
+        #print obj.id, obj
+        #if request.user.is_authenticated():
+        #    print user.id, user.email
+        #else:
+        #    print "ANON"
+        #print user.has_perms(perms, obj)
+        #print get_perms(request.user, obj)
+        #print get_perms_for_model(model_cls)
+        #print get_users_with_perms(obj)
+        #print "-----------"
 
         if not user.has_perms(perms, obj):
             # If the user does not have permissions we need to determine if
@@ -59,8 +59,8 @@ class ViewControlObjectPermissions(DjangoObjectPermissions):
                 raise Http404
 
             # Has read permissions.
-            print "read permitted"
+            #print "read permitted"
             return False
 
-        print "is permitted"
+        #print "is permitted"
         return True
