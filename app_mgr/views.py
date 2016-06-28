@@ -19,7 +19,7 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-from guardian.shortcuts import assign_perm
+from guardian.shortcuts import assign_perm, get_objects_for_user
 
 from app_mgr.permissions import ViewControlObjectPermissions
 from app_mgr.models import UserProfile, Organization, Application, AppVersion
@@ -42,17 +42,33 @@ class UserProfileListView(generics.ListCreateAPIView):
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
 
+    def get_queryset(self):
+        # only used for list
+        return get_objects_for_user(self.request.user, "view_userprofile", 
+                                    UserProfile.objects.all())
+
 class OrganizationListView(generics.ListCreateAPIView):
     """
     Returns a list of all organizations.
     """
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
     queryset = Organization.objects.all()
     serializer_class = OrganizationSerializer
+
+    def get_queryset(self):
+        # only used for list
+        return get_objects_for_user(self.request.user, "view_organization", 
+                                    Organization.objects.all())
 
 class ApplicationListView(generics.ListCreateAPIView):
     """
     Returns a list of all applications.
     """
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
     queryset = Application.objects.all()
     serializer_class = ApplicationSerializer
 
@@ -92,6 +108,11 @@ class OrganizationInstanceView(generics.RetrieveUpdateDestroyAPIView):
     """
     Returns a single org.
     """
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (ViewControlObjectPermissions,)
+    _ignore_model_permissions = True
+    #permission_classes = (IsAuthenticated,)
+
     queryset = Organization.objects.all()
     serializer_class = OrganizationSerializer
 
@@ -99,6 +120,9 @@ class ApplicationInstanceView(generics.RetrieveUpdateDestroyAPIView):
     """
     Returns a single app.
     """
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
     queryset = Application.objects.all()
     serializer_class = ApplicationSerializer
 

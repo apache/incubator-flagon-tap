@@ -23,7 +23,7 @@ class OrganizationAdmin(GuardedModelAdmin):
 
 class MembershipAdmin(admin.ModelAdmin):
     search_fields = ['join_date']
-    list_display = ['user', 'org', 'join_date']
+    list_display = ['user', 'org', 'is_admin', 'join_date']
 
 class ApplicationInline(GenericTabularInline):
     model = Application

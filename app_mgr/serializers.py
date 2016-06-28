@@ -9,7 +9,7 @@ class MembershipSerializer(serializers.ModelSerializer):
     org = serializers.PrimaryKeyRelatedField(queryset=Organization.objects.all())
     class Meta:
         model = Membership
-        fields = ('org', 'user', 'join_date')
+        fields = ('org', 'user', 'is_admin', 'join_date')
 
 class UserProfileSerializer(serializers.ModelSerializer):
     memberships = MembershipSerializer(source='membership_set', many=True)

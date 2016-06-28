@@ -42,7 +42,7 @@ class ViewControlObjectPermissions(DjangoObjectPermissions):
         #print get_perms(request.user, obj)
         #print get_perms_for_model(model_cls)
         #print get_users_with_perms(obj)
-        #print "-----------"
+        #print "~~~~~~~~~~~"
 
         if not user.has_perms(perms, obj):
             # If the user does not have permissions we need to determine if
