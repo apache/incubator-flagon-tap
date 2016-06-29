@@ -70,22 +70,22 @@ class UserProfileInstanceView(generics.RetrieveUpdateDestroyAPIView):
 
     def get(self, request, *args, **kwargs):
         if kwargs['pk'] == 'current':
-            self.kwargs['pk'] = unicode(request.user.id)
+            self.kwargs['pk'] = str(request.user.id)
         return self.retrieve(request, *args, **kwargs)
 
     def put(self, request, *args, **kwargs):
         if kwargs['pk'] == 'current':
-            self.kwargs['pk'] = unicode(request.user.id)
+            self.kwargs['pk'] = str(request.user.id)
         return self.update(request, *args, **kwargs)
 
     def patch(self, request, *args, **kwargs):
         if kwargs['pk'] == 'current':
-            self.kwargs['pk'] = unicode(request.user.id)
+            self.kwargs['pk'] = str(request.user.id)
         return self.partial_update(request, *args, **kwargs)
 
     def delete(self, request, *args, **kwargs):
         if kwargs['pk'] == 'current':
-            self.kwargs['pk'] = unicode(request.user.id)
+            self.kwargs['pk'] = str(request.user.id)
         return self.destroy(request, *args, **kwargs)
 
 class OrganizationInstanceView(generics.RetrieveUpdateDestroyAPIView):
@@ -173,7 +173,8 @@ def register(request):
         registrationSuccessful = True
 
         # add some logic to log events, log in users directly
-        print "successful registration of " + request.POST['email'] +" "+ datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        #print "successful registration of " + request.POST['email'] +" "+ datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        print( "successful registration of {0} {1}".format(request.POST['email'], datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")) )
         request.POST['email_to'] = user.email
         request.POST['email_subject'] = 'Welcome to TAP'
         request.POST['email_message'] = 'Your registration was successful!\n\nIn case you forget your password, please go to the following page and reset your password:\n\nhttps://' + get_current_site(request).domain + '/app_mgr/reset/\n\nYour username, in case you\'ve forgotten, is the email address this message was sent to.\n\nThanks for using our site!\n\nThe ' + get_current_site(request).name + ' team'
@@ -224,7 +225,7 @@ def login_user(request):
                 return HttpResponse("Your TAP account is disabled.")
         else:
             # Bad login details were provided. So we can't log the user in.
-            print "Invalid login details: {0}, {1}".format(email, password)
+            print( "Invalid login details: {0}, {1}".format(email, password) )
             return HttpResponse("Invalid login details supplied.")
 
     # The request is not a HTTP POST, so display the login form.
