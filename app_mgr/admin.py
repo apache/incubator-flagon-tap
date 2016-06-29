@@ -33,6 +33,7 @@ class ApplicationInline(GenericTabularInline):
 class ApplicationAdmin(GuardedModelAdmin):
     inlines = [ApplicationInline]
     search_fields = ['name']
+    list_display = ['id', 'name', 'isPublic']
 
 class AppVersionAdmin(admin.ModelAdmin):
     model = AppVersion
