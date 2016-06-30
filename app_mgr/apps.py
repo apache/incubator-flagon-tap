@@ -5,5 +5,5 @@ class AppMgrConfig(AppConfig):
     verbose_name = "Application Manager"
 
     def ready(self):
-        print 'Loading', self.verbose_name
+        print('Loading', self.verbose_name)
         import app_mgr.signals.handlers
