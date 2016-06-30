@@ -33,7 +33,7 @@ urlpatterns = [
     url(r'^apps/$', views.ApplicationListView.as_view(), name='app-list'),
 
     url(r'^user/(?P<pk>[\d]+)/$', views.UserProfileInstanceView.as_view(), name='user-instance'),
-    url(r'^user/(?P<pk>current)/$', views.UserProfileInstanceView.as_view(), name='user-instance'),
-    url(r'^org/(?P<pk>[\d]+)/$', views.OrganizationInstanceView.as_view(), name='user-instance'),
-    url(r'^app/(?P<pk>[\d]+)/$', views.ApplicationInstanceView.as_view(), name='user-instance'),
+    url(r'^user/(?P<pk>current)/$', views.UserProfileInstanceView.as_view(), name='user-current'),
+    url(r'^org/(?P<pk>[\d]+)/$', views.OrganizationInstanceView.as_view(), name='org-instance'),
+    url(r'^app/(?P<pk>[\d]+)/$', views.ApplicationInstanceView.as_view(), name='app-instance'),
 ]

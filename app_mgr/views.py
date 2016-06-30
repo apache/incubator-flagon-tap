@@ -9,6 +9,7 @@ from django.template import RequestContext
 from django.conf import settings
 
 from django.db import IntegrityError
+from django.db.models import Q
 
 from django.views.generic.base import RedirectView
 
@@ -19,9 +20,10 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-from guardian.shortcuts import assign_perm
+from guardian.shortcuts import assign_perm, get_objects_for_user
 
 from app_mgr.permissions import ViewControlObjectPermissions
+from app_mgr.permissions import ApplicationObjectPermissions
 from app_mgr.models import UserProfile, Organization, Application, AppVersion
 from app_mgr.serializers import UserProfileSerializer, OrganizationSerializer, ApplicationSerializer
 
@@ -42,19 +44,45 @@ class UserProfileListView(generics.ListCreateAPIView):
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
 
+    def get_queryset(self):
+        # only used for list
+        return get_objects_for_user(self.request.user, "view_userprofile", 
+                                    UserProfile.objects.all())
+
 class OrganizationListView(generics.ListCreateAPIView):
     """
     Returns a list of all organizations.
     """
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
     queryset = Organization.objects.all()
     serializer_class = OrganizationSerializer
+
+    def get_queryset(self):
+        # only used for list
+        return get_objects_for_user(self.request.user, "view_organization", 
+                                    Organization.objects.all())
 
 class ApplicationListView(generics.ListCreateAPIView):
     """
     Returns a list of all applications.
     """
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
     queryset = Application.objects.all()
     serializer_class = ApplicationSerializer
+
+    def get_queryset(self):
+        # only used for list
+        owned = get_objects_for_user(self.request.user, "view_application", 
+                                     Application.objects.all())
+        public = Application.objects.filter(isPublic=True)
+
+        viewable = list(set(list(owned) + list(public)))
+       
+        return viewable
 
 # SINGLE RETRIEVE/UPDATE/DESTROY
 class UserProfileInstanceView(generics.RetrieveUpdateDestroyAPIView):
@@ -92,6 +120,10 @@ class OrganizationInstanceView(generics.RetrieveUpdateDestroyAPIView):
     """
     Returns a single org.
     """
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (ViewControlObjectPermissions,)
+    _ignore_model_permissions = True
+
     queryset = Organization.objects.all()
     serializer_class = OrganizationSerializer
 
@@ -99,6 +131,10 @@ class ApplicationInstanceView(generics.RetrieveUpdateDestroyAPIView):
     """
     Returns a single app.
     """
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (ApplicationObjectPermissions,)
+    _ignore_model_permissions = True
+
     queryset = Application.objects.all()
     serializer_class = ApplicationSerializer
 

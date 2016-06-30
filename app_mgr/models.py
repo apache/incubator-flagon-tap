@@ -6,20 +6,11 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import Group
 
 from custom_user.models import AbstractEmailUser
 
 from guardian.mixins import GuardianUserMixin
-
-from django.db.models.signals import post_save
-from django.dispatch import receiver
-from rest_framework.authtoken.models import Token
-
-# Define signals here
-@receiver(post_save, sender=settings.AUTH_USER_MODEL)
-def create_auth_token(sender, instance=None, created=False, **kwargs):
-    if created:
-        Token.objects.create(user=instance)
 
 # Create your models here.
 class UserProfile(AbstractEmailUser, GuardianUserMixin):
@@ -39,6 +30,11 @@ class Organization(models.Model):
 
     members = models.ManyToManyField(UserProfile, through='Membership')
 
+    member_group = models.OneToOneField(Group, null=True, blank=True,
+                                        related_name='members_of')
+    admin_group = models.OneToOneField(Group, null=True, blank=True,
+                                       related_name='admins_of')
+
     class Meta:
         permissions = (
             ("view_organization", "view organization information"),
@@ -51,6 +47,7 @@ class Membership(models.Model):
     user = models.ForeignKey(UserProfile,  null=True, blank=False)
     org  = models.ForeignKey(Organization, null=True, blank=False)
     join_date = models.DateTimeField()
+    is_admin = models.BooleanField(default=False)
     
 class Application(models.Model):
     name = models.CharField(max_length=255)

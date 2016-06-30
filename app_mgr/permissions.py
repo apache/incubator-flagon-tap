@@ -3,7 +3,20 @@ from django.http import Http404
 from guardian.shortcuts import get_perms, get_perms_for_model, get_users_with_perms
 
 SAFE_METHODS = ('GET', 'HEAD', 'OPTIONS')
+
 class ViewControlObjectPermissions(DjangoObjectPermissions):
+    """ same as base object level permissions, plus read permission """
+    perms_map = {
+        'GET': ['%(app_label)s.view_%(model_name)s'],
+        'OPTIONS': [],
+        'HEAD': [],
+        'POST': ['%(app_label)s.add_%(model_name)s'],
+        'PUT': ['%(app_label)s.change_%(model_name)s'],
+        'PATCH': ['%(app_label)s.change_%(model_name)s'],
+        'DELETE': ['%(app_label)s.delete_%(model_name)s'],
+    }
+
+class ApplicationObjectPermissions(DjangoObjectPermissions):
     """ same as base object level permissions, plus read permission """
     perms_map = {
         'GET': ['%(app_label)s.view_%(model_name)s'],
@@ -31,6 +44,9 @@ class ViewControlObjectPermissions(DjangoObjectPermissions):
 
         perms = self.get_required_object_permissions(request.method, model_cls)
 
+        if obj.isPublic and request.method == 'GET':
+            perms = []
+
         #print "-----------"
         #print request.method, perms
         #print obj.id, obj
@@ -42,7 +58,7 @@ class ViewControlObjectPermissions(DjangoObjectPermissions):
         #print get_perms(request.user, obj)
         #print get_perms_for_model(model_cls)
         #print get_users_with_perms(obj)
-        #print "-----------"
+        #print "~~~~~~~~~~~"
 
         if not user.has_perms(perms, obj):
             # If the user does not have permissions we need to determine if
