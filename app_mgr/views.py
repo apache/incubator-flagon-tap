@@ -227,7 +227,7 @@ def logout_user(request):
     Log users out and re-direct them to the main page.
     """
     logout(request)
-    return HttpResponseRedirect('/app_mgr/login')
+    return HttpResponseRedirect('/app_mgr/login/')
 
 @watch_login
 def login_user(request):
@@ -290,7 +290,7 @@ def reset(request):
 def reset_sent(request):
     return render(request, 'registration/reset_password_done.html')
 
-@login_required(login_url='/app_mgr/login')
+@login_required(login_url='/app_mgr/login/')
 def view_profile(request):
     user = request.user
     return render(request, 'user_profile.html',
