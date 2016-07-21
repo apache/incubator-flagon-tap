@@ -255,13 +255,17 @@ def login_user(request):
                 # If the account is valid and active, we can log the user in.
                 # We'll send the user back to the homepage.
                 login(request, user)
-                return HttpResponseRedirect('/app_mgr/user_profile/')
+                userToken = "HttpRequest"
+                print( "Successful Login: {0}, id: {1}, token: {2}".format(email, user.id, userToken) )
+                #return HttpResponseRedirect('/app_mgr/user_profile/')
+                return HttpResponse("Successful Login: {0}, id: {1}, token: {2}".format(email, user.id, userToken))
+                #return HttpResponseRedirect('../../api-token-auth/')
             else:
                 # An inactive account was used - no logging in!
                 return HttpResponse("Your TAP account is disabled.")
         else:
             # Bad login details were provided. So we can't log the user in.
-            print( "Invalid login details: {0}, {1}".format(email, password) )
+            print( "Invalid login details: {0}, {1}".format(email, password) ) ###TODO - PASSWORD EXPOSED
             return HttpResponse("Invalid login details supplied.")
 
     # The request is not a HTTP POST, so display the login form.
