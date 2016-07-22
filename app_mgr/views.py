@@ -141,6 +141,7 @@ class ApplicationInstanceView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Application.objects.all()
     serializer_class = ApplicationSerializer
 
+
 # REDIRECTS
 #class UserRedirectView(RedirectView):
 #
@@ -303,6 +304,38 @@ def reset_sent(request):
 @login_required(login_url='/app_mgr/login/')
 def view_profile(request):
     user = request.user
+    return render(request, 'user_profile.html',
+                  {'user': request.user,
+                  }
+                 )
+
+# def get_app_results_fields(request, check):
+#     user = request.user
+#     return render(request, 'user_profile.html',
+#                   {'user': request.user,
+#                   }
+#                  )
+
+# def get_app_results(request, check):
+#     user = request.user
+#     return render(request, 'user_profile.html',
+#                   {'user': request.user,
+#                   }
+#                  )
+
+def app_results(request, appId, searchType):
+    print ("hello")
+    print (appId)
+    print (searchType)
+    return render(request, 'user_profile.html',
+                  {'user': request.user,
+                  }
+                 )
+
+def app_results_byname(request, appName, searchType):
+    print ("hello")
+    print (appName)
+    print (searchType)
     return render(request, 'user_profile.html',
                   {'user': request.user,
                   }

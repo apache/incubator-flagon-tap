@@ -16,6 +16,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 from app_mgr import views
+from app_mgr import distillviews
 
 urlpatterns = [
     # USER AUTHENTICATION
@@ -37,6 +38,11 @@ urlpatterns = [
     url(r'^org/(?P<pk>[\d]+)/$', views.OrganizationInstanceView.as_view(), name='org-instance'),
     url(r'^app/(?P<pk>[\d]+)/$', views.ApplicationInstanceView.as_view(), name='app-instance'),
 
-    #url(r'^appresults/(?P<pk>[\d]+)/$', views.UserProfileInstanceView.as_view(), name='user-instance'),
+    url(r'^appresults/(?P<appId>[0-9]{1,2})/(?P<searchType>\w+)/$', distillviews.app_results, name='app-results'),
+    url(r'^appresults/(?P<appName>\w+)/(?P<searchType>\w+)/$', distillviews.app_results_byname, name='app-results'),
+    
+    # url(r'^appresults/(?P<pk>[\d]+)/fields/$', views.get_app_result_fields, name='data-fields'),
+    # url(r'^appresults/(?P<pk>[\d]+)/data/$', views.get_app_results, name='data'),
+    
     
 ]
