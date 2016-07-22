@@ -8,6 +8,7 @@ from django.core.urlresolvers import reverse
 from django.template import RequestContext
 from django.conf import settings
 
+
 from django.db import IntegrityError
 from django.db.models import Q
 
@@ -19,6 +20,7 @@ from rest_framework import generics
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+#from rest_framework.authtoken import views as token_views
 
 from guardian.shortcuts import assign_perm, get_objects_for_user
 
@@ -28,6 +30,7 @@ from app_mgr.models import UserProfile, Organization, Application, AppVersion
 from app_mgr.serializers import UserProfileSerializer, OrganizationSerializer, ApplicationSerializer
 
 import datetime
+import requests 
 
 #
 # RESTFUL VIEWS
@@ -255,11 +258,9 @@ def login_user(request):
                 # If the account is valid and active, we can log the user in.
                 # We'll send the user back to the homepage.
                 login(request, user)
-                userToken = "HttpRequest"
+                userToken = get_token(email, password)
                 print( "Successful Login: {0}, id: {1}, token: {2}".format(email, user.id, userToken) )
-                #return HttpResponseRedirect('/app_mgr/user_profile/')
-                return HttpResponse("Successful Login: {0}, id: {1}, token: {2}".format(email, user.id, userToken))
-                #return HttpResponseRedirect('../../api-token-auth/')
+                return HttpResponse(userToken)
             else:
                 # An inactive account was used - no logging in!
                 return HttpResponse("Your TAP account is disabled.")
@@ -278,6 +279,11 @@ def login_user(request):
         # return render(request, 'registration/login.html', {'experiment_title': experiment_title})
 
         # return login_view(request, authentication_form=MyAuthForm)
+
+def get_token(email, password):
+    credentials = {'username':email, 'password':password}
+    tokenResponse = requests.post('http://localhost:8000/api-token-auth/', credentials)
+    return tokenResponse.text
 
 def reset_confirm(request, uidb64=None, token=None):
     return password_reset_confirm(request, template_name='registration/reset_password_confirm.html',
