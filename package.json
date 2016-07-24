@@ -1,0 +1,98 @@
+{
+  "name": "tap",
+  "description": "Tap, The Software as a Sensor portal and visualization component",
+  "version": "0.1.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": "Draper",
+  "contributors": [
+    "Clay Gimenez <cgimenez@draper.com>",
+    "Steven York <syork@draper.com>",
+    "Fei Sun <fsun@draper.com>",
+    "Joshua Poore <jpoore@draper.com>",
+    "Laura Mariano <lmariano@draper.com>",
+    "Michelle Beard <mbeard@draper.com>",
+    "Arthi Vezhavendan <avezhavendan@draper.com>"
+  ],
+  "homepage": "https://github.com/draperlaboratory/tap#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/draperlaboratory/tap.git"
+  },
+  "bugs": {
+    "url": "https://github.com/draperlaboratory/tap/issues"
+  },
+  "keywords": [
+    "Tap"
+  ],
+  "engines": {
+    "node": ">= 4.4.5"
+  },
+  "dependencies": {
+    "better-console": "^0.2.4",
+    "d3": "^4.1.1",
+    "extend": "^3.0.0",
+    "gulp-chmod": "^1.3.0",
+    "gulp-clone": "^1.0.0",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-copy": "0.0.2",
+    "gulp-dedupe": "0.0.2",
+    "gulp-flatten": "^0.3.0",
+    "gulp-header": "^1.8.7",
+    "gulp-help": "^1.6.1",
+    "gulp-if": "^2.0.1",
+    "gulp-less": "^3.1.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-print": "^2.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
+    "gulp-rtlcss": "^1.0.0",
+    "gulp-watch": "^4.3.8",
+    "lodash": "^4.13.1",
+    "map-stream": "0.0.6",
+    "react": "^15.2.0",
+    "react-dom": "^15.2.0",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.5.2",
+    "redux": "^3.5.2",
+    "redux-thunk": "^2.1.0",
+    "require-dot-file": "^0.4.0",
+    "semantic-ui": "^2.2.1",
+    "yamljs": "^0.2.8"
+  },
+  "devDependencies": {
+    "babel-core": "^6.10.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "babelify": "^7.3.0",
+    "browser-sync": "^2.13.0",
+    "browserify": "^13.0.1",
+    "chai": "^3.5.0",
+    "del": "^2.2.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-eslint": "^3.0.1",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-mocha": "^2.2.0",
+    "gulp-newer": "^1.2.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-size": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.4",
+    "gulp-util": "^3.0.7",
+    "lodash.assign": "^4.0.9",
+    "redux-logger": "^2.6.1",
+    "require-dir": "^0.3.0",
+    "run-sequence": "^1.2.2",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
