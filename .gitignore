@@ -17,3 +17,14 @@ uploads/migrations/*
 secret.py
 static/results/*
 
+/semantic/dist/*
+npm-debug.log
+.tmp
+node_modules
+build
+
+static/*
+!static/admin/
+
+/public/neon_counts.js
+/public/neon_graph.js

@@ -3,15 +3,20 @@
 <head>
     <meta charset="utf-8">
     <title>Tap Home</title>
-    <!-- <link href="{{ STATIC_URL }}js/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static "semantic.min.css" %}">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
+    <script src="{% static "jquery-3.0.0.min.js" %}"></script>
+    <script src="{% static "semantic.min.js" %}"></script>
+    <link href="{% static "styles.min.css" %}" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>Hello Tap!</h1>
-        <div class="react-container"></div>
+    <div id="main-container">
+        <div id="react-container" />
     </div>
     <!-- <script src="{{ STATIC_URL }}js/components/jquery/dist/jquery.min.js"></script>
     <script src="{{ STATIC_URL }}js/components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="{{ STATIC_URL }}js/es5-shim.min.js"></script> -->
+    <script src="{% static "app.js" %}"></script>
 </body>
 </html>

@@ -1,0 +1,59 @@
+$brown: #A76B00;
+$black: #271900;
+$background: #FFF5E3;
+
+#react-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+#main-container {
+  min-height: 100vh;
+  flex: 1;
+}
+
+.site-footer {
+  width: 100%;
+  background-color: $brown;
+  height: 50px;
+  margin-top: 20px;
+}
+
+.site-header {
+  width: 100%;
+  background-color: $brown;
+  height: 50px;
+}
+
+#page-wrapper {
+  padding-top: 40px;
+  min-height: calc(100vh - 120px);
+}
+
+#main-masthead {
+  padding: 60px 0;
+}
+
+#homepage-container {
+  margin-top: -60px;
+}
+
+#results-controls {
+  background-color: $background;
+}
+
+.tooltip {
+  position: absolute;
+  text-align: center;
+  font: 12px sans-serif;
+  min-width: 100px;
+  min-height: 24px;
+  padding: 4px;
+  pointer-events: none;
+  background-color: #A76B00;
+}
+
+#counts-details {
+  word-wrap: break-word;
+}
