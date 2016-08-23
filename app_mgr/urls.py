@@ -37,6 +37,8 @@ urlpatterns = [
     url(r'^user/(?P<pk>current)/$', views.UserProfileInstanceView.as_view(), name='user-current'),
     url(r'^org/(?P<pk>[\d]+)/$', views.OrganizationInstanceView.as_view(), name='org-instance'),
     url(r'^app/(?P<pk>[\d]+)/$', views.ApplicationInstanceView.as_view(), name='app-instance'),
+    
+    url(r'^app/(?P<pk>current+)/$', views.AliasListView.as_view(), name='alias-list'),
 
     url(r'^appresults/(?P<appId>[0-9]{1,2})/(?P<searchType>\w+)/$', distillviews.app_results, name='app-results'),
     url(r'^appresults/(?P<appName>\w+)/(?P<searchType>\w+)/$', distillviews.app_results_byname, name='app-results'),
