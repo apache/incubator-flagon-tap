@@ -28,6 +28,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.views.generic import TemplateView
 
 from rest_framework.authtoken import views as token_views
 
@@ -35,6 +36,7 @@ urlpatterns = [
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^app_mgr/', include('app_mgr.urls', namespace='app_mgr')),
-    #url(r'^api-auth/', include('rest_framework.urls')),
+    #url(r'^api-auth/', include('rest_framework.urls')), #used for basic authentication (cookies)
     url(r'^api-token-auth/', token_views.obtain_auth_token),
+    url(r'', TemplateView.as_view(template_name='index.html')),
 ]

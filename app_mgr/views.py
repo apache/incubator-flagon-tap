@@ -22,6 +22,7 @@ from django.core.urlresolvers import reverse
 from django.template import RequestContext
 from django.conf import settings
 
+
 from django.db import IntegrityError
 from django.db.models import Q
 
@@ -33,6 +34,7 @@ from rest_framework import generics
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+#from rest_framework.authtoken import views as token_views
 
 from guardian.shortcuts import assign_perm, get_objects_for_user
 
@@ -42,6 +44,7 @@ from app_mgr.models import UserProfile, Organization, Application, AppVersion
 from app_mgr.serializers import UserProfileSerializer, OrganizationSerializer, ApplicationSerializer
 
 import datetime
+import requests 
 
 #
 # RESTFUL VIEWS
@@ -112,22 +115,22 @@ class UserProfileInstanceView(generics.RetrieveUpdateDestroyAPIView):
 
     def get(self, request, *args, **kwargs):
         if kwargs['pk'] == 'current':
-            self.kwargs['pk'] = unicode(request.user.id)
+            self.kwargs['pk'] = str(request.user.id)
         return self.retrieve(request, *args, **kwargs)
 
     def put(self, request, *args, **kwargs):
         if kwargs['pk'] == 'current':
-            self.kwargs['pk'] = unicode(request.user.id)
+            self.kwargs['pk'] = str(request.user.id)
         return self.update(request, *args, **kwargs)
 
     def patch(self, request, *args, **kwargs):
         if kwargs['pk'] == 'current':
-            self.kwargs['pk'] = unicode(request.user.id)
+            self.kwargs['pk'] = str(request.user.id)
         return self.partial_update(request, *args, **kwargs)
 
     def delete(self, request, *args, **kwargs):
         if kwargs['pk'] == 'current':
-            self.kwargs['pk'] = unicode(request.user.id)
+            self.kwargs['pk'] = str(request.user.id)
         return self.destroy(request, *args, **kwargs)
 
 class OrganizationInstanceView(generics.RetrieveUpdateDestroyAPIView):
@@ -151,6 +154,7 @@ class ApplicationInstanceView(generics.RetrieveUpdateDestroyAPIView):
 
     queryset = Application.objects.all()
     serializer_class = ApplicationSerializer
+
 
 # REDIRECTS
 #class UserRedirectView(RedirectView):
@@ -223,7 +227,8 @@ def register(request):
         registrationSuccessful = True
 
         # add some logic to log events, log in users directly
-        print "successful registration of " + request.POST['email'] +" "+ datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        #print "successful registration of " + request.POST['email'] +" "+ datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        print( "successful registration of {0} {1}".format(request.POST['email'], datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")) )
         request.POST['email_to'] = user.email
         request.POST['email_subject'] = 'Welcome to TAP'
         request.POST['email_message'] = 'Your registration was successful!\n\nIn case you forget your password, please go to the following page and reset your password:\n\nhttps://' + get_current_site(request).domain + '/app_mgr/reset/\n\nYour username, in case you\'ve forgotten, is the email address this message was sent to.\n\nThanks for using our site!\n\nThe ' + get_current_site(request).name + ' team'
@@ -240,7 +245,7 @@ def logout_user(request):
     Log users out and re-direct them to the main page.
     """
     logout(request)
-    return HttpResponseRedirect('/app_mgr/login')
+    return HttpResponseRedirect('/app_mgr/login/')
 
 @watch_login
 def login_user(request):
@@ -268,13 +273,15 @@ def login_user(request):
                 # If the account is valid and active, we can log the user in.
                 # We'll send the user back to the homepage.
                 login(request, user)
-                return HttpResponseRedirect('/app_mgr/user_profile')
+                userToken = get_token(email, password)
+                print( "Successful Login: {0}, id: {1}, token: {2}".format(email, user.id, userToken) )
+                return HttpResponse(userToken)
             else:
                 # An inactive account was used - no logging in!
                 return HttpResponse("Your TAP account is disabled.")
         else:
             # Bad login details were provided. So we can't log the user in.
-            print "Invalid login details: {0}, {1}".format(email, password)
+            print( "Invalid login details: {0}, {1}".format(email, password) ) ###TODO - PASSWORD EXPOSED
             return HttpResponse("Invalid login details supplied.")
 
     # The request is not a HTTP POST, so display the login form.
@@ -287,6 +294,11 @@ def login_user(request):
         # return render(request, 'registration/login.html', {'experiment_title': experiment_title})
 
         # return login_view(request, authentication_form=MyAuthForm)
+
+def get_token(email, password):
+    credentials = {'username':email, 'password':password}
+    tokenResponse = requests.post('http://localhost:8000/api-token-auth/', credentials)
+    return tokenResponse.text
 
 def reset_confirm(request, uidb64=None, token=None):
     return password_reset_confirm(request, template_name='registration/reset_password_confirm.html',
@@ -303,9 +315,41 @@ def reset(request):
 def reset_sent(request):
     return render(request, 'registration/reset_password_done.html')
 
-@login_required(login_url='/app_mgr/login')
+@login_required(login_url='/app_mgr/login/')
 def view_profile(request):
     user = request.user
+    return render(request, 'user_profile.html',
+                  {'user': request.user,
+                  }
+                 )
+
+# def get_app_results_fields(request, check):
+#     user = request.user
+#     return render(request, 'user_profile.html',
+#                   {'user': request.user,
+#                   }
+#                  )
+
+# def get_app_results(request, check):
+#     user = request.user
+#     return render(request, 'user_profile.html',
+#                   {'user': request.user,
+#                   }
+#                  )
+
+def app_results(request, appId, searchType):
+    print ("hello")
+    print (appId)
+    print (searchType)
+    return render(request, 'user_profile.html',
+                  {'user': request.user,
+                  }
+                 )
+
+def app_results_byname(request, appName, searchType):
+    print ("hello")
+    print (appName)
+    print (searchType)
     return render(request, 'user_profile.html',
                   {'user': request.user,
                   }
