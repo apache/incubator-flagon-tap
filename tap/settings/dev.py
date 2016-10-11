@@ -12,6 +12,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
 """
 Django settings for tap project.
 
@@ -24,7 +25,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 import os
 
-from base import *
+from settings import *
 
 INSTALLED_APPS += (
     'django_extensions',

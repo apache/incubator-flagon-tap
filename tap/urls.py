@@ -12,6 +12,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
 """tap URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -26,6 +27,8 @@ Class-based views
 Including another URLconf
     1. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.generic import TemplateView
@@ -38,5 +41,8 @@ urlpatterns = [
     url(r'^app_mgr/', include('app_mgr.urls', namespace='app_mgr')),
     #url(r'^api-auth/', include('rest_framework.urls')), #used for basic authentication (cookies)
     url(r'^api-token-auth/', token_views.obtain_auth_token),
-    url(r'', TemplateView.as_view(template_name='index.html')),
-]
+    url(r'^$', TemplateView.as_view(template_name='index.html')),
+    ##below are test views
+    url(r'^view2/', TemplateView.as_view(template_name='view2.html')),
+    url(r'^view1/', TemplateView.as_view(template_name='view1.html')),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

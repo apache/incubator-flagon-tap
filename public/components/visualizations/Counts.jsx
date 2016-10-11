@@ -100,7 +100,7 @@ function subset(data, filters) {
   preprocessData(data);
 
   var dataSubset = data.filter((p) => {
-    return (filters.gender === 0 || filters.gender == p.intake_data.demographics.Gender) && (filters.ethnicities.includes(+p.intake_data.demographics.Ethnicity));
+    return (filters.gender === 0 || filters.gender == p.intake_data.demographics.Gender) && (filters.educationlevels.includes(+p.intake_data.education["Most school completed"]));
   });
 
   var logs = {};

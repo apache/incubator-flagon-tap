@@ -1,4 +1,5 @@
-import { REQUEST_APP, RECEIVE_APP, REQUEST_APP_UPDATE, CONFIRM_APP_UPDATE, REQUEST_APP_RESULTS, RECEIVE_APP_RESULTS } from '../constants/ActionTypes';
+import { REQUEST_APP, RECEIVE_APP, REQUEST_APP_UPDATE, CONFIRM_APP_UPDATE, REQUEST_APP_RESULTS, RECEIVE_APP_RESULTS } 
+	from '../constants/ActionTypes';
 
 export function fetchApp () {
   return { type : REQUEST_APP };

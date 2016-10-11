@@ -26,5 +26,7 @@ build
 static/*
 !static/admin/
 
+archive/*
+
 /public/neon_counts.js
 /public/neon_graph.js

@@ -9,14 +9,14 @@ class AppResults extends Component {
     this.state = {
       result : 'counts',
       metric : 'out_degree',
-      ethnicities : [1, 2, 3, 4, 5, 6, 7],
+      educationlevels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
       gender : 0,
       ab : false,
     };
   }
 
   componentDidMount() {
-    $('#ethnicity-accordion').accordion({
+    $('#education-accordion').accordion({
       collapsible : true,
     });
     $('#results-controls').accordion({
@@ -37,13 +37,13 @@ class AppResults extends Component {
       },
     });
 
-    $('.ui.ethnicity.checkbox').checkbox({
+    $('.ui.education.checkbox').checkbox({
       onChange : () => {
-        let ethnicities = [];
-        $('input[name=ethnicity]:checked').each((i, el) => {
-          ethnicities.push(+$(el).val());
+        let educationlevels = [];
+        $('input[name=education]:checked').each((i, el) => {
+          educationlevels.push(+$(el).val());
         });
-        this.setState({ ethnicities : ethnicities });
+        this.setState({ educationlevels : educationlevels });
       },
     });
 
@@ -93,55 +93,85 @@ class AppResults extends Component {
                     </div>
 
                     <div className='field'>
-                      <div id='ethnicity-accordion' className='accordion'>
+                      <div id='education-accordion' className='accordion'>
                         <div className='title'>
                           <i className='dropdown icon'></i>
-                          Ethnicity
+                          Highest Education Level
                         </div>
                         <div className='content'>
 
                           <div className='ui form'>
                             <div className='grouped fields'>
                               <div className='field'>
-                                <div className='ui ethnicity checkbox'>
-                                  <input type='checkbox' name='ethnicity' value='1' defaultChecked></input>
-                                  <label>Asian</label>
+                                <div className='ui education checkbox'>
+                                  <input type='checkbox' name='education' value='1' defaultChecked></input>
+                                  <label>No schooling completed</label>
                                 </div>
                               </div>
                               <div className='field'>
-                                <div className='ui ethnicity checkbox'>
-                                  <input type='checkbox' name='ethnicity' value='2' defaultChecked></input>
-                                  <label>Pacific Islander</label>
+                                <div className='ui education checkbox'>
+                                  <input type='checkbox' name='education' value='2' defaultChecked></input>
+                                  <label>Nursery school to 8th grade</label>
                                 </div>
                               </div>
                               <div className='field'>
-                                <div className='ui ethnicity checkbox'>
-                                  <input type='checkbox' name='ethnicity' value='3' defaultChecked></input>
-                                  <label>African American/Of African Descent</label>
+                                <div className='ui education checkbox'>
+                                  <input type='checkbox' name='education' value='3' defaultChecked></input>
+                                  <label>9th, 10th, or 11th grade</label>
                                 </div>
                               </div>
                               <div className='field'>
-                                <div className='ui ethnicity checkbox'>
-                                  <input type='checkbox' name='ethnicity' value='4' defaultChecked></input>
-                                  <label>White/Caucasian</label>
+                                <div className='ui education checkbox'>
+                                  <input type='checkbox' name='education' value='4' defaultChecked></input>
+                                  <label>12th grade, or no diploma</label>
                                 </div>
                               </div>
                               <div className='field'>
-                                <div className='ui ethnicity checkbox'>
-                                  <input type='checkbox' name='ethnicity' value='5' defaultChecked></input>
-                                  <label>Native American</label>
+                                <div className='ui education checkbox'>
+                                  <input type='checkbox' name='education' value='5' defaultChecked></input>
+                                  <label>High school graduate</label>
                                 </div>
                               </div>
                               <div className='field'>
-                                <div className='ui ethnicity checkbox'>
-                                  <input type='checkbox' name='ethnicity' value='6' defaultChecked></input>
-                                  <label>Indian</label>
+                                <div className='ui education checkbox'>
+                                  <input type='checkbox' name='education' value='6' defaultChecked></input>
+                                  <label>Some college credit</label>
                                 </div>
                               </div>
                               <div className='field'>
-                                <div className='ui ethnicity checkbox'>
-                                  <input type='checkbox' name='ethnicity' value='7' defaultChecked></input>
-                                  <label>Decline to State</label>
+                                <div className='ui education checkbox'>
+                                  <input type='checkbox' name='education' value='7' defaultChecked></input>
+                                  <label>1 or more years of college</label>
+                                </div>
+                              </div>
+                              <div className='field'>
+                                <div className='ui education checkbox'>
+                                  <input type='checkbox' name='education' value='8' defaultChecked></input>
+                                  <label>Associate degree</label>
+                                </div>
+                              </div>
+                              <div className='field'>
+                                <div className='ui education checkbox'>
+                                  <input type='checkbox' name='education' value='9' defaultChecked></input>
+                                  <label>Bachelors degree</label>
+                                </div>
+                              </div>
+                              <div className='field'>
+                                <div className='ui education checkbox'>
+                                  <input type='checkbox' name='education' value='10' defaultChecked></input>
+                                  <label>Masters degree</label>
+                                </div>
+                              </div>
+                              <div className='field'>
+                                <div className='ui education checkbox'>
+                                  <input type='checkbox' name='education' value='11' defaultChecked></input>
+                                  <label>Professional degree</label>
+                                </div>
+                              </div>
+                              <div className='field'>
+                                <div className='ui education checkbox'>
+                                  <input type='checkbox' name='education' value='12' defaultChecked></input>
+                                  <label>Doctorate degree</label>
                                 </div>
                               </div>
                             </div>
