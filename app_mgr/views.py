@@ -337,21 +337,3 @@ def view_profile(request):
 #                   {'user': request.user,
 #                   }
 #                  )
-
-def app_results(request, appId, searchType):
-    print ("hello")
-    print (appId)
-    print (searchType)
-    return render(request, 'user_profile.html',
-                  {'user': request.user,
-                  }
-                 )
-
-def app_results_byname(request, appName, searchType):
-    print ("hello")
-    print (appName)
-    print (searchType)
-    return render(request, 'user_profile.html',
-                  {'user': request.user,
-                  }
-                 )

@@ -44,20 +44,21 @@ from app_mgr.serializers import UserProfileSerializer, OrganizationSerializer, A
 import datetime
 import requests 
 
-distillURL = "msbx.draper.com:8091"
+#distillURL = "msbx.draper.com:8091"
+distillURL = "localhost:8091"  #move url into settings/config and import
 
 def app_results_byname(request, appName, searchType):
     completeurl = distillURL+'/search/'+appName+'/'+searchType
+    print ("APP RESULTS REQUESTED")
     print (completeurl)
     results = requests.get(completeurl)
     
     return HttpResponse(results)
 
 def app_results(request, appId, searchType):
-    print ("hello")
-    print (appId)
-    print (searchType)
-    return render(request, 'user_profile.html',
-                  {'user': request.user,
-                  }
-                 )
+    completeurl = distillURL+'/search/'+appId+'/'+searchType
+    print ("APP RESULTS REQUESTED")
+    print (completeurl)
+    results = requests.get(completeurl)
+    
+    return HttpResponse(results)

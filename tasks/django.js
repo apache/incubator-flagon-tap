@@ -3,7 +3,7 @@ import { exec } from 'child_process';
 
 gulp.task('django', () => {
   // For Vagrant
-  var django = exec('cd /vagrant; /vagrant/manage.py runserver 0.0.0.0:8000');
+  var django = exec('cd /vagrant; python /vagrant/manage.py runserver 0.0.0.0:8000');
 
   // For Not-Vagrant
   // var django = exec('manage.py runserver 0.0.0.0:8000');

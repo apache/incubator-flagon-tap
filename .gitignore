@@ -30,3 +30,8 @@ archive/*
 
 /public/neon_counts.js
 /public/neon_graph.js
+/public/neon_new/*
+/public/neon_old/*
+
+env/*
+

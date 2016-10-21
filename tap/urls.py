@@ -45,4 +45,4 @@ urlpatterns = [
     ##below are test views
     url(r'^view2/', TemplateView.as_view(template_name='view2.html')),
     url(r'^view1/', TemplateView.as_view(template_name='view1.html')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
