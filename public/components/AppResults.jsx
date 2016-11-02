@@ -12,6 +12,7 @@ class AppResults extends Component {
       educationlevels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
       gender : 0,
       ab : false,
+      graphAb : false,
     };
   }
 
@@ -56,6 +57,12 @@ class AppResults extends Component {
     $('#ab-toggle').checkbox({
       onChange : () => {
         this.setState({ ab : $('input[name=a-b]').is(':checked') });
+      },
+    });
+
+    $('#graph-ab-toggle').checkbox({
+      onChange: () => {
+        this.setState({ graphAb: $('input[name=graph-a-b]').is(':checked') });
       },
     });
   }
@@ -230,6 +237,13 @@ class AppResults extends Component {
                         </div>
                       </div>
                     </div>
+
+                    <div className='field'>
+                      <div id='graph-ab-toggle' className='ui toggle checkbox'>
+                        <input type='checkbox' name='graph-a-b'></input>
+                        <label>A/B</label>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -241,7 +255,18 @@ class AppResults extends Component {
               {(() => {
                 switch (this.state.result) {
                   case 'graph':
-                    return <GraphMetrics metric={this.state.metric} element={'graph-metrics-viz'} data={this.props.results.graph} />;
+                    return (
+                      <div>
+                        <GraphMetrics metric={this.state.metric} element='graph-metrics-viz' data={this.props.results.graph} />
+                        {this.state.graphAb ?
+                          <GraphMetrics
+                            metric='betweenness_cent_dir_weighted'
+                            element='graph-metrics-viz-b'
+                            data={this.props.results.graph}
+                          /> : null
+                        }
+                      </div>
+                    );
                   case 'counts':
                   default:
                     return <Counts filters={this.state} data={this.props.results.counts} />;

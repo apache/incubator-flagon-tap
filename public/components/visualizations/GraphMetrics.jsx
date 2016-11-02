@@ -381,6 +381,7 @@ function arrayToObj(a) {
 GraphMetrics.propTypes = {
   element : PropTypes.string.isRequired,
   data : PropTypes.object,
+  metric : PropTypes.string.isRequired,
   // data : PropTypes.shape({
   //   inMatrix : PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)),
   //   outMatrix : PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)),

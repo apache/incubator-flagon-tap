@@ -20,7 +20,7 @@ static/results/*
 /semantic/dist/*
 npm-debug.log
 .tmp
-node_modules
+/node_modules/*
 build
 
 static/*
@@ -34,4 +34,3 @@ archive/*
 /public/neon_old/*
 
 env/*
-
