@@ -1,0 +1,11 @@
+docker-compose.yml
+Dockerfile
+LICENSE
+*.md
+vagrant
+node_modules
+.git
+.gitignore
+.tmp
+.vagrant
+.DS_Store
