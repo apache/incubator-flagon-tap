@@ -21,10 +21,10 @@ static/results/*
 npm-debug.log
 .tmp
 /node_modules/*
-build
+/build
 
-static/*
-!static/admin/
+/static/*
+/!static/admin/
 
 archive/*
 
