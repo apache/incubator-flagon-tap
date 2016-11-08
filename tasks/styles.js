@@ -70,7 +70,7 @@ gulp.task('bundle:styles', () => {
 gulp.task('styles:build', (done) => {
   return runSequence(
     [
-      // 'buildSemantic',
+      'buildSemantic',
       'sass'
     ],
     'copySemantic',
