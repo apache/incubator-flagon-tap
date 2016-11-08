@@ -13,22 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Apache TAP Production Build
+FROM postgres:latest
+MAINTAINER Michelle Beard <msbeard@apache.org>
 
-version: "2"
-services:
-  db:
-    container_name: tap-db 
-    build: ./docker/db
-    ports:
-      - "5432:5432"
-  tap:
-    container_name: tap-web
-    build: ./docker/tap
-    command: python manage.py runserver 0.0.0.0:8000
-    ports:
-      - "8000:8000"
-    depends_on:
-      - db
-    links:
-      - db:db
+ADD sql.sh docker-entrypoint-initdb.d/sql.sh

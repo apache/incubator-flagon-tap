@@ -14,7 +14,7 @@
 # limitations under the License.
 
 FROM python:3.4
-MAINTAINER Arthi <demo@apache.org>
+MAINTAINER Michelle Beard <msbeard@apache.org>
 
 # Install system wide dependencies
 RUN apt-get -yqq update && apt-get -yqq install \
@@ -29,28 +29,33 @@ RUN sudo -E apt-get -yqq install \
 	build-essential 
 
 # Set the work directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+RUN mkdir -p /usr/src
+WORKDIR /usr/src
 
 # Install gulp
 RUN npm install -g bower gulp
 
-# Add package.json before adding application files
-ADD package.json /usr/src/app
-ADD semantic.json /usr/src/app
+# Install git
+RUN sudo -E apt-get -yqq install \
+  git
+
+# Clone TAP
+RUN git clone -b docker https://github.com/apache/incubator-senssoft-tap.git app
+WORKDIR /usr/src/app
+RUN git pull
 
 # Install packages
 RUN npm install 
-
-# Add requirements file
-ADD requirements.txt /usr/src/app
 
 # Install TAP requirements
 RUN pip install -r requirements.txt
 
 # Add application files
-ADD . /usr/src/app
+ADD secret.py /usr/src/app/tap/settings
+ADD neon_counts.js /usr/src/app/public
+ADD neon_graph.js /usr/src/app/public
 
+# Export port
 EXPOSE 8000
 
 # Startup Application
