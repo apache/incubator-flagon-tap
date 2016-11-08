@@ -123,7 +123,7 @@ DATABASES = {
         'NAME': MY_DB_NAME,
         'USER': MY_DB_USER,
         'PASSWORD': MY_DB_PASSWORD,
-        'HOST': 'localhost',
+        'HOST': MY_DB_HOST,
         'PORT': '',
     }
 }

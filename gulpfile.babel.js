@@ -60,4 +60,4 @@ gulp.task('serve:backend', () => {
 //   gulp.start('build');
 // });
 
-gulp.task('docker', ['serve:backend', 'build']);
+gulp.task('docker', ['build']);
