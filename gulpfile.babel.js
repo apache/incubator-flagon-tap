@@ -25,9 +25,8 @@ gulp.task('build', () => {
     'clean',
     [
       'styles:build',
-      'js'
-    ],
-    'symlink'
+      'js:build'
+    ]
   );
 });
 
@@ -56,7 +55,9 @@ gulp.task('serve:backend', () => {
   });
 });
 
-gulp.task('docker', () => {
-  gulp.start('serve:backend');
-  gulp.start('dev');
-});
+// gulp.task('docker', () => {
+//   gulp.start('serve:backend');
+//   gulp.start('build');
+// });
+
+gulp.task('docker', ['serve:backend', 'build']);
