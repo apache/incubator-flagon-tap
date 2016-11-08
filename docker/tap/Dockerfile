@@ -51,7 +51,7 @@ RUN pip install -r requirements.txt
 # Add application files
 ADD . /usr/src/app
 
-# Startup Application
-RUN gulp dev
-
 EXPOSE 8000
+
+# Startup Application
+RUN gulp docker
