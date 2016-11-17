@@ -17,3 +17,5 @@ FROM postgres:latest
 MAINTAINER Michelle Beard <msbeard@apache.org>
 
 ADD sql.sh docker-entrypoint-initdb.d/sql.sh
+
+EXPOSE 5432
