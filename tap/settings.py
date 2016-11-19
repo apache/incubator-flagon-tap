@@ -133,3 +133,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
+# SensSoft Distill URL connection
+# used in app_mgr/distillviews.py
+DISTILL_URL = "localhost:8090"

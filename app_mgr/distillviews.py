@@ -44,8 +44,10 @@ from app_mgr.serializers import UserProfileSerializer, OrganizationSerializer, A
 import datetime
 import requests 
 
+from tap.settings import DISTILL_URL as distillURL
+
 #distillURL = "msbx.draper.com:8091"
-distillURL = "localhost:8091"  #move url into settings/config and import
+#distillURL = "localhost:8090"  #moved url into tap/settings.py file
 
 def app_results_byname(request, appName, searchType):
     completeurl = distillURL+'/search/'+appName+'/'+searchType
