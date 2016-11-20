@@ -58,5 +58,8 @@ ADD neon_graph.js /usr/src/app/public
 # Export port
 EXPOSE 8000
 
+# Migrate for django
+#RUN python manage.py migrate
+
 # Startup Application
 RUN gulp docker

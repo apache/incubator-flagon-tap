@@ -9,3 +9,17 @@ node_modules
 .tmp
 .vagrant
 .DS_Store
+
+env
+env2
+*.rst
+*.in
+LICENSE
+NOTICE
+env
+userale
+es
+docs
+doc_requirements.txt
+docker
+docker-compose.yml

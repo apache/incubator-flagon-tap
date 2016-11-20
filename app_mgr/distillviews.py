@@ -45,10 +45,11 @@ import datetime
 import requests 
 
 #distillURL = "msbx.draper.com:8091"
-distillURL = "localhost:8091"  #move url into settings/config and import
+distillURL = "localhost:8090"  #move url into settings/config and import
 
 def app_results_byname(request, appName, searchType):
     completeurl = distillURL+'/search/'+appName+'/'+searchType
+    completeurl = distillURL
     print ("APP RESULTS REQUESTED")
     print (completeurl)
     results = requests.get(completeurl)
@@ -57,6 +58,7 @@ def app_results_byname(request, appName, searchType):
 
 def app_results(request, appId, searchType):
     completeurl = distillURL+'/search/'+appId+'/'+searchType
+    completeurl = distillURL
     print ("APP RESULTS REQUESTED")
     print (completeurl)
     results = requests.get(completeurl)

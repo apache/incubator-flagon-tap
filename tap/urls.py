@@ -41,7 +41,7 @@ urlpatterns = [
     url(r'^app_mgr/', include('app_mgr.urls', namespace='app_mgr')),
     #url(r'^api-auth/', include('rest_framework.urls')), #used for basic authentication (cookies)
     url(r'^api-token-auth/', token_views.obtain_auth_token),
-    url(r'^$', TemplateView.as_view(template_name='index.html')),
+    url(r'^.*$', TemplateView.as_view(template_name='index.html')),
     ##below are test views
     url(r'^view2/', TemplateView.as_view(template_name='view2.html')),
     url(r'^view1/', TemplateView.as_view(template_name='view1.html')),
