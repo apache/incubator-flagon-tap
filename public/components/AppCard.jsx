@@ -14,45 +14,24 @@
 // limitations under the License.
 
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
-class Org extends Component {
+class AppCard extends Component {
   render() {
-    const { children, id, name, description, users, apps, settings } = this.props;
+    const { app } = this.props;
 
     return (
-      <div>
-        {React.cloneElement(children, {
-          id,
-          name,
-          description,
-          users,
-          apps,
-          settings,
-        })}
+      <div className='ui segment'>
+        <div className='ui tiny header'>
+          {app.name}
+        </div>
       </div>
     );
   }
 }
 
-Org.propTypes = {
-  id : PropTypes.number,
-  name : PropTypes.string,
-  description : PropTypes.string,
-  users : PropTypes.array,
-  apps : PropTypes.array,
-  settings : PropTypes.object,
+AppCard.propTypes = {
+  app: PropTypes.object.isRequired,
 };
 
-function mapStateToProps(state, ownProps) {
-  return {
-    id : state.org.id,
-    name : state.org.name,
-    description : state.org.description,
-    users : state.org.users,
-    apps : state.org.apps,
-    settings : state.org.settings,
-  };
-}
-
-export default connect(mapStateToProps)(Org);
+export default AppCard;

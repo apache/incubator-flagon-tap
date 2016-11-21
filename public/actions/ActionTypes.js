@@ -13,33 +13,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';
+export const LOGIN_REQUEST = 'LOGIN_REQUEST';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAILURE = 'LOGIN_FAILURE';
+export const LOGOUT = 'LOGOUT';
+export const SIGNUP_REQUEST = 'SIGNUP_REQUEST';
+export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
+export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';
 
-import Profile from './Profile';
+export const APP_LIST_REQUEST = 'APP_LIST_REQUEST';
+export const APP_LIST_SUCCESS = 'APP_LIST_SUCCESS';
+export const APP_LIST_FAILURE = 'APP_LIST_FAILURE';
 
-class UserProfile extends Component {
-  render () {
-    const { email, orgs, apps } = this.props;
-
-    return (
-      <div className='ui text container'>
-        <div className='ui vertical basic page segment'>
-          <div className='ui large header'>
-            {`${email}'s Profile`}
-          </div>
-        </div>
-
-        <Profile feed={['a', 1, 'c']} firstSide={orgs} firstType={'org'} secondSide={apps} secondType={'app'} />
-      </div>
-    );
-  }
-}
-
-UserProfile.propTypes = {
-  email : PropTypes.string,
-  orgs : PropTypes.array,
-  apps : PropTypes.array,
-};
-
-export default UserProfile;
+export const APP_DETAILS_REQUEST = 'APP_DETAILS_REQUEST';
+export const APP_DETAILS_SUCCESS = 'APP_DETAILS_SUCCESS';
+export const APP_DETAILS_FAILURE = 'APP_DETAILS_FAILURE';

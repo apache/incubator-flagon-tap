@@ -45,7 +45,7 @@ from app_mgr.models import UserProfile, Organization, Application, AppVersion
 from app_mgr.serializers import UserProfileSerializer, OrganizationSerializer, ApplicationSerializer
 
 import datetime
-import requests 
+import requests
 
 #
 # RESTFUL VIEWS
@@ -64,7 +64,7 @@ class UserProfileListView(generics.ListCreateAPIView):
 
     def get_queryset(self):
         # only used for list
-        return get_objects_for_user(self.request.user, "view_userprofile", 
+        return get_objects_for_user(self.request.user, "view_userprofile",
                                     UserProfile.objects.all())
 
 class OrganizationListView(generics.ListCreateAPIView):
@@ -79,7 +79,7 @@ class OrganizationListView(generics.ListCreateAPIView):
 
     def get_queryset(self):
         # only used for list
-        return get_objects_for_user(self.request.user, "view_organization", 
+        return get_objects_for_user(self.request.user, "view_organization",
                                     Organization.objects.all())
 
 class ApplicationListView(generics.ListCreateAPIView):
@@ -94,12 +94,12 @@ class ApplicationListView(generics.ListCreateAPIView):
 
     def get_queryset(self):
         # only used for list
-        owned = get_objects_for_user(self.request.user, "view_application", 
+        owned = get_objects_for_user(self.request.user, "view_application",
                                      Application.objects.all())
         public = Application.objects.filter(isPublic=True)
 
         viewable = list(set(list(owned) + list(public)))
-       
+
         return viewable
 
 # SINGLE RETRIEVE/UPDATE/DESTROY
@@ -176,7 +176,7 @@ class ApplicationInstanceView(generics.RetrieveUpdateDestroyAPIView):
 # AUTHENTICATION VIEWS
 #
 
-# creates a new user 
+# creates a new user
 def register(request):
     # TODO : add logging back in.  Good practice!!
     # Like before, get the request's context.

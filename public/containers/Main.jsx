@@ -1,25 +1,59 @@
+// Licensed to the Apache Software Foundation (ASF) under one or more
+// contributor license agreements.  See the NOTICE file distributed with
+// this work for additional information regarding copyright ownership.
+// The ASF licenses this file to You under the Apache License, Version 2.0
+// (the "License"); you may not use this file except in compliance with
+// the License.  You may obtain a copy of the License at
+//
+//   http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { logIn, logOut } from '../actions';
+import { login, logout } from '../actions';
 
 class Main extends Component {
-  constructor(props) {
-    super(props);
-    this.handleLogin = this.handleLogin.bind(this);
-    this.handleLogout = this.handleLogout.bind(this);
-  }
 
-  handleLogin () {
-    this.props.logIn();
-  }
+  buildAuthHeader() {
+    const { email, logout } = this.props;
 
-  handleLogout () {
-    this.props.logOut();
+    if (email) {
+      return (
+        <div className='right menu'>
+          <div className='item'>
+            <Link to='/apps'>
+              {email}
+            </Link>
+          </div>
+          <div className='item' onClick={logout}>
+            Logout
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div className='right menu'>
+          <div className='item'>
+            <Link to='/login'>
+              Login
+            </Link>
+          </div>
+        </div>
+      );
+    }
   }
 
   render () {
-    const { children, isLoggedIn, username } = this.props;
+    const { children } = this.props;
+
+    const authHeader = this.buildAuthHeader();
+
     return (
       <div id='main-container'>
         <div className='site-header'>
@@ -30,23 +64,7 @@ class Main extends Component {
                 <h3 className='ui inverted header item'>Tap</h3>
               </Link>
 
-              <div className='right menu'>
-                {
-                // <div className='item' onClick={isLoggedIn ? this.handleLogout : this.handleLogin }>
-                //   {isLoggedIn ? 'Log Out' : 'Log In'}
-                // </div>
-                }
-                <div className='item'>
-                  <Link to='/user'>
-                    Profile
-                  </Link>
-                </div>
-                <div className='item'>
-                  <Link to='/user/settings'>
-                    Settings
-                  </Link>
-                </div>
-              </div>
+              {authHeader}
 
             </div>
           </div>
@@ -60,7 +78,7 @@ class Main extends Component {
           <div className='ui container'>
             <div className='ui footer page brown inverted segment'>
               <div className='ui center aligned container'>
-                <div className='footer-text'>Copyright Tap 2016</div>
+                <div className='footer-text'>Copyright Apache SensSoft 2016</div>
               </div>
             </div>
           </div>
@@ -71,19 +89,17 @@ class Main extends Component {
 }
 
 Main.propTypes = {
-  children : PropTypes.node,
-  isLoggedIn : PropTypes.bool.isRequired,
-  username : PropTypes.string,
+  children: PropTypes.node,
+  email: PropTypes.string,
+  logout: PropTypes.func.isRequired,
 };
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
-    isLoggedIn : state.auth.isLoggedIn,
-    email : state.auth.isLoggedIn ? state.user.email : null,
+    email: state.user.email,
   };
 }
 
 export default connect(mapStateToProps, {
-  logIn,
-  logOut,
+  logout,
 })(Main);
