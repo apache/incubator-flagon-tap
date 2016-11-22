@@ -1,198 +1,45 @@
-[2016-11-18 21:44:35,241][WARN ][bootstrap                ] unable to install syscall filter: seccomp unavailable: your kernel is buggy and you should upgrade
-[2016-11-18 21:44:36,314][INFO ][node                     ] [soft-01] version[2.3.5], pid[1], build[90f439f/2016-07-27T10:36:52Z]
-[2016-11-18 21:44:36,318][INFO ][node                     ] [soft-01] initializing ...
-[2016-11-18 21:44:42,665][INFO ][plugins                  ] [soft-01] modules [reindex, lang-expression, lang-groovy], plugins [hq], sites [hq]
-[2016-11-18 21:44:43,621][INFO ][env                      ] [soft-01] using [1] data paths, mounts [[/usr/share/elasticsearch/data (osxfs)]], net usable_space [851.8gb], net total_space [930.7gb], spins? [possibly], types [fuse.osxfs]
-[2016-11-18 21:44:43,636][INFO ][env                      ] [soft-01] heap size [1007.3mb], compressed ordinary object pointers [true]
-[2016-11-18 21:45:03,493][INFO ][node                     ] [soft-01] initialized
-[2016-11-18 21:45:03,499][INFO ][node                     ] [soft-01] starting ...
-[2016-11-18 21:45:04,893][INFO ][transport                ] [soft-01] publish_address {172.18.0.2:9300}, bound_addresses {[::]:9300}
-[2016-11-18 21:45:04,929][INFO ][discovery                ] [soft-01] SensSoft/Hn5DI7ORQAmgeIRxMwn-nA
-[2016-11-18 21:45:08,734][INFO ][cluster.service          ] [soft-01] new_master {soft-01}{Hn5DI7ORQAmgeIRxMwn-nA}{172.18.0.2}{172.18.0.2:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
-[2016-11-18 21:45:08,924][INFO ][http                     ] [soft-01] publish_address {172.18.0.2:9200}, bound_addresses {[::]:9200}
-[2016-11-18 21:45:08,939][INFO ][node                     ] [soft-01] started
-[2016-11-18 21:45:09,184][INFO ][gateway                  ] [soft-01] recovered [0] indices into cluster_state
-[2016-11-18 21:45:20,174][INFO ][cluster.metadata         ] [soft-01] [.kibana] creating index, cause [api], templates [], shards [1]/[1], mappings [config]
-[2016-11-18 21:45:21,063][INFO ][cluster.routing.allocation] [soft-01] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[.kibana][0]] ...]).
-[2016-11-18 21:46:36,565][INFO ][node                     ] [soft-01] stopping ...
-[2016-11-18 21:46:36,812][INFO ][node                     ] [soft-01] stopped
-[2016-11-18 21:46:36,813][INFO ][node                     ] [soft-01] closing ...
-[2016-11-18 21:46:36,844][INFO ][node                     ] [soft-01] closed
-[2016-11-18 21:46:48,255][WARN ][bootstrap                ] unable to install syscall filter: seccomp unavailable: your kernel is buggy and you should upgrade
-[2016-11-18 21:46:49,344][INFO ][node                     ] [soft-01] version[2.3.5], pid[1], build[90f439f/2016-07-27T10:36:52Z]
-[2016-11-18 21:46:49,378][INFO ][node                     ] [soft-01] initializing ...
-[2016-11-18 21:46:52,464][INFO ][plugins                  ] [soft-01] modules [reindex, lang-expression, lang-groovy], plugins [hq], sites [hq]
-[2016-11-18 21:46:52,831][INFO ][env                      ] [soft-01] using [1] data paths, mounts [[/usr/share/elasticsearch/data (osxfs)]], net usable_space [851.8gb], net total_space [930.7gb], spins? [possibly], types [fuse.osxfs]
-[2016-11-18 21:46:52,839][INFO ][env                      ] [soft-01] heap size [1007.3mb], compressed ordinary object pointers [true]
-[2016-11-18 21:47:07,435][INFO ][node                     ] [soft-01] initialized
-[2016-11-18 21:47:07,440][INFO ][node                     ] [soft-01] starting ...
-[2016-11-18 21:47:07,874][INFO ][transport                ] [soft-01] publish_address {172.18.0.3:9300}, bound_addresses {[::]:9300}
-[2016-11-18 21:47:07,915][INFO ][discovery                ] [soft-01] SensSoft/1rw7Zot9TyusCqJOk9A2rg
-[2016-11-18 21:47:11,544][INFO ][cluster.service          ] [soft-01] new_master {soft-01}{1rw7Zot9TyusCqJOk9A2rg}{172.18.0.3}{172.18.0.3:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
-[2016-11-18 21:47:11,664][INFO ][http                     ] [soft-01] publish_address {172.18.0.3:9200}, bound_addresses {[::]:9200}
-[2016-11-18 21:47:11,671][INFO ][node                     ] [soft-01] started
-[2016-11-18 21:47:12,638][INFO ][gateway                  ] [soft-01] recovered [1] indices into cluster_state
-[2016-11-18 21:47:16,248][INFO ][cluster.routing.allocation] [soft-01] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[.kibana][0]] ...]).
-[2016-11-18 21:57:08,600][INFO ][cluster.metadata         ] [soft-01] [userale] creating index, cause [auto(bulk api)], templates [userale], shards [1]/[0], mappings [_default_, logs]
-[2016-11-18 21:57:08,869][INFO ][cluster.routing.allocation] [soft-01] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[userale][0]] ...]).
-[2016-11-18 21:57:08,948][INFO ][cluster.metadata         ] [soft-01] [userale] update_mapping [logs]
-[2016-11-18 21:57:09,173][INFO ][cluster.metadata         ] [soft-01] [userale] update_mapping [logs]
-[2016-11-18 21:57:53,600][INFO ][cluster.metadata         ] [soft-01] [.kibana] create_mapping [index-pattern]
-[2016-11-18 22:29:54,936][WARN ][bootstrap                ] unable to install syscall filter: seccomp unavailable: your kernel is buggy and you should upgrade
-[2016-11-18 22:29:55,573][INFO ][node                     ] [soft-01] version[2.3.5], pid[1], build[90f439f/2016-07-27T10:36:52Z]
-[2016-11-18 22:29:55,574][INFO ][node                     ] [soft-01] initializing ...
-[2016-11-18 22:29:57,332][INFO ][plugins                  ] [soft-01] modules [reindex, lang-expression, lang-groovy], plugins [hq], sites [hq]
-[2016-11-18 22:29:57,602][INFO ][env                      ] [soft-01] using [1] data paths, mounts [[/usr/share/elasticsearch/data (osxfs)]], net usable_space [851.7gb], net total_space [930.7gb], spins? [possibly], types [fuse.osxfs]
-[2016-11-18 22:29:57,608][INFO ][env                      ] [soft-01] heap size [1007.3mb], compressed ordinary object pointers [true]
-[2016-11-18 22:30:20,778][INFO ][node                     ] [soft-01] initialized
-[2016-11-18 22:30:20,821][INFO ][node                     ] [soft-01] starting ...
-[2016-11-18 22:30:22,320][INFO ][transport                ] [soft-01] publish_address {172.18.0.2:9300}, bound_addresses {[::]:9300}
-[2016-11-18 22:30:22,368][INFO ][discovery                ] [soft-01] SensSoft/arH5xrGhR8-Ii0lxOq4bVQ
-[2016-11-18 22:30:25,859][INFO ][cluster.service          ] [soft-01] new_master {soft-01}{arH5xrGhR8-Ii0lxOq4bVQ}{172.18.0.2}{172.18.0.2:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
-[2016-11-18 22:30:26,022][INFO ][http                     ] [soft-01] publish_address {172.18.0.2:9200}, bound_addresses {[::]:9200}
-[2016-11-18 22:30:26,036][INFO ][node                     ] [soft-01] started
-[2016-11-18 22:30:26,510][INFO ][gateway                  ] [soft-01] recovered [2] indices into cluster_state
-[2016-11-18 22:30:30,166][INFO ][cluster.routing.allocation] [soft-01] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[userale][0], [userale][0]] ...]).
-[2016-11-18 22:45:59,969][WARN ][bootstrap                ] unable to install syscall filter: seccomp unavailable: your kernel is buggy and you should upgrade
-[2016-11-18 22:46:01,700][INFO ][node                     ] [soft-01] version[2.3.5], pid[1], build[90f439f/2016-07-27T10:36:52Z]
-[2016-11-18 22:46:01,732][INFO ][node                     ] [soft-01] initializing ...
-[2016-11-18 22:46:06,651][INFO ][plugins                  ] [soft-01] modules [reindex, lang-expression, lang-groovy], plugins [hq], sites [hq]
-[2016-11-18 22:46:06,953][INFO ][env                      ] [soft-01] using [1] data paths, mounts [[/usr/share/elasticsearch/data (osxfs)]], net usable_space [851.4gb], net total_space [930.7gb], spins? [possibly], types [fuse.osxfs]
-[2016-11-18 22:46:06,958][INFO ][env                      ] [soft-01] heap size [1007.3mb], compressed ordinary object pointers [true]
-[2016-11-18 22:46:24,387][INFO ][node                     ] [soft-01] initialized
-[2016-11-18 22:46:24,391][INFO ][node                     ] [soft-01] starting ...
-[2016-11-18 22:46:24,901][INFO ][transport                ] [soft-01] publish_address {172.18.0.2:9300}, bound_addresses {[::]:9300}
-[2016-11-18 22:46:24,916][INFO ][discovery                ] [soft-01] SensSoft/cgVZsCZhSt6ULAdOTsE69Q
-[2016-11-18 22:46:28,386][INFO ][cluster.service          ] [soft-01] new_master {soft-01}{cgVZsCZhSt6ULAdOTsE69Q}{172.18.0.2}{172.18.0.2:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
-[2016-11-18 22:46:28,641][INFO ][http                     ] [soft-01] publish_address {172.18.0.2:9200}, bound_addresses {[::]:9200}
-[2016-11-18 22:46:28,737][INFO ][node                     ] [soft-01] started
-[2016-11-18 22:46:29,629][INFO ][gateway                  ] [soft-01] recovered [2] indices into cluster_state
-[2016-11-18 22:46:32,728][INFO ][cluster.routing.allocation] [soft-01] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[.kibana][0], [.kibana][0]] ...]).
-[2016-11-18 22:48:23,599][INFO ][node                     ] [soft-01] stopping ...
-[2016-11-18 22:48:23,794][INFO ][node                     ] [soft-01] stopped
-[2016-11-18 22:48:23,796][INFO ][node                     ] [soft-01] closing ...
-[2016-11-18 22:48:23,815][INFO ][node                     ] [soft-01] closed
-[2016-11-18 22:48:32,630][WARN ][bootstrap                ] unable to install syscall filter: seccomp unavailable: your kernel is buggy and you should upgrade
-[2016-11-18 22:48:34,167][INFO ][node                     ] [soft-01] version[2.3.5], pid[1], build[90f439f/2016-07-27T10:36:52Z]
-[2016-11-18 22:48:34,191][INFO ][node                     ] [soft-01] initializing ...
-[2016-11-18 22:48:38,344][INFO ][plugins                  ] [soft-01] modules [reindex, lang-expression, lang-groovy], plugins [hq], sites [hq]
-[2016-11-18 22:48:38,593][INFO ][env                      ] [soft-01] using [1] data paths, mounts [[/usr/share/elasticsearch/data (osxfs)]], net usable_space [851.4gb], net total_space [930.7gb], spins? [possibly], types [fuse.osxfs]
-[2016-11-18 22:48:38,595][INFO ][env                      ] [soft-01] heap size [1007.3mb], compressed ordinary object pointers [true]
-[2016-11-18 22:48:52,375][INFO ][node                     ] [soft-01] initialized
-[2016-11-18 22:48:52,386][INFO ][node                     ] [soft-01] starting ...
-[2016-11-18 22:48:52,833][INFO ][transport                ] [soft-01] publish_address {172.18.0.2:9300}, bound_addresses {[::]:9300}
-[2016-11-18 22:48:52,913][INFO ][discovery                ] [soft-01] SensSoft/-BzmzO4dTAGHqG7rkXcR0g
-[2016-11-18 22:48:56,282][INFO ][cluster.service          ] [soft-01] new_master {soft-01}{-BzmzO4dTAGHqG7rkXcR0g}{172.18.0.2}{172.18.0.2:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
-[2016-11-18 22:48:56,425][INFO ][http                     ] [soft-01] publish_address {172.18.0.2:9200}, bound_addresses {[::]:9200}
-[2016-11-18 22:48:56,426][INFO ][node                     ] [soft-01] started
-[2016-11-18 22:48:57,158][INFO ][gateway                  ] [soft-01] recovered [2] indices into cluster_state
-[2016-11-18 22:49:00,536][INFO ][cluster.routing.allocation] [soft-01] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[userale][0], [userale][0]] ...]).
-[2016-11-18 22:55:27,535][WARN ][bootstrap                ] unable to install syscall filter: seccomp unavailable: your kernel is buggy and you should upgrade
-[2016-11-18 22:55:29,682][INFO ][node                     ] [soft-01] version[2.3.5], pid[1], build[90f439f/2016-07-27T10:36:52Z]
-[2016-11-18 22:55:29,696][INFO ][node                     ] [soft-01] initializing ...
-[2016-11-18 22:55:33,405][INFO ][plugins                  ] [soft-01] modules [reindex, lang-expression, lang-groovy], plugins [hq], sites [hq]
-[2016-11-18 22:55:33,608][INFO ][env                      ] [soft-01] using [1] data paths, mounts [[/usr/share/elasticsearch/data (osxfs)]], net usable_space [851.3gb], net total_space [930.7gb], spins? [possibly], types [fuse.osxfs]
-[2016-11-18 22:55:33,619][INFO ][env                      ] [soft-01] heap size [1007.3mb], compressed ordinary object pointers [true]
-[2016-11-18 22:55:52,912][INFO ][node                     ] [soft-01] initialized
-[2016-11-18 22:55:52,913][INFO ][node                     ] [soft-01] starting ...
-[2016-11-18 22:55:53,544][INFO ][transport                ] [soft-01] publish_address {172.18.0.2:9300}, bound_addresses {[::]:9300}
-[2016-11-18 22:55:53,567][INFO ][discovery                ] [soft-01] SensSoft/LDiGBqX_QG-Uc_cqFs7yrA
-[2016-11-18 22:55:56,953][INFO ][cluster.service          ] [soft-01] new_master {soft-01}{LDiGBqX_QG-Uc_cqFs7yrA}{172.18.0.2}{172.18.0.2:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
-[2016-11-18 22:55:57,247][INFO ][http                     ] [soft-01] publish_address {172.18.0.2:9200}, bound_addresses {[::]:9200}
-[2016-11-18 22:55:57,255][INFO ][node                     ] [soft-01] started
-[2016-11-18 22:55:58,138][INFO ][gateway                  ] [soft-01] recovered [2] indices into cluster_state
-[2016-11-18 22:56:01,530][INFO ][cluster.routing.allocation] [soft-01] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[.kibana][0], [.kibana][0]] ...]).
-[2016-11-18 23:03:16,408][WARN ][bootstrap                ] unable to install syscall filter: seccomp unavailable: your kernel is buggy and you should upgrade
-[2016-11-18 23:03:17,970][INFO ][node                     ] [soft-01] version[2.3.5], pid[1], build[90f439f/2016-07-27T10:36:52Z]
-[2016-11-18 23:03:17,974][INFO ][node                     ] [soft-01] initializing ...
-[2016-11-18 23:03:22,439][INFO ][plugins                  ] [soft-01] modules [reindex, lang-expression, lang-groovy], plugins [hq], sites [hq]
-[2016-11-18 23:03:23,276][INFO ][env                      ] [soft-01] using [1] data paths, mounts [[/usr/share/elasticsearch/data (osxfs)]], net usable_space [850.7gb], net total_space [930.7gb], spins? [possibly], types [fuse.osxfs]
-[2016-11-18 23:03:23,277][INFO ][env                      ] [soft-01] heap size [1007.3mb], compressed ordinary object pointers [true]
-[2016-11-18 23:03:40,169][INFO ][node                     ] [soft-01] initialized
-[2016-11-18 23:03:40,190][INFO ][node                     ] [soft-01] starting ...
-[2016-11-18 23:03:40,917][INFO ][transport                ] [soft-01] publish_address {172.18.0.3:9300}, bound_addresses {[::]:9300}
-[2016-11-18 23:03:40,937][INFO ][discovery                ] [soft-01] SensSoft/2QUYKHrzTTiKrcCfJHutsA
-[2016-11-18 23:03:44,324][INFO ][cluster.service          ] [soft-01] new_master {soft-01}{2QUYKHrzTTiKrcCfJHutsA}{172.18.0.3}{172.18.0.3:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
-[2016-11-18 23:03:44,491][INFO ][http                     ] [soft-01] publish_address {172.18.0.3:9200}, bound_addresses {[::]:9200}
-[2016-11-18 23:03:44,498][INFO ][node                     ] [soft-01] started
-[2016-11-18 23:03:45,112][INFO ][gateway                  ] [soft-01] recovered [2] indices into cluster_state
-[2016-11-18 23:03:47,977][INFO ][cluster.routing.allocation] [soft-01] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[userale][0], [userale][0]] ...]).
-[2016-11-18 23:08:08,491][WARN ][bootstrap                ] unable to install syscall filter: seccomp unavailable: your kernel is buggy and you should upgrade
-[2016-11-18 23:08:09,276][INFO ][node                     ] [soft-01] version[2.3.5], pid[1], build[90f439f/2016-07-27T10:36:52Z]
-[2016-11-18 23:08:09,297][INFO ][node                     ] [soft-01] initializing ...
-[2016-11-18 23:08:13,673][INFO ][plugins                  ] [soft-01] modules [reindex, lang-expression, lang-groovy], plugins [hq], sites [hq]
-[2016-11-18 23:08:14,139][INFO ][env                      ] [soft-01] using [1] data paths, mounts [[/usr/share/elasticsearch/data (osxfs)]], net usable_space [850.6gb], net total_space [930.7gb], spins? [possibly], types [fuse.osxfs]
-[2016-11-18 23:08:14,179][INFO ][env                      ] [soft-01] heap size [1007.3mb], compressed ordinary object pointers [true]
-[2016-11-18 23:08:31,274][INFO ][node                     ] [soft-01] initialized
-[2016-11-18 23:08:31,280][INFO ][node                     ] [soft-01] starting ...
-[2016-11-18 23:08:31,763][INFO ][transport                ] [soft-01] publish_address {172.18.0.2:9300}, bound_addresses {[::]:9300}
-[2016-11-18 23:08:31,795][INFO ][discovery                ] [soft-01] SensSoft/tSlPAbYgT5aDIIocLGBvrg
-[2016-11-18 23:08:35,213][INFO ][cluster.service          ] [soft-01] new_master {soft-01}{tSlPAbYgT5aDIIocLGBvrg}{172.18.0.2}{172.18.0.2:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
-[2016-11-18 23:08:35,345][INFO ][http                     ] [soft-01] publish_address {172.18.0.2:9200}, bound_addresses {[::]:9200}
-[2016-11-18 23:08:35,385][INFO ][node                     ] [soft-01] started
-[2016-11-18 23:08:36,341][INFO ][gateway                  ] [soft-01] recovered [2] indices into cluster_state
-[2016-11-18 23:08:39,348][INFO ][cluster.routing.allocation] [soft-01] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[userale][0], [.kibana][0]] ...]).
-[2016-11-18 23:14:54,278][WARN ][bootstrap                ] unable to install syscall filter: seccomp unavailable: your kernel is buggy and you should upgrade
-[2016-11-18 23:14:55,853][INFO ][node                     ] [soft-01] version[2.3.5], pid[1], build[90f439f/2016-07-27T10:36:52Z]
-[2016-11-18 23:14:55,857][INFO ][node                     ] [soft-01] initializing ...
-[2016-11-18 23:14:59,676][INFO ][plugins                  ] [soft-01] modules [reindex, lang-expression, lang-groovy], plugins [hq], sites [hq]
-[2016-11-18 23:15:00,086][INFO ][env                      ] [soft-01] using [1] data paths, mounts [[/usr/share/elasticsearch/data (osxfs)]], net usable_space [850.4gb], net total_space [930.7gb], spins? [possibly], types [fuse.osxfs]
-[2016-11-18 23:15:00,093][INFO ][env                      ] [soft-01] heap size [1007.3mb], compressed ordinary object pointers [true]
-[2016-11-18 23:15:15,383][INFO ][node                     ] [soft-01] initialized
-[2016-11-18 23:15:15,386][INFO ][node                     ] [soft-01] starting ...
-[2016-11-18 23:15:15,679][INFO ][transport                ] [soft-01] publish_address {172.18.0.3:9300}, bound_addresses {[::]:9300}
-[2016-11-18 23:15:15,706][INFO ][discovery                ] [soft-01] SensSoft/E7uXRZVRQgG8imzcbrt83g
-[2016-11-18 23:15:19,041][INFO ][cluster.service          ] [soft-01] new_master {soft-01}{E7uXRZVRQgG8imzcbrt83g}{172.18.0.3}{172.18.0.3:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
-[2016-11-18 23:15:19,353][INFO ][http                     ] [soft-01] publish_address {172.18.0.3:9200}, bound_addresses {[::]:9200}
-[2016-11-18 23:15:19,356][INFO ][node                     ] [soft-01] started
-[2016-11-18 23:15:19,962][INFO ][gateway                  ] [soft-01] recovered [2] indices into cluster_state
-[2016-11-18 23:15:23,894][INFO ][cluster.routing.allocation] [soft-01] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[userale][0], [.kibana][0]] ...]).
-[2016-11-18 23:28:32,776][WARN ][bootstrap                ] unable to install syscall filter: seccomp unavailable: your kernel is buggy and you should upgrade
-[2016-11-18 23:28:35,077][INFO ][node                     ] [soft-01] version[2.3.5], pid[1], build[90f439f/2016-07-27T10:36:52Z]
-[2016-11-18 23:28:35,083][INFO ][node                     ] [soft-01] initializing ...
-[2016-11-18 23:28:39,533][INFO ][plugins                  ] [soft-01] modules [reindex, lang-expression, lang-groovy], plugins [hq], sites [hq]
-[2016-11-18 23:28:39,759][INFO ][env                      ] [soft-01] using [1] data paths, mounts [[/usr/share/elasticsearch/data (osxfs)]], net usable_space [850.2gb], net total_space [930.7gb], spins? [possibly], types [fuse.osxfs]
-[2016-11-18 23:28:39,760][INFO ][env                      ] [soft-01] heap size [1007.3mb], compressed ordinary object pointers [true]
-[2016-11-18 23:28:56,782][INFO ][node                     ] [soft-01] initialized
-[2016-11-18 23:28:56,788][INFO ][node                     ] [soft-01] starting ...
-[2016-11-18 23:28:57,391][INFO ][transport                ] [soft-01] publish_address {172.18.0.2:9300}, bound_addresses {[::]:9300}
-[2016-11-18 23:28:57,407][INFO ][discovery                ] [soft-01] SensSoft/HOwu61gkSPyG7Y4IfCjdlA
-[2016-11-18 23:29:00,765][INFO ][cluster.service          ] [soft-01] new_master {soft-01}{HOwu61gkSPyG7Y4IfCjdlA}{172.18.0.2}{172.18.0.2:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
-[2016-11-18 23:29:00,852][INFO ][http                     ] [soft-01] publish_address {172.18.0.2:9200}, bound_addresses {[::]:9200}
-[2016-11-18 23:29:00,853][INFO ][node                     ] [soft-01] started
-[2016-11-18 23:29:01,346][INFO ][gateway                  ] [soft-01] recovered [2] indices into cluster_state
-[2016-11-18 23:29:05,170][INFO ][cluster.routing.allocation] [soft-01] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[.kibana][0], [.kibana][0]] ...]).
-[2016-11-18 23:32:43,071][WARN ][bootstrap                ] unable to install syscall filter: seccomp unavailable: your kernel is buggy and you should upgrade
-[2016-11-18 23:32:44,421][INFO ][node                     ] [soft-01] version[2.3.5], pid[1], build[90f439f/2016-07-27T10:36:52Z]
-[2016-11-18 23:32:44,426][INFO ][node                     ] [soft-01] initializing ...
-[2016-11-18 23:32:49,077][INFO ][plugins                  ] [soft-01] modules [reindex, lang-expression, lang-groovy], plugins [hq], sites [hq]
-[2016-11-18 23:32:49,542][INFO ][env                      ] [soft-01] using [1] data paths, mounts [[/usr/share/elasticsearch/data (osxfs)]], net usable_space [850gb], net total_space [930.7gb], spins? [possibly], types [fuse.osxfs]
-[2016-11-18 23:32:49,544][INFO ][env                      ] [soft-01] heap size [1007.3mb], compressed ordinary object pointers [true]
-[2016-11-18 23:33:05,602][INFO ][node                     ] [soft-01] initialized
-[2016-11-18 23:33:05,607][INFO ][node                     ] [soft-01] starting ...
-[2016-11-18 23:33:06,698][INFO ][transport                ] [soft-01] publish_address {172.18.0.3:9300}, bound_addresses {[::]:9300}
-[2016-11-18 23:33:06,739][INFO ][discovery                ] [soft-01] SensSoft/US_wyQwBTWyGLC40IJT_UA
-[2016-11-18 23:33:10,398][INFO ][cluster.service          ] [soft-01] new_master {soft-01}{US_wyQwBTWyGLC40IJT_UA}{172.18.0.3}{172.18.0.3:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
-[2016-11-18 23:33:10,954][INFO ][http                     ] [soft-01] publish_address {172.18.0.3:9200}, bound_addresses {[::]:9200}
-[2016-11-18 23:33:10,968][INFO ][node                     ] [soft-01] started
-[2016-11-18 23:33:12,169][INFO ][gateway                  ] [soft-01] recovered [2] indices into cluster_state
-[2016-11-18 23:33:15,473][INFO ][cluster.routing.allocation] [soft-01] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[.kibana][0]] ...]).
-[2016-11-18 23:46:56,514][INFO ][node                     ] [soft-01] stopping ...
-[2016-11-18 23:46:56,864][INFO ][node                     ] [soft-01] stopped
-[2016-11-18 23:46:56,865][INFO ][node                     ] [soft-01] closing ...
-[2016-11-18 23:46:56,884][INFO ][node                     ] [soft-01] closed
-[2016-11-18 23:47:06,937][WARN ][bootstrap                ] unable to install syscall filter: seccomp unavailable: your kernel is buggy and you should upgrade
-[2016-11-18 23:47:08,731][INFO ][node                     ] [soft-01] version[2.3.5], pid[1], build[90f439f/2016-07-27T10:36:52Z]
-[2016-11-18 23:47:08,746][INFO ][node                     ] [soft-01] initializing ...
-[2016-11-18 23:47:12,923][INFO ][plugins                  ] [soft-01] modules [reindex, lang-expression, lang-groovy], plugins [hq], sites [hq]
-[2016-11-18 23:47:13,169][INFO ][env                      ] [soft-01] using [1] data paths, mounts [[/usr/share/elasticsearch/data (osxfs)]], net usable_space [850gb], net total_space [930.7gb], spins? [possibly], types [fuse.osxfs]
-[2016-11-18 23:47:13,172][INFO ][env                      ] [soft-01] heap size [1007.3mb], compressed ordinary object pointers [true]
-[2016-11-18 23:47:30,684][INFO ][node                     ] [soft-01] initialized
-[2016-11-18 23:47:30,692][INFO ][node                     ] [soft-01] starting ...
-[2016-11-18 23:47:31,306][INFO ][transport                ] [soft-01] publish_address {172.18.0.3:9300}, bound_addresses {[::]:9300}
-[2016-11-18 23:47:31,323][INFO ][discovery                ] [soft-01] SensSoft/BFCjUGClQFqqSfHwOKCYPg
-[2016-11-18 23:47:34,696][INFO ][cluster.service          ] [soft-01] new_master {soft-01}{BFCjUGClQFqqSfHwOKCYPg}{172.18.0.3}{172.18.0.3:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
-[2016-11-18 23:47:34,822][INFO ][http                     ] [soft-01] publish_address {172.18.0.3:9200}, bound_addresses {[::]:9200}
-[2016-11-18 23:47:34,823][INFO ][node                     ] [soft-01] started
-[2016-11-18 23:47:35,323][INFO ][gateway                  ] [soft-01] recovered [2] indices into cluster_state
-[2016-11-18 23:47:38,366][INFO ][cluster.routing.allocation] [soft-01] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[userale][0], [userale][0]] ...]).
+[2016-11-22 15:10:23,171][WARN ][bootstrap                ] unable to install syscall filter: seccomp unavailable: your kernel is buggy and you should upgrade
+[2016-11-22 15:10:24,954][INFO ][node                     ] [soft-01] version[2.3.5], pid[1], build[90f439f/2016-07-27T10:36:52Z]
+[2016-11-22 15:10:24,955][INFO ][node                     ] [soft-01] initializing ...
+[2016-11-22 15:10:30,698][INFO ][plugins                  ] [soft-01] modules [reindex, lang-expression, lang-groovy], plugins [hq], sites [hq]
+[2016-11-22 15:10:30,946][INFO ][env                      ] [soft-01] using [1] data paths, mounts [[/usr/share/elasticsearch/data (osxfs)]], net usable_space [851.7gb], net total_space [930.7gb], spins? [possibly], types [fuse.osxfs]
+[2016-11-22 15:10:30,952][INFO ][env                      ] [soft-01] heap size [1007.3mb], compressed ordinary object pointers [true]
+[2016-11-22 15:10:47,727][INFO ][node                     ] [soft-01] initialized
+[2016-11-22 15:10:47,762][INFO ][node                     ] [soft-01] starting ...
+[2016-11-22 15:10:48,557][INFO ][transport                ] [soft-01] publish_address {172.18.0.3:9300}, bound_addresses {[::]:9300}
+[2016-11-22 15:10:48,615][INFO ][discovery                ] [soft-01] SensSoft/LCYH0KGRSvK1v7K7i8eqFQ
+[2016-11-22 15:10:52,076][INFO ][cluster.service          ] [soft-01] new_master {soft-01}{LCYH0KGRSvK1v7K7i8eqFQ}{172.18.0.3}{172.18.0.3:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2016-11-22 15:10:52,159][INFO ][http                     ] [soft-01] publish_address {172.18.0.3:9200}, bound_addresses {[::]:9200}
+[2016-11-22 15:10:52,163][INFO ][node                     ] [soft-01] started
+[2016-11-22 15:10:52,776][INFO ][gateway                  ] [soft-01] recovered [2] indices into cluster_state
+[2016-11-22 15:10:56,056][INFO ][cluster.routing.allocation] [soft-01] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[userale][0], [userale][0]] ...]).
+[2016-11-22 16:06:42,818][WARN ][bootstrap                ] unable to install syscall filter: seccomp unavailable: your kernel is buggy and you should upgrade
+[2016-11-22 16:06:45,173][INFO ][node                     ] [soft-01] version[2.3.5], pid[1], build[90f439f/2016-07-27T10:36:52Z]
+[2016-11-22 16:06:45,175][INFO ][node                     ] [soft-01] initializing ...
+[2016-11-22 16:06:49,204][INFO ][plugins                  ] [soft-01] modules [reindex, lang-expression, lang-groovy], plugins [hq], sites [hq]
+[2016-11-22 16:06:49,577][INFO ][env                      ] [soft-01] using [1] data paths, mounts [[/usr/share/elasticsearch/data (osxfs)]], net usable_space [850.6gb], net total_space [930.7gb], spins? [possibly], types [fuse.osxfs]
+[2016-11-22 16:06:49,579][INFO ][env                      ] [soft-01] heap size [1007.3mb], compressed ordinary object pointers [true]
+[2016-11-22 16:07:00,937][INFO ][node                     ] [soft-01] initialized
+[2016-11-22 16:07:00,943][INFO ][node                     ] [soft-01] starting ...
+[2016-11-22 16:07:01,289][INFO ][transport                ] [soft-01] publish_address {172.18.0.2:9300}, bound_addresses {[::]:9300}
+[2016-11-22 16:07:01,313][INFO ][discovery                ] [soft-01] SensSoft/c04SHgONT3KPJM-ksseDLw
+[2016-11-22 16:07:04,552][INFO ][cluster.service          ] [soft-01] new_master {soft-01}{c04SHgONT3KPJM-ksseDLw}{172.18.0.2}{172.18.0.2:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2016-11-22 16:07:04,644][INFO ][http                     ] [soft-01] publish_address {172.18.0.2:9200}, bound_addresses {[::]:9200}
+[2016-11-22 16:07:04,648][INFO ][node                     ] [soft-01] started
+[2016-11-22 16:07:05,140][INFO ][gateway                  ] [soft-01] recovered [2] indices into cluster_state
+[2016-11-22 16:07:07,609][INFO ][cluster.routing.allocation] [soft-01] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[.kibana][0]] ...]).
+[2016-11-22 16:11:00,768][WARN ][bootstrap                ] unable to install syscall filter: seccomp unavailable: your kernel is buggy and you should upgrade
+[2016-11-22 16:11:01,312][INFO ][node                     ] [soft-01] version[2.3.5], pid[1], build[90f439f/2016-07-27T10:36:52Z]
+[2016-11-22 16:11:01,312][INFO ][node                     ] [soft-01] initializing ...
+[2016-11-22 16:11:06,155][INFO ][plugins                  ] [soft-01] modules [reindex, lang-expression, lang-groovy], plugins [hq], sites [hq]
+[2016-11-22 16:11:06,424][INFO ][env                      ] [soft-01] using [1] data paths, mounts [[/usr/share/elasticsearch/data (osxfs)]], net usable_space [850.6gb], net total_space [930.7gb], spins? [possibly], types [fuse.osxfs]
+[2016-11-22 16:11:06,435][INFO ][env                      ] [soft-01] heap size [1007.3mb], compressed ordinary object pointers [true]
+[2016-11-22 16:11:22,008][INFO ][node                     ] [soft-01] initialized
+[2016-11-22 16:11:22,010][INFO ][node                     ] [soft-01] starting ...
+[2016-11-22 16:11:22,803][INFO ][transport                ] [soft-01] publish_address {172.18.0.2:9300}, bound_addresses {[::]:9300}
+[2016-11-22 16:11:22,837][INFO ][discovery                ] [soft-01] SensSoft/-hNCN3eyQbe4uexdnWW1vg
+[2016-11-22 16:11:26,820][INFO ][cluster.service          ] [soft-01] new_master {soft-01}{-hNCN3eyQbe4uexdnWW1vg}{172.18.0.2}{172.18.0.2:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2016-11-22 16:11:27,079][INFO ][http                     ] [soft-01] publish_address {172.18.0.2:9200}, bound_addresses {[::]:9200}
+[2016-11-22 16:11:27,089][INFO ][node                     ] [soft-01] started
+[2016-11-22 16:11:27,681][INFO ][gateway                  ] [soft-01] recovered [2] indices into cluster_state
+[2016-11-22 16:11:29,204][INFO ][cluster.routing.allocation] [soft-01] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[userale][0], [.kibana][0]] ...]).

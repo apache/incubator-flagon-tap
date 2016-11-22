@@ -40,7 +40,7 @@ RUN sudo -E apt-get -yqq install \
   git
 
 # Clone TAP
-RUN git clone -b master https://github.com/apache/incubator-senssoft-tap.git app
+RUN git clone -b docker https://github.com/apache/incubator-senssoft-tap.git app
 WORKDIR /usr/src/app
 RUN git pull
 
@@ -55,11 +55,9 @@ ADD secret.py /usr/src/app/tap/settings
 ADD neon_counts.js /usr/src/app/public
 ADD neon_graph.js /usr/src/app/public
 
-# Export port
-EXPOSE 8000
-
-# Migrate for django
-#RUN python manage.py migrate
 
 # Startup Application
-RUN gulp dev
+RUN gulp build
+
+# Export port
+EXPOSE 8000
