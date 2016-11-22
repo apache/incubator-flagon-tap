@@ -13,14 +13,70 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Apache TAP Production Docker build
+# Apache TAP Production Build
 
 version: "2"
 services:
-  tap:
-    build: 
-        context: .
-        dockerfile: Dockerfile 
-    container_name: tap
+  db:
+    container_name: tap-db 
+    build: ./docker/db
     ports:
-      - 8000:8000
+      - "5432:5432"
+  tap:
+    container_name: tap-web
+    build: ./docker/tap
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    links:
+      - db:db
+  distill:
+    build: 
+      context: .
+      dockerfile: ./docker/distill/Dockerfile
+    container_name: distill
+    ports:
+      - 8090:8090
+    depends_on:
+      - elasticsearch
+    links:
+      - elasticsearch
+  # Web server
+  #webserver:
+  #  build: ./docker/webserver
+  #  container_name: webserver
+  #  links:
+  #    - distill
+  # ELK Stack
+  elasticsearch:
+    build: ./docker/es
+    container_name: elastic
+    ports:
+      - 9200:9200
+      - 9300:9300
+    volumes:
+      - ./es/data:/usr/share/elasticsearch/data
+      - ./es/logs:/usr/share/elasticsearch/logs
+  kibana:
+    build: ./docker/kibana
+    container_name: kibana
+    ports:
+      - 5601:5601
+    depends_on:
+      - elasticsearch
+    links:
+      - elasticsearch
+  logstash:
+    build: ./docker/logstash
+    container_name: logstash
+    ports:
+      - 8888:8888
+    command: logstash -f /etc/logstash/conf.d/logstash.conf
+    volumes:
+      - ./userale:/var/log/sennsoft
+    depends_on:
+      - elasticsearch
+    links:
+      - elasticsearch

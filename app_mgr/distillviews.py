@@ -51,6 +51,7 @@ from tap.settings import DISTILL_URL as distillURL
 
 def app_results_byname(request, appName, searchType):
     completeurl = distillURL+'/search/'+appName+'/'+searchType
+    completeurl = distillURL
     print ("APP RESULTS REQUESTED")
     print (completeurl)
     results = requests.get(completeurl)
@@ -59,6 +60,7 @@ def app_results_byname(request, appName, searchType):
 
 def app_results(request, appId, searchType):
     completeurl = distillURL+'/search/'+appId+'/'+searchType
+    completeurl = distillURL
     print ("APP RESULTS REQUESTED")
     print (completeurl)
     results = requests.get(completeurl)
