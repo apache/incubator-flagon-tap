@@ -40,7 +40,7 @@ RUN sudo -E apt-get -yqq install \
   git
 
 # Clone TAP
-RUN git clone -b docker https://github.com/apache/incubator-senssoft-tap.git app
+RUN git clone -b master https://github.com/apache/incubator-senssoft-tap.git app
 WORKDIR /usr/src/app
 RUN git pull
 
@@ -62,4 +62,4 @@ EXPOSE 8000
 #RUN python manage.py migrate
 
 # Startup Application
-RUN gulp docker
+RUN gulp dev
