@@ -37,9 +37,9 @@ gulp.task('build', () => {
     'clean',
     [
       'styles:build',
-      'js'
+      'js:bulid'
     ],
-    'symlink'
+    //'symlink'
   );
 });
 
