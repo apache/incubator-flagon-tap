@@ -43,3 +43,19 @@
 [2016-11-22 16:11:27,089][INFO ][node                     ] [soft-01] started
 [2016-11-22 16:11:27,681][INFO ][gateway                  ] [soft-01] recovered [2] indices into cluster_state
 [2016-11-22 16:11:29,204][INFO ][cluster.routing.allocation] [soft-01] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[userale][0], [.kibana][0]] ...]).
+[2016-11-22 19:13:21,557][WARN ][bootstrap                ] unable to install syscall filter: seccomp unavailable: your kernel is buggy and you should upgrade
+[2016-11-22 19:13:22,314][INFO ][node                     ] [soft-01] version[2.3.5], pid[1], build[90f439f/2016-07-27T10:36:52Z]
+[2016-11-22 19:13:22,316][INFO ][node                     ] [soft-01] initializing ...
+[2016-11-22 19:13:28,392][INFO ][plugins                  ] [soft-01] modules [reindex, lang-expression, lang-groovy], plugins [hq], sites [hq]
+[2016-11-22 19:13:31,307][INFO ][env                      ] [soft-01] using [1] data paths, mounts [[/usr/share/elasticsearch/data (osxfs)]], net usable_space [859.5gb], net total_space [930.7gb], spins? [possibly], types [fuse.osxfs]
+[2016-11-22 19:13:31,308][INFO ][env                      ] [soft-01] heap size [1007.3mb], compressed ordinary object pointers [true]
+[2016-11-22 19:13:45,314][INFO ][node                     ] [soft-01] initialized
+[2016-11-22 19:13:45,317][INFO ][node                     ] [soft-01] starting ...
+[2016-11-22 19:13:45,536][INFO ][transport                ] [soft-01] publish_address {172.18.0.2:9300}, bound_addresses {[::]:9300}
+[2016-11-22 19:13:45,555][INFO ][discovery                ] [soft-01] SensSoft/zRqe54w5QwaHhUjZ1znO1w
+[2016-11-22 19:13:48,917][INFO ][cluster.service          ] [soft-01] new_master {soft-01}{zRqe54w5QwaHhUjZ1znO1w}{172.18.0.2}{172.18.0.2:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2016-11-22 19:13:49,093][INFO ][http                     ] [soft-01] publish_address {172.18.0.2:9200}, bound_addresses {[::]:9200}
+[2016-11-22 19:13:49,097][INFO ][node                     ] [soft-01] started
+[2016-11-22 19:13:49,352][INFO ][gateway                  ] [soft-01] recovered [0] indices into cluster_state
+[2016-11-22 19:13:57,884][INFO ][cluster.metadata         ] [soft-01] [.kibana] creating index, cause [api], templates [], shards [1]/[1], mappings [config]
+[2016-11-22 19:13:58,697][INFO ][cluster.routing.allocation] [soft-01] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[.kibana][0]] ...]).
