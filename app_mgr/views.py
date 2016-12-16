@@ -14,7 +14,7 @@
 # limitations under the License.
 
 from django.shortcuts import render, redirect, render_to_response
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib.auth.views import password_reset, password_reset_confirm
@@ -199,13 +199,15 @@ def register(request):
 
         if not user.email or not request.POST['password']:
             error = True
-            return render_to_response('registration/register.html', {'registrationSuccessful': registrationSuccessful, 'userExists': userExists, 'error': error}, context)
+            return JsonResponse({'registrationSuccessful': registrationSuccessful, 'userExists': userExists, 'error': error})
+            #return render_to_response('registration/register.html', {'registrationSuccessful': registrationSuccessful, 'userExists': userExists, 'error': error}, context)
 
         try:
             user.save()
         except IntegrityError:
             userExists = True
-            return render_to_response('registration/register.html', {'registrationSuccessful': registrationSuccessful, 'userExists': userExists, 'error': error}, context)
+            return JsonResponse({'registrationSuccessful': registrationSuccessful, 'userExists': userExists, 'error': error})
+            #return render_to_response('registration/register.html', {'registrationSuccessful': registrationSuccessful, 'userExists': userExists, 'error': error}, context)
 
         # Now sort out the UserProfile instance.
         # Since we need to set the user attribute ourselves, we set commit=False.
@@ -237,8 +239,9 @@ def register(request):
         # Update this if TAP wants email on registration
         #exp_portal.email.send_email(request)
 
+    return JsonResponse({'registrationSuccessful': registrationSuccessful, 'userExists': userExists, 'error': error})
     #return render_to_response('abcd.html', context)
-    return render_to_response('registration/register.html', {'registrationSuccessful': registrationSuccessful, 'userExists': userExists, 'error': error}, context)
+    #return render_to_response('registration/register.html', {'registrationSuccessful': registrationSuccessful, 'userExists': userExists, 'error': error}, context)
 
 
 def logout_user(request):
