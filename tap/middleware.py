@@ -13,7 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
 # Disabling CSRF
 # Solution found at
 #   http://stackoverflow.com/questions/30871033/django-rest-framework-remove-csrf/33778953#33778953
