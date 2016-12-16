@@ -20,7 +20,7 @@ export default class Home extends Component {
     return (
       <div id='homepage-container'>
 
-        <div id='main-masthead' className='ui masthead center aligned brown inverted vertical segment'>
+        <div id='main-masthead' className='ui masthead center aligned teal inverted vertical segment'>
           <h1 className='ui header'>Tap</h1>
           <h2 className='ui header'>Registration and Visualization Portal</h2>
         </div>

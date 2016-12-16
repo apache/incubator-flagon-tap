@@ -21,7 +21,7 @@ class AppCard extends Component {
     const { app } = this.props;
 
     return (
-      <div className='ui segment'>
+      <div className='ui segment' id='app-list'>
         <div className='ui tiny header'>
           {app.name}
         </div>

@@ -16,6 +16,8 @@
 import React, { Component, PropTypes } from 'react';
 import * as d3 from 'd3';
 
+const colors_old = ['#A7003C', '#00A76B', '#0090A7', '#003DA7', '#6B00A7'];
+const colors_new = ['#d45d35', '#DBA915', '#BFD02C', '#38A6D8', '#852EB7'];
 
 class GraphMetrics extends Component {
   constructor(props) {
@@ -52,14 +54,17 @@ class GraphMetrics extends Component {
     this.height = this.fullHeight - this.margin.top - this.margin.bottom;
     this.mainRadius = 280;
 
+    // this.color = d3.scaleOrdinal()
+    //   .range([
+    //     '#A7003C', // Red
+    //     '#00A76B', // Green
+    //     '#0090A7', // Teal
+    //     '#003DA7', // Blue
+    //     '#6B00A7'  // Purple
+    //   ]);
+
     this.color = d3.scaleOrdinal()
-      .range([
-        '#A7003C', // Red
-        '#00A76B', // Green
-        '#0090A7', // Teal
-        '#003DA7', // Blue
-        '#6B00A7'  // Purple
-      ]);
+      .range(colors_old);
 
     this.arc = d3.arc()
       // .padAngle(0.002)
@@ -133,7 +138,7 @@ class GraphMetrics extends Component {
     this.chords = this.chords.enter()
       .append('path')
       .attr('class', 'chord')
-      .style('fill', '#A76B00')
+      .style('fill', '#B0B9BE')
       .merge(this.chords);
 
     this.chords

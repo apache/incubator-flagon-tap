@@ -95,6 +95,7 @@ class Counts extends Component {
           <div id='counts-details' className='ui segment'>
             Activity Details
             <br></br>
+            <br></br>
             Name: {activity.name}
             <br></br>
             Element: {activity.ele}

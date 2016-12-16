@@ -2,6 +2,35 @@
      User Global Variables
 *******************************/
 
+@primaryColor   : @teal;
+@secondaryColor	: @grey;
+@tertiaryColor	: @white;
+
+@teal           : #283F4E;
+@white          : #EBEBEB;
+@grey           : #54595B;
+@black          : #262626;
+
+@pageBackground : @white;
+
+
+
+
+
+
+/************************************
+	SensSoft Publicity Colors
+
+@red            : #E24614;
+@yellow         : #DBA915;
+@green          : #BFD02C;
+@blue           : #38A6D8;
+@purple         : #852EB7;
+*************************************/
+
+/*************************************
+	Original TAP Global Variables
+
 @primaryColor   : @brown;
 @brown          : #A76B00;
 @red            : #A7003C;
@@ -14,3 +43,5 @@
 @grey           : #FFE7BC;
 
 @pageBackground : @white;
+*************************************/
+

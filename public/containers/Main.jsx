@@ -57,11 +57,11 @@ class Main extends Component {
     return (
       <div id='main-container'>
         <div className='site-header'>
-          <div className='ui brown inverted padded top fixed borderless menu'>
+          <div className='ui teal inverted padded top fixed borderless menu'>
             <div className='ui container'>
 
               <Link to='/'>
-                <h3 className='ui inverted header item'>Tap</h3>
+                <h2 className='ui inverted header item'>Tap</h2>
               </Link>
 
               {authHeader}
@@ -76,7 +76,7 @@ class Main extends Component {
 
         <div className='site-footer'>
           <div className='ui container'>
-            <div className='ui footer page brown inverted segment'>
+            <div className='ui footer page teal inverted segment'>
               <div className='ui center aligned container'>
                 <div className='footer-text'>Copyright Apache SensSoft 2016</div>
               </div>

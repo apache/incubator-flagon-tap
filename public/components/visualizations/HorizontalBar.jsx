@@ -17,6 +17,10 @@ import React, { Component, PropTypes } from 'react';
 
 import * as d3 from 'd3';
 
+
+const colors_old = ['#A7003C', '#00A76B', '#0090A7', '#003DA7', '#6B00A7'];
+const colors_new = ['#d45d35', '#DBA915', '#BFD02C', '#38A6D8', '#852EB7'];
+
 class HorizontalBar extends Component {
   constructor(props) {
     super(props);
@@ -48,13 +52,16 @@ class HorizontalBar extends Component {
       .domain(['ot1', 'ot2']);
 
     this.color = d3.scaleOrdinal()
-      .range([
-        '#A7003C', // Red
-        '#00A76B', // Green
-        '#0090A7', // Teal
-        '#003DA7', // Blue
-        '#6B00A7'  // Purple
-      ]);
+      .range(colors_old);
+
+    // this.color = d3.scaleOrdinal()
+    //   .range([
+    //     '#A7003C', // Red
+    //     '#00A76B', // Green
+    //     '#0090A7', // Teal
+    //     '#003DA7', // Blue
+    //     '#6B00A7'  // Purple
+    //   ]);
 
     this.xAxis = d3.axisTop(this.x);
     this.yAxis = d3.axisLeft(this.y);
@@ -170,7 +177,7 @@ class HorizontalBar extends Component {
       .attr('y', (d) => grouped ? this.y1(d.type) : 0)
       .attr('height', (d) => grouped ? this.y1.bandwidth() : this.y.bandwidth())
       .style('fill', (d) => grouped ? this.color(d.type) : this.color(d.id))
-      .style('stroke', (d) => d.selected ? '#A76B00' : '')
+      .style('stroke', (d) => d.selected ? '#283F4E' : '')
       .style('stroke-width', (d) => d.selected ? '3px' : '0px');
 
 

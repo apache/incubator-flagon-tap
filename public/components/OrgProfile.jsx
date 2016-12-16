@@ -29,7 +29,7 @@ class OrgProfile extends Component {
             {name}
           </div>
           <Link to={`/org/${id}/settings`}>
-            <div className='ui brown button'>
+            <div className='ui teal button'>
               Settings
             </div>
           </Link>

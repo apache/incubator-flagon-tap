@@ -13,9 +13,29 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-$brown: #A76B00;
+/*$brown: #A76B00;
 $black: #271900;
 $background: #FFF5E3;
+*/
+
+/*
+$red            : #E24614;
+$yellow         : #DBA915;
+$green          : #BFD02C;
+$blue           : #38A6D8;
+$purple         : #852EB7;*/
+
+$teal           : #283F4E;
+$white          : #F9F9F9;
+$lightgrey      : #EBEBEB;
+$grey           : #54595B;
+$black          : #262626;
+
+$primaryColor   : $teal;
+$secondaryColor : $grey;
+$tertiaryColor  : $white;
+
+$background : $white;
 
 #react-container {
   display: flex;
@@ -30,14 +50,14 @@ $background: #FFF5E3;
 
 .site-footer {
   width: 100%;
-  background-color: $brown;
+  background-color: $primaryColor;
   height: 50px;
   margin-top: 20px;
 }
 
 .site-header {
   width: 100%;
-  background-color: $brown;
+  background-color: $primaryColor;
   height: 50px;
 }
 
@@ -66,9 +86,17 @@ $background: #FFF5E3;
   min-height: 24px;
   padding: 4px;
   pointer-events: none;
-  background-color: #A76B00;
+  background-color: $lightgrey;
+  border-style: solid;
+  border-width: 1px;
+  border-color: $grey;
 }
 
 #counts-details {
   word-wrap: break-word;
+  background-color: $background;
+}
+
+#app-list {
+  background-color: $background;
 }

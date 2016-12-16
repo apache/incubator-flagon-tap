@@ -29,12 +29,12 @@ class AppProfile extends Component {
             {name}
           </div>
           <Link to={`/app/${id}/settings`}>
-            <div className='ui brown button'>
+            <div className='ui teal button'>
               Settings
             </div>
           </Link>
           <Link to={`/app/${id}/results`}>
-            <div className='ui brown button'>
+            <div className='ui teal button'>
               Results
             </div>
           </Link>

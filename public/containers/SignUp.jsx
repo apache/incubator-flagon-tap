@@ -41,11 +41,11 @@ class Signup extends Component {
           <div className='field'>
             <input type='password' name='password' placeholder="Password" />
           </div>
-          <button className='ui brown button' onClick={this.handleSignup}>
+          <button className='ui teal button' onClick={this.handleSignup}>
             Sign Up
           </button>
           <Link to='/login'>
-            <button className='ui right floated brown button'>
+            <button className='ui right floated teal button'>
               Log In
             </button>
           </Link>
