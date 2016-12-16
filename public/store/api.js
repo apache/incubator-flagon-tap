@@ -21,7 +21,7 @@ const API_ROOT = '';
 export const CALL_API = Symbol('CALL_API');
 
 function callApi(apiOpts) {
-  const url = API_ROOT + apiOpts.endpoint;
+  const url = API_ROOT + apiOpts.endpoint + '/';
   const method = apiOpts.method || 'GET';
 
   const headers = {};
