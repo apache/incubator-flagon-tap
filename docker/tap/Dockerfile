@@ -40,7 +40,7 @@ RUN sudo -E apt-get -yqq install \
   git
 
 # Clone TAP
-RUN git clone -b refactor https://github.com/apache/incubator-senssoft-tap.git app
+RUN git clone -b master https://github.com/apache/incubator-senssoft-tap.git app
 WORKDIR /usr/src/app
 RUN git pull
 
