@@ -30,7 +30,7 @@ gulp.task('lint', () =>
 // Test JS
 gulp.task('mocha', () =>
   gulp.src(['test/**/*.js'], { read : false })
-    .pipe(plugins.mocha({ reporter : list }))
+    .pipe(plugins.mocha({ reporter : 'list' }))
     .on('error', plugins.util.log)
 );
 
