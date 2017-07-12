@@ -25,8 +25,7 @@ services:
   tap:
     container_name: tap-web
     build: .
-    command: bash -c "/usr/src/wait-for-postgres.sh"
-    # command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    command: bash -c "/usr/src/app/wait-for-postgres.sh"
     ports:
       - "8000:8000"
     depends_on:
