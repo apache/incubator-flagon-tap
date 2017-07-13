@@ -32,26 +32,31 @@ RUN sudo -E apt-get -yqq install \
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-# Install app dependencies
-COPY package.json /usr/src/app
-COPY requirements.txt /usr/src/app
-COPY semantic.json /usr/src/app
-COPY semantic /usr/src/app
+# Bundle app source
+COPY . /usr/src/app
 
 # Install gulp
+RUN npm install -g bower gulp
+
+# Install packages
 RUN npm install
-RUN npm install -g gulp bower
 
 # Install TAP requirements
 RUN pip install -r requirements.txt
 
+# Add application files
+ADD secrets/secret.py /usr/src/app/tap/settings
+ADD secrets/neon_counts.js /usr/src/app/public
+ADD secrets/neon_graph.js /usr/src/app/public
+
 # Bundle app source
 COPY . /usr/src/app
 
-# Startup Application
-#RUN gulp build
-
+# Run startup script
 RUN chmod +x /usr/src/app/wait-for-postgres.sh
+
+# Startup Application
+RUN gulp build
 
 # Export port
 EXPOSE 8000
