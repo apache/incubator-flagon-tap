@@ -17,6 +17,7 @@ import React, { Component, PropTypes } from 'react';
 
 import Counts from './visualizations/Counts';
 import GraphMetrics from './visualizations/GraphMetrics';
+import SankeyPlot from './visualizations/SankeyPlot';
 
 class AppResults extends Component {
   constructor(props) {
@@ -264,6 +265,56 @@ class AppResults extends Component {
                   </div>
                 </div>
               </div>
+
+              <div className='item'>
+                <a id='sankey' className='main-controls title'>
+                  <i className='dropdown icon'></i>
+                  SankeyPlot
+                </a>
+                <div className='content'>
+                  <div className='ui form'>
+                    <div className='grouped fields'>
+                      <div className='field'>
+                        <div className='ui radio checkbox'>
+                          <input type='radio' name='metric' value='sankey1' defaultChecked></input>
+                          <label>Filter 1</label>
+                        </div>
+                      </div>
+                      <div className='field'>
+                        <div className='ui radio checkbox'>
+                          <input type='radio' name='metric' value='sankey2'></input>
+                          <label>Filter 2</label>
+                        </div>
+                      </div>
+                      <div className='field'>
+                        <div className='ui radio checkbox'>
+                          <input type='radio' name='metric' value='sankey3'></input>
+                          <label>Filter 3</label>
+                        </div>
+                      </div>
+                      <div className='field'>
+                        <div className='ui radio checkbox'>
+                          <input type='radio' name='metric' value='sankey4'></input>
+                          <label>Filter 4</label>
+                        </div>
+                      </div>
+                      <div className='field'>
+                        <div className='ui radio checkbox'>
+                          <input type='radio' name='metric' value='sankey5'></input>
+                          <label>Filter 5</label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className='field'>
+                      <div id='sankey-ab-toggle' className='ui toggle checkbox'>
+                        <input type='checkbox' name='sankey-a-b'></input>
+                        <label>A/B</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -285,8 +336,21 @@ class AppResults extends Component {
                       </div>
                     );
                   case 'counts':
-                  default:
                     return <Counts filters={this.state} data={results.counts} />;
+                  case 'sankey':
+                  default:
+                    return (
+                      <div>
+                        <SankeyPlot metric={this.state.metric} element='sankey-plot-viz' data={results.graph} />
+                        {this.state.graphAb ?
+                          <SankeyPlot
+                            metric='betweenness_cent_dir_weighted'
+                            element='sankey-plot-viz-b'
+                            data={results.graph}
+                          /> : null
+                        }
+                      </div>
+                    );
                 }
               })()}
 

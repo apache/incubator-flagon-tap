@@ -14,7 +14,6 @@
 // limitations under the License.
 
 import React, { Component, PropTypes } from 'react';
-
 import * as d3 from 'd3';
 
 const colors_old = ['#A7003C', '#00A76B', '#0090A7', '#003DA7', '#6B00A7'];

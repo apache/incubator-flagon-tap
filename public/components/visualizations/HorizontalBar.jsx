@@ -14,7 +14,6 @@
 // limitations under the License.
 
 import React, { Component, PropTypes } from 'react';
-
 import * as d3 from 'd3';
 
 
