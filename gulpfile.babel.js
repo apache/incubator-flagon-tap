@@ -53,8 +53,8 @@ gulp.task('dev', () => {
       'styles:build'
     ],
     [
-      // 'django',
-      // 'test',
+      //'django',
+      //'test',
       'styles',
       'js'
     ]
