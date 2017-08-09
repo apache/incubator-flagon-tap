@@ -17,8 +17,6 @@ uploads/migrations/*
 secret.py
 static/results/*
 
-secrets/*
-
 /semantic/dist/*
 npm-debug.log
 .tmp
