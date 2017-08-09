@@ -94,7 +94,7 @@ class AppResults extends Component {
 
 
     // get graph data from distill
-    var url = 'http://distill:8090/sankey/userale?from=now-15m&to=now&size=20';
+    var url = 'http://localhost:8090/sankey/userale?from=now-15m&to=now&size=20';
     //var url = 'http://localhost:8090';       
     axios.get(url)
       .then( (response) => {
