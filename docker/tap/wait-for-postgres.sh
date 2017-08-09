@@ -20,7 +20,7 @@ sleep $delay
 n=0
 until [ $n -ge 3 ]
 do
-  python manage.py migrate && python manage.py runserver 0.0.0.0:8000 && break
+  python manage.py migrate && python manage.py runserver 0.0.0.0:8010 && break
   echo "Retrying connection in $delay seconds..."
   n=$[$n+1]
   sleep 2

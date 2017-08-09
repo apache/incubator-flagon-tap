@@ -27,7 +27,7 @@ services:
     build: .
     command: bash -c "/usr/src/app/wait-for-postgres.sh"
     ports:
-      - "8000:8000"
+      - "8010:8010"
     depends_on:
       - db
     links:

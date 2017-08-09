@@ -59,4 +59,4 @@ RUN chmod +x /usr/src/app/wait-for-postgres.sh
 RUN gulp build
 
 # Export port
-EXPOSE 8000
+EXPOSE 8010
