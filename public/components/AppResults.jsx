@@ -14,10 +14,13 @@
 // limitations under the License.
 
 import React, { Component, PropTypes } from 'react';
+import Iframe from 'react-iframe';
+import axios from 'axios';
 
 import Counts from './visualizations/Counts';
 import GraphMetrics from './visualizations/GraphMetrics';
 import SankeyPlot from './visualizations/SankeyPlot';
+//import sankeyhtml from './visualizations/sankeyhtml';
 
 class AppResults extends Component {
   constructor(props) {
@@ -84,18 +87,56 @@ class AppResults extends Component {
   }
 
   render() {
+    console.log("is an app defined here?");
+    console.log(this.props.app);
+
     const { name, results } = this.props.app;
 
+
+    // get graph data from distill
+    var url = 'http://distill:8090/sankey/userale?from=now-15m&to=now&size=20';
+    var url = 'http://localhost:8090';       
+    axios.get(url)
+      .then( (response) => {
+        console.log("response", response);
+        var sankeyhtml = response.data;
+        // this.setState({
+        //   fetchUser: response.data
+        // });
+        //console.log("fetchUser", this.state.fetchUser);
+      })
+      .catch( (error) => {
+        console.log(error);
+      }); 
+    var sankeyhtml = "";
+
+    // var url = 'http://distill:8090/sankey/userale?from=now-15m&to=now&size=20';
+    // var url = 'http://localhost:8090';
+    // console.log('clicked');
+    // $.get( url, function(data) {
+    //      //As soon as the browser finished downloading, this function is called.
+    //      console.log('url was: ' + url);
+    //      console.log('data: ' + data);
+    //      //$('#demo').html();
+    //      });
+
+
+
+
     return(
+
       <div className='ui container'>
         <div className='ui large header'>
-          Log Analysis for {name}
+          Log Analysis for Demo
+          {//name
+          }
         </div>
 
         <div className='ui padded grid'>
 
-          <div className='four wide column'>
+          <div className='three wide column'>
             <div id='results-controls' className='ui vertical fluid accordion menu'>
+
               <div className='item'>
                 <a id='counts' className='active main-controls title'>
                   <i className='dropdown icon'></i>
@@ -215,7 +256,7 @@ class AppResults extends Component {
           </div>
           
 
-          <div className='twelve wide column'>
+          <div className='thirteen wide column'>
             <div className='ui basic row segment'>
               {(() => {
                 switch (this.state.result) {
@@ -232,32 +273,41 @@ class AppResults extends Component {
                         }
                       </div>
                     );
-                  case 'counts':
-                    return <Counts filters={this.state} data={results.counts} />;
                   case 'sankey':
-                  default:
                     return (
                       <div>
-                        <SankeyPlot metric={this.state.metric} element='sankey-plot-viz' data={results.graph} />
-                        {this.state.graphAb ?
-                          <SankeyPlot
-                            metric='betweenness_cent_dir_weighted'
-                            element='sankey-plot-viz-b'
-                            data={results.graph}
-                          /> : null
-                        }
+                          <iframe srcDoc={sankeyhtml} height="300px" width="700px" style={{border: '0px'}}/>
                       </div>
                     );
+                  case 'counts':
+                  default:  
+                    return <Counts filters={this.state} data={results.counts} />;
+                  // case 'countsandbowie':
+                  //   return (
+                  //     <div>
+                  //       <CountsAndBowie metric={this.state.metric} element='graph-metrics-viz' data={results.graph} />
+                  //       {this.state.graphAb ?
+                  //         <CountsAndBowie
+                  //           metric='betweenness_cent_dir_weighted'
+                  //           element='graph-metrics-viz-b'
+                  //           data={results.graph}
+                  //         /> : null
+                  //       }
+                  //     </div>
+                  //   );
                 }
               })()}
-
             </div>
           </div>
         </div>
       </div>
-    );
+        
+        );
   }
-}
+};
+
+
+
 
 AppResults.propTypes = {
   app : PropTypes.object,

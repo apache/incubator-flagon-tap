@@ -35,7 +35,7 @@ class HorizontalBar extends Component {
       left : 40,
     };
     this.fullWidth = 300;
-    this.fullHeight = 600;
+    this.fullHeight = 500;
     this.width = this.fullWidth - this.margin.left - this.margin.right;
     this.height = this.fullHeight - this.margin.top - this.margin.bottom;
 

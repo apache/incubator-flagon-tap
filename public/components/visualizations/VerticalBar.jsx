@@ -33,7 +33,7 @@ class VerticalBar extends Component {
       bottom : 30,
       left : 40,
     };
-    this.fullWidth = 600;
+    this.fullWidth = 500;
     this.fullHeight = 400;
     this.width = this.fullWidth - this.margin.left - this.margin.right;
     this.height = this.fullHeight - this.margin.top - this.margin.bottom;

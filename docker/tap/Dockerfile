@@ -60,4 +60,4 @@ ADD neon_graph.js /usr/src/app/public
 RUN gulp build
 
 # Export port
-EXPOSE 8000
+EXPOSE 8010

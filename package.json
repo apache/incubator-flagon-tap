@@ -36,7 +36,9 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.5.2",
     "redux": "^3.5.2",
-    "semantic-ui": "^2.2.6"
+    "semantic-ui": "^2.2.6",
+    "react-iframe": "1.0.7",
+    "axios": "0.16.2"
   },
   "devDependencies": {
     "babel-core": "^6.10.4",
