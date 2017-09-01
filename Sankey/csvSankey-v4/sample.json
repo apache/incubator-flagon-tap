@@ -1,0 +1,81 @@
+{
+    "nodes": [
+        {
+            "name": "#document"
+        },
+        {
+            "name": "a"
+        },
+        {
+            "name": "a.btn"
+        },
+        {
+            "name": "a.collapsed dropdown-toggle primary"
+        },
+        {
+            "name": "a.dropdown-toggle navbar-text"
+        },
+        {
+            "name": "a.dropdown-toggle primary ng-binding"
+        },
+        {
+            "name": "a.modebar-btn"
+        },
+        {
+            "name": "a.modebar-btn active"
+        },
+        {
+            "name": "a.navbar-text neon-popup-button pull-right"
+        },
+        {
+            "name": "a.ng-binding"
+        }
+    ],
+    "links": [
+        {
+            "value": 1,
+            "target": 5,
+            "source": 4,
+            "duration": 0,
+            "typeChange": true,
+            "type": "blur",
+            "targetChange": true
+        },
+        {
+            "value": 1,
+            "target": 5,
+            "source": 3,
+            "duration": 305,
+            "typeChange": false,
+            "type": "mouseover",
+            "targetChange": true
+        },
+        {
+            "value": 1,
+            "target": 5,
+            "source": 1,
+            "duration": 456,
+            "typeChange": true,
+            "type": "mouseover",
+            "targetChange": true
+        },
+        {
+            "value": 1,
+            "target": 1,
+            "source": 3,
+            "duration": -762069,
+            "typeChange": true,
+            "type": "mouseover",
+            "targetChange": false
+        },
+        {
+            "value": 1,
+            "target": 0,
+            "source": 3,
+            "duration": 74,
+            "typeChange": false,
+            "type": "mouseover",
+            "targetChange": true
+        }
+    ]
+}

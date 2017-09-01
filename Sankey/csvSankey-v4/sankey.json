@@ -1,0 +1,295 @@
+{
+    "nodes": [
+        {
+            "name": "Window"
+        },
+        {
+            "name": "html"
+        },
+        {
+            "name": "html"
+        },
+        {
+            "name": "#document"
+        },
+        {
+            "name": "#document"
+        },
+        {
+            "name": "body.ng-scope"
+        },
+        {
+            "name": "Window"
+        },
+        {
+            "name": "html"
+        },
+        {
+            "name": "div.expand-trigger"
+        },
+        {
+            "name": "Window"
+        },
+        {
+            "name": "html"
+        },
+        {
+            "name": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded"
+        },
+        {
+            "name": "div#neon-dashboard.container"
+        },
+        {
+            "name": "Window"
+        },
+        {
+            "name": "a#dataset-dropdown-link.dropdown-toggle primary ng-binding"
+        },
+        {
+            "name": "html"
+        },
+        {
+            "name": "span#add-visualization-plus-sign.glyphicon glyphicon-plus-sign"
+        },
+        {
+            "name": "a#add-visualization-link.collapsed dropdown-toggle primary"
+        },
+        {
+            "name": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded"
+        },
+        {
+            "name": "html"
+        },
+        {
+            "name": "Window"
+        },
+        {
+            "name": "html"
+        },
+        {
+            "name": "div#start-message.popover-content"
+        },
+        {
+            "name": "p#start-message-text"
+        },
+        {
+            "name": "a#dataset-dropdown-link.dropdown-toggle primary ng-binding"
+        },
+        {
+            "name": "div#navbar-container.container"
+        },
+        {
+            "name": "a#help-dropdown-link.dropdown-toggle navbar-text"
+        }
+    ],
+    "links": [
+        {
+            "sequenceID": "Window->html",
+            "target": 1,
+            "sourceName": "Window",
+            "value": 1,
+            "source": 0,
+            "targetName": "html"
+        },
+        {
+            "sequenceID": "html->#document",
+            "target": 3,
+            "sourceName": "html",
+            "value": 1,
+            "source": 2,
+            "targetName": "#document"
+        },
+        {
+            "sequenceID": "#document->html",
+            "target": 1,
+            "sourceName": "#document",
+            "value": 1,
+            "source": 4,
+            "targetName": "html"
+        },
+        {
+            "sequenceID": "#document->body.ng-scope",
+            "target": 5,
+            "sourceName": "#document",
+            "value": 1,
+            "source": 3,
+            "targetName": "body.ng-scope"
+        },
+        {
+            "sequenceID": "html->Window",
+            "target": 6,
+            "sourceName": "html",
+            "value": 2,
+            "source": 1,
+            "targetName": "Window"
+        },
+        {
+            "sequenceID": "Window->html",
+            "target": 7,
+            "sourceName": "Window",
+            "value": 1,
+            "source": 6,
+            "targetName": "html"
+        },
+        {
+            "sequenceID": "body.ng-scope->html",
+            "target": 7,
+            "sourceName": "body.ng-scope",
+            "value": 1,
+            "source": 5,
+            "targetName": "html"
+        },
+        {
+            "sequenceID": "html->div.expand-trigger",
+            "target": 8,
+            "sourceName": "html",
+            "value": 1,
+            "source": 7,
+            "targetName": "div.expand-trigger"
+        },
+        {
+            "sequenceID": "html->Window",
+            "target": 9,
+            "sourceName": "html",
+            "value": 1,
+            "source": 7,
+            "targetName": "Window"
+        },
+        {
+            "sequenceID": "Window->html",
+            "target": 10,
+            "sourceName": "Window",
+            "value": 1,
+            "source": 9,
+            "targetName": "html"
+        },
+        {
+            "sequenceID": "div.expand-trigger->div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+            "target": 11,
+            "sourceName": "div.expand-trigger",
+            "value": 1,
+            "source": 8,
+            "targetName": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded"
+        },
+        {
+            "sequenceID": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded->div#neon-dashboard.container",
+            "target": 12,
+            "sourceName": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+            "value": 1,
+            "source": 11,
+            "targetName": "div#neon-dashboard.container"
+        },
+        {
+            "sequenceID": "html->Window",
+            "target": 13,
+            "sourceName": "html",
+            "value": 1,
+            "source": 10,
+            "targetName": "Window"
+        },
+        {
+            "sequenceID": "div#neon-dashboard.container->a#dataset-dropdown-link.dropdown-toggle primary ng-binding",
+            "target": 14,
+            "sourceName": "div#neon-dashboard.container",
+            "value": 1,
+            "source": 12,
+            "targetName": "a#dataset-dropdown-link.dropdown-toggle primary ng-binding"
+        },
+        {
+            "sequenceID": "Window->html",
+            "target": 15,
+            "sourceName": "Window",
+            "value": 1,
+            "source": 13,
+            "targetName": "html"
+        },
+        {
+            "sequenceID": "a#dataset-dropdown-link.dropdown-toggle primary ng-binding->span#add-visualization-plus-sign.glyphicon glyphicon-plus-sign",
+            "target": 16,
+            "sourceName": "a#dataset-dropdown-link.dropdown-toggle primary ng-binding",
+            "value": 1,
+            "source": 14,
+            "targetName": "span#add-visualization-plus-sign.glyphicon glyphicon-plus-sign"
+        },
+        {
+            "sequenceID": "span#add-visualization-plus-sign.glyphicon glyphicon-plus-sign->a#add-visualization-link.collapsed dropdown-toggle primary",
+            "target": 17,
+            "sourceName": "span#add-visualization-plus-sign.glyphicon glyphicon-plus-sign",
+            "value": 1,
+            "source": 16,
+            "targetName": "a#add-visualization-link.collapsed dropdown-toggle primary"
+        },
+        {
+            "sequenceID": "a#add-visualization-link.collapsed dropdown-toggle primary->div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+            "target": 18,
+            "sourceName": "a#add-visualization-link.collapsed dropdown-toggle primary",
+            "value": 1,
+            "source": 17,
+            "targetName": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded"
+        },
+        {
+            "sequenceID": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded->html",
+            "target": 19,
+            "sourceName": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+            "value": 1,
+            "source": 18,
+            "targetName": "html"
+        },
+        {
+            "sequenceID": "html->Window",
+            "target": 20,
+            "sourceName": "html",
+            "value": 1,
+            "source": 19,
+            "targetName": "Window"
+        },
+        {
+            "sequenceID": "Window->html",
+            "target": 21,
+            "sourceName": "Window",
+            "value": 1,
+            "source": 20,
+            "targetName": "html"
+        },
+        {
+            "sequenceID": "html->div#start-message.popover-content",
+            "target": 22,
+            "sourceName": "html",
+            "value": 1,
+            "source": 21,
+            "targetName": "div#start-message.popover-content"
+        },
+        {
+            "sequenceID": "div#start-message.popover-content->p#start-message-text",
+            "target": 23,
+            "sourceName": "div#start-message.popover-content",
+            "value": 1,
+            "source": 22,
+            "targetName": "p#start-message-text"
+        },
+        {
+            "sequenceID": "p#start-message-text->a#dataset-dropdown-link.dropdown-toggle primary ng-binding",
+            "target": 24,
+            "sourceName": "p#start-message-text",
+            "value": 1,
+            "source": 23,
+            "targetName": "a#dataset-dropdown-link.dropdown-toggle primary ng-binding"
+        },
+        {
+            "sequenceID": "a#dataset-dropdown-link.dropdown-toggle primary ng-binding->div#navbar-container.container",
+            "target": 25,
+            "sourceName": "a#dataset-dropdown-link.dropdown-toggle primary ng-binding",
+            "value": 1,
+            "source": 24,
+            "targetName": "div#navbar-container.container"
+        },
+        {
+            "sequenceID": "div#navbar-container.container->a#help-dropdown-link.dropdown-toggle navbar-text",
+            "target": 26,
+            "sourceName": "div#navbar-container.container",
+            "value": 1,
+            "source": 25,
+            "targetName": "a#help-dropdown-link.dropdown-toggle navbar-text"
+        }
+    ]
+}

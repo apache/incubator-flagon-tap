@@ -1,0 +1,3111 @@
+{
+    "sankey": {
+        "nodes": [{
+                "name": "div.expand-trigger",
+                "id": 0
+            },
+            {
+                "name": "#document",
+                "id": 1
+            },
+            {
+                "name": "Window",
+                "id": 2
+            },
+            {
+                "name": "html",
+                "id": 3
+            },
+            {
+                "name": "div.expand-trigger",
+                "id": 4
+            },
+            {
+                "name": "Window",
+                "id": 5
+            },
+            {
+                "name": "html",
+                "id": 6
+            },
+            {
+                "name": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "id": 7
+            },
+            {
+                "name": "Window",
+                "id": 8
+            },
+            {
+                "name": "html",
+                "id": 9
+            },
+            {
+                "name": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "id": 10
+            },
+            {
+                "name": "body.ng-scope",
+                "id": 11
+            },
+            {
+                "name": "html",
+                "id": 12
+            },
+            {
+                "name": "div.expand-trigger",
+                "id": 13
+            },
+            {
+                "name": "body.ng-scope",
+                "id": 14
+            },
+            {
+                "name": "div.expand-trigger",
+                "id": 15
+            },
+            {
+                "name": "Window",
+                "id": 16
+            },
+            {
+                "name": "Window",
+                "id": 17
+            },
+            {
+                "name": "html",
+                "id": 18
+            },
+            {
+                "name": "div#start-message.popover-content",
+                "id": 19
+            },
+            {
+                "name": "html",
+                "id": 20
+            },
+            {
+                "name": "div#start-message.popover-content",
+                "id": 21
+            },
+            {
+                "name": "h3#start-here-message.popover-title",
+                "id": 22
+            },
+            {
+                "name": "div#start-message.popover-content",
+                "id": 23
+            },
+            {
+                "name": "h3#start-here-message.popover-title",
+                "id": 24
+            },
+            {
+                "name": "div#start-message.popover-content",
+                "id": 25
+            },
+            {
+                "name": "p#start-message-text",
+                "id": 26
+            },
+            {
+                "name": "div#start-message.popover-content",
+                "id": 27
+            },
+            {
+                "name": "p#start-message-text",
+                "id": 28
+            },
+            {
+                "name": "div#start-message.popover-content",
+                "id": 29
+            },
+            {
+                "name": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "id": 30
+            },
+            {
+                "name": "h3#start-here-message.popover-title",
+                "id": 31
+            },
+            {
+                "name": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "id": 32
+            },
+            {
+                "name": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "id": 33
+            },
+            {
+                "name": "h3#start-here-message.popover-title",
+                "id": 34
+            },
+            {
+                "name": "div#neon-dashboard.container",
+                "id": 35
+            },
+            {
+                "name": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "id": 36
+            },
+            {
+                "name": "div#neon-dashboard.container",
+                "id": 37
+            },
+            {
+                "name": "li.dropdown",
+                "id": 38
+            },
+            {
+                "name": "a#dataset-dropdown-link.dropdown-toggle primary ng-binding",
+                "id": 39
+            },
+            {
+                "name": "li.dropdown",
+                "id": 40
+            },
+            {
+                "name": "ul.dropdown-menu",
+                "id": 41
+            },
+            {
+                "name": "a#dataset-dropdown-link.dropdown-toggle primary ng-binding",
+                "id": 42
+            },
+            {
+                "name": "ul.dropdown-menu",
+                "id": 43
+            },
+            {
+                "name": "a#select-preset-database.ng-binding",
+                "id": 44
+            },
+            {
+                "name": "a#dataset-dropdown-link.dropdown-toggle primary ng-binding",
+                "id": 45
+            },
+            {
+                "name": "a#select-preset-database.ng-binding",
+                "id": 46
+            },
+            {
+                "name": "a#dataset-dropdown-link.dropdown-toggle primary ng-binding",
+                "id": 47
+            },
+            {
+                "name": "a#select-preset-database.ng-binding",
+                "id": 48
+            },
+            {
+                "name": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "id": 49
+            },
+            {
+                "name": "a#select-preset-database.ng-binding",
+                "id": 50
+            },
+            {
+                "name": "div.contract-trigger",
+                "id": 51
+            },
+            {
+                "name": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "id": 52
+            },
+            {
+                "name": "div#timeline-selector.timeline-selector-chart",
+                "id": 53
+            },
+            {
+                "name": "div.contract-trigger",
+                "id": 54
+            },
+            {
+                "name": "div#timeline-selector.timeline-selector-chart",
+                "id": 55
+            },
+            {
+                "name": "div.visualization timelineDirective",
+                "id": 56
+            },
+            {
+                "name": "div.contract-trigger",
+                "id": 57
+            },
+            {
+                "name": "div.visualization timelineDirective",
+                "id": 58
+            },
+            {
+                "name": "div.contract-trigger",
+                "id": 59
+            },
+            {
+                "name": "rect.[object SVGAnimatedString]",
+                "id": 60
+            },
+            {
+                "name": "span#move-to-bottom-icon2.glyphicon glyphicon-chevron-down",
+                "id": 61
+            },
+            {
+                "name": "rect.[object SVGAnimatedString]",
+                "id": 62
+            },
+            {
+                "name": "span#move-to-bottom-icon2.glyphicon glyphicon-chevron-down",
+                "id": 63
+            },
+            {
+                "name": "rect.[object SVGAnimatedString]",
+                "id": 64
+            },
+            {
+                "name": "Window",
+                "id": 65
+            },
+            {
+                "name": "rect.[object SVGAnimatedString]",
+                "id": 66
+            },
+            {
+                "name": "Window",
+                "id": 67
+            },
+            {
+                "name": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "id": 68
+            },
+            {
+                "name": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "id": 69
+            },
+            {
+                "name": "rect.[object SVGAnimatedString]",
+                "id": 70
+            },
+            {
+                "name": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "id": 71
+            },
+            {
+                "name": "rect.[object SVGAnimatedString]",
+                "id": 72
+            },
+            {
+                "name": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "id": 73
+            },
+            {
+                "name": "svg#OpenLayers_Layer_Vector_RootContainer_49_svgRoot.[object SVGAnimatedString]",
+                "id": 74
+            },
+            {
+                "name": "rect.[object SVGAnimatedString]",
+                "id": 75
+            },
+            {
+                "name": "svg#OpenLayers_Layer_Vector_RootContainer_49_svgRoot.[object SVGAnimatedString]",
+                "id": 76
+            },
+            {
+                "name": "div#visualization-header.text-container headers-container",
+                "id": 77
+            },
+            {
+                "name": "rect.[object SVGAnimatedString]",
+                "id": 78
+            },
+            {
+                "name": "div#visualization-header.text-container headers-container",
+                "id": 79
+            },
+            {
+                "name": "div#widget-title-container.text-container options-container",
+                "id": 80
+            },
+            {
+                "name": "div#widget-title-container.text-container options-container",
+                "id": 81
+            },
+            {
+                "name": "a#add-visualization-link.collapsed dropdown-toggle primary",
+                "id": 82
+            },
+            {
+                "name": "li.dropdown",
+                "id": 83
+            },
+            {
+                "name": "a#add-visualization-link.collapsed dropdown-toggle primary",
+                "id": 84
+            },
+            {
+                "name": "a#dataset-dropdown-link.dropdown-toggle primary ng-binding",
+                "id": 85
+            },
+            {
+                "name": "li.dropdown",
+                "id": 86
+            },
+            {
+                "name": "div.visualization-drag-handle",
+                "id": 87
+            },
+            {
+                "name": "a#dataset-dropdown-link.dropdown-toggle primary ng-binding",
+                "id": 88
+            },
+            {
+                "name": "div.visualization-drag-handle",
+                "id": 89
+            },
+            {
+                "name": "div#widget-title-text.header text pull-left ng-binding",
+                "id": 90
+            },
+            {
+                "name": "span.ng-binding",
+                "id": 91
+            },
+            {
+                "name": "div#widget-title-text.header text pull-left ng-binding",
+                "id": 92
+            },
+            {
+                "name": "span.ng-binding",
+                "id": 93
+            },
+            {
+                "name": "svg.[object SVGAnimatedString]",
+                "id": 94
+            },
+            {
+                "name": "rect.[object SVGAnimatedString]",
+                "id": 95
+            },
+            {
+                "name": "svg.[object SVGAnimatedString]",
+                "id": 96
+            },
+            {
+                "name": "div.ng-scope superclass ng-isolate-scope",
+                "id": 97
+            },
+            {
+                "name": "rect.[object SVGAnimatedString]",
+                "id": 98
+            },
+            {
+                "name": "div.visualization lineChartDirective",
+                "id": 99
+            },
+            {
+                "name": "div.ng-scope superclass ng-isolate-scope",
+                "id": 100
+            },
+            {
+                "name": "div.visualization lineChartDirective",
+                "id": 101
+            },
+            {
+                "name": "div#visualization-header.text-container headers-container",
+                "id": 102
+            },
+            {
+                "name": "div#visualization-header.text-container headers-container",
+                "id": 103
+            },
+            {
+                "name": "rect.[object SVGAnimatedString]",
+                "id": 104
+            },
+            {
+                "name": "Window",
+                "id": 105
+            },
+            {
+                "name": "rect.[object SVGAnimatedString]",
+                "id": 106
+            },
+            {
+                "name": "Window",
+                "id": 107
+            },
+            {
+                "name": "div.ng-scope superclass ng-isolate-scope",
+                "id": 108
+            },
+            {
+                "name": "div.ng-scope superclass ng-isolate-scope",
+                "id": 109
+            },
+            {
+                "name": "svg#OpenLayers_Layer_Vector_RootContainer_49_svgRoot.[object SVGAnimatedString]",
+                "id": 110
+            },
+            {
+                "name": "ul",
+                "id": 111
+            },
+            {
+                "name": "svg#OpenLayers_Layer_Vector_RootContainer_49_svgRoot.[object SVGAnimatedString]",
+                "id": 112
+            },
+            {
+                "name": "div.expand-trigger",
+                "id": 113
+            },
+            {
+                "name": "ul",
+                "id": 114
+            },
+            {
+                "name": "div.expand-trigger",
+                "id": 115
+            },
+            {
+                "name": "div#widget-title-container.text-container options-container",
+                "id": 116
+            },
+            {
+                "name": "div#widget-title-container.text-container options-container",
+                "id": 117
+            },
+            {
+                "name": "span#options-icon.icon-Options_34x34 neon-sprite",
+                "id": 118
+            },
+            {
+                "name": "span#options-icon.icon-Options_34x34 neon-sprite",
+                "id": 119
+            },
+            {
+                "name": "div#open-options-dropdown.dropdown pull-right",
+                "id": 120
+            },
+            {
+                "name": "div.expand-trigger",
+                "id": 121
+            },
+            {
+                "name": "div#open-options-dropdown.dropdown pull-right",
+                "id": 122
+            },
+            {
+                "name": "div.expand-trigger",
+                "id": 123
+            },
+            {
+                "name": "div#filter-dropdown-list.dropdown filter-tray-filters",
+                "id": 124
+            },
+            {
+                "name": "a#filter-dropdown-list-link.dropdown-toggle navbar-text",
+                "id": 125
+            },
+            {
+                "name": "div#filter-dropdown-list.dropdown filter-tray-filters",
+                "id": 126
+            },
+            {
+                "name": "a#filter-dropdown-list-link.dropdown-toggle navbar-text",
+                "id": 127
+            },
+            {
+                "name": "span#filter-dropdown-text.ng-binding",
+                "id": 128
+            },
+            {
+                "name": "a#filter-dropdown-list-link.dropdown-toggle navbar-text",
+                "id": 129
+            },
+            {
+                "name": "span#filter-dropdown-text.ng-binding",
+                "id": 130
+            },
+            {
+                "name": "a#filter-dropdown-list-link.dropdown-toggle navbar-text",
+                "id": 131
+            },
+            {
+                "name": "span.caret",
+                "id": 132
+            },
+            {
+                "name": "a#filter-dropdown-list-link.dropdown-toggle navbar-text",
+                "id": 133
+            },
+            {
+                "name": "span.caret",
+                "id": 134
+            },
+            {
+                "name": "a#filter-dropdown-list-link.dropdown-toggle navbar-text",
+                "id": 135
+            },
+            {
+                "name": "div#filter-dropdown-list.dropdown filter-tray-filters",
+                "id": 136
+            },
+            {
+                "name": "a#filter-dropdown-list-link.dropdown-toggle navbar-text",
+                "id": 137
+            },
+            {
+                "name": "div#filter-dropdown-list.dropdown filter-tray-filters",
+                "id": 138
+            },
+            {
+                "name": "a#filter-dropdown-list-link.dropdown-toggle navbar-text",
+                "id": 139
+            },
+            {
+                "name": "span.caret",
+                "id": 140
+            },
+            {
+                "name": "a#filter-dropdown-list-link.dropdown-toggle navbar-text",
+                "id": 141
+            },
+            {
+                "name": "span.caret",
+                "id": 142
+            },
+            {
+                "name": "a#filter-dropdown-list-link.dropdown-toggle navbar-text",
+                "id": 143
+            },
+            {
+                "name": "div#filter-dropdown-list.dropdown filter-tray-filters open",
+                "id": 144
+            },
+            {
+                "name": "ul#filter-dropdown-menu.dropdown-menu",
+                "id": 145
+            },
+            {
+                "name": "div#filter-dropdown-list.dropdown filter-tray-filters open",
+                "id": 146
+            },
+            {
+                "name": "ul#filter-dropdown-menu.dropdown-menu",
+                "id": 147
+            },
+            {
+                "name": "li#filter-dropdown-item.filter-tray-item filter-tray-filter ng-scope",
+                "id": 148
+            },
+            {
+                "name": "li#filter-dropdown-item.filter-tray-item filter-tray-filter ng-scope",
+                "id": 149
+            },
+            {
+                "name": "span#filter-item-text.filter-label ng-binding",
+                "id": 150
+            },
+            {
+                "name": "li#filter-dropdown-item.filter-tray-item filter-tray-filter ng-scope",
+                "id": 151
+            },
+            {
+                "name": "span#filter-item-text.filter-label ng-binding",
+                "id": 152
+            },
+            {
+                "name": "li#filter-dropdown-item.filter-tray-item filter-tray-filter ng-scope",
+                "id": 153
+            },
+            {
+                "name": "div#open-options-dropdown.dropdown pull-right",
+                "id": 154
+            },
+            {
+                "name": "a#options-dropdown.dropdown-toggle navbar-text",
+                "id": 155
+            },
+            {
+                "name": "div#open-options-dropdown.dropdown pull-right",
+                "id": 156
+            },
+            {
+                "name": "span#options-text",
+                "id": 157
+            },
+            {
+                "name": "a#options-dropdown.dropdown-toggle navbar-text",
+                "id": 158
+            },
+            {
+                "name": "span#options-text",
+                "id": 159
+            },
+            {
+                "name": "a#options-dropdown.dropdown-toggle navbar-text",
+                "id": 160
+            },
+            {
+                "name": "span#options-text",
+                "id": 161
+            },
+            {
+                "name": "a#options-dropdown.dropdown-toggle navbar-text",
+                "id": 162
+            },
+            {
+                "name": "span#options-text",
+                "id": 163
+            },
+            {
+                "name": "a#export-format-text.unselectable",
+                "id": 164
+            },
+            {
+                "name": "a#export-format-text.unselectable",
+                "id": 165
+            },
+            {
+                "name": "li#export-format-options",
+                "id": 166
+            },
+            {
+                "name": "label#export-format-btn.btn btn-default ng-scope",
+                "id": 167
+            },
+            {
+                "name": "li#export-format-options",
+                "id": 168
+            },
+            {
+                "name": "label#export-format-btn.btn btn-default ng-scope",
+                "id": 169
+            },
+            {
+                "name": "li#export-format-options",
+                "id": 170
+            },
+            {
+                "name": "li#export-all-visualizations",
+                "id": 171
+            },
+            {
+                "name": "li#export-format-options",
+                "id": 172
+            },
+            {
+                "name": "li#export-all-visualizations",
+                "id": 173
+            },
+            {
+                "name": "button#export-all-visualizations-btn.btn btn-default",
+                "id": 174
+            },
+            {
+                "name": "ul#expanded-options-dropdown.dropdown-menu",
+                "id": 175
+            },
+            {
+                "name": "button#export-all-visualizations-btn.btn btn-default",
+                "id": 176
+            },
+            {
+                "name": "ul#expanded-options-dropdown.dropdown-menu",
+                "id": 177
+            },
+            {
+                "name": "a#theme-selection-label.unselectable",
+                "id": 178
+            },
+            {
+                "name": "ul#expanded-options-dropdown.dropdown-menu",
+                "id": 179
+            },
+            {
+                "name": "a#theme-selection-label.unselectable",
+                "id": 180
+            },
+            {
+                "name": "ul#expanded-options-dropdown.dropdown-menu",
+                "id": 181
+            },
+            {
+                "name": "select#select-theme.select-theme form-control navbar-indented ng-pristine ng-untouched ng-valid",
+                "id": 182
+            },
+            {
+                "name": "ul#expanded-options-dropdown.dropdown-menu",
+                "id": 183
+            },
+            {
+                "name": "select#select-theme.select-theme form-control navbar-indented ng-pristine ng-untouched ng-valid",
+                "id": 184
+            },
+            {
+                "name": "ul#expanded-options-dropdown.dropdown-menu",
+                "id": 185
+            },
+            {
+                "name": "a#save-state-button",
+                "id": 186
+            },
+            {
+                "name": "a#load-state-button",
+                "id": 187
+            },
+            {
+                "name": "a#save-state-button",
+                "id": 188
+            },
+            {
+                "name": "a#load-state-button",
+                "id": 189
+            },
+            {
+                "name": "a#options-dropdown.dropdown-toggle navbar-text",
+                "id": 190
+            },
+            {
+                "name": "a#options-dropdown.dropdown-toggle navbar-text",
+                "id": 191
+            },
+            {
+                "name": "a#load-state-button",
+                "id": 192
+            },
+            {
+                "name": "a#load-state-button",
+                "id": 193
+            },
+            {
+                "name": "svg#OpenLayers_Layer_Vector_RootContainer_49_svgRoot.[object SVGAnimatedString]",
+                "id": 194
+            },
+            {
+                "name": "svg#OpenLayers_Layer_Vector_RootContainer_49_svgRoot.[object SVGAnimatedString]",
+                "id": 195
+            },
+            {
+                "name": "div#loadStateModal.load-state modal fade neon-popup in",
+                "id": 196
+            },
+            {
+                "name": "div#load-state-footer.modal-footer",
+                "id": 197
+            },
+            {
+                "name": "div#loadStateModal.load-state modal fade neon-popup in",
+                "id": 198
+            },
+            {
+                "name": "div#load-state-body.modal-body",
+                "id": 199
+            },
+            {
+                "name": "div#load-state-footer.modal-footer",
+                "id": 200
+            },
+            {
+                "name": "div#load-state-body.modal-body",
+                "id": 201
+            },
+            {
+                "name": "select#select-state-to-load.form-control ng-pristine ng-untouched ng-valid",
+                "id": 202
+            },
+            {
+                "name": "select#select-state-to-load.form-control ng-pristine ng-untouched ng-valid",
+                "id": 203
+            },
+            {
+                "name": "div#loadStateModal.load-state modal fade neon-popup in",
+                "id": 204
+            },
+            {
+                "name": "select#select-state-to-load.form-control ng-pristine ng-untouched ng-valid",
+                "id": 205
+            },
+            {
+                "name": "div#loadStateModal.load-state modal fade neon-popup in",
+                "id": 206
+            },
+            {
+                "name": "select#select-state-to-load.form-control ng-pristine ng-untouched ng-valid",
+                "id": 207
+            },
+            {
+                "name": "select#select-state-to-load.form-control ng-untouched ng-valid ng-dirty ng-valid-parse",
+                "id": 208
+            },
+            {
+                "name": "div#loadStateModal.load-state modal fade neon-popup in",
+                "id": 209
+            },
+            {
+                "name": "select#select-state-to-load.form-control ng-untouched ng-valid ng-dirty ng-valid-parse",
+                "id": 210
+            },
+            {
+                "name": "div#load-state-footer.modal-footer",
+                "id": 211
+            },
+            {
+                "name": "div#loadStateModal.load-state modal fade neon-popup in",
+                "id": 212
+            },
+            {
+                "name": "div#load-state-footer.modal-footer",
+                "id": 213
+            },
+            {
+                "name": "button#cancel-btn.btn btn-alert",
+                "id": 214
+            },
+            {
+                "name": "div#load-state-footer.modal-footer",
+                "id": 215
+            },
+            {
+                "name": "button#cancel-btn.btn btn-alert",
+                "id": 216
+            },
+            {
+                "name": "div#load-state-footer.modal-footer",
+                "id": 217
+            },
+            {
+                "name": "button#load-btn.btn btn-success",
+                "id": 218
+            },
+            {
+                "name": "select#select-state-to-load.form-control ng-untouched ng-valid ng-dirty ng-valid-parse",
+                "id": 219
+            },
+            {
+                "name": "button#load-btn.btn btn-success",
+                "id": 220
+            },
+            {
+                "name": "button#load-btn.btn btn-success",
+                "id": 221
+            },
+            {
+                "name": "select#select-state-to-load.form-control ng-untouched ng-valid ng-dirty ng-valid-parse",
+                "id": 222
+            },
+            {
+                "name": "div.contract-trigger",
+                "id": 223
+            },
+            {
+                "name": "button#load-btn.btn btn-success",
+                "id": 224
+            },
+            {
+                "name": "div.contract-trigger",
+                "id": 225
+            },
+            {
+                "name": "div#loadStateModal.load-state modal fade neon-popup",
+                "id": 226
+            },
+            {
+                "name": "button#load-btn.btn btn-success",
+                "id": 227
+            },
+            {
+                "name": "div#loadStateModal.load-state modal fade neon-popup",
+                "id": 228
+            },
+            {
+                "name": "div.visualization timelineDirective",
+                "id": 229
+            },
+            {
+                "name": "button#load-btn.btn btn-success",
+                "id": 230
+            },
+            {
+                "name": "div.expand-trigger",
+                "id": 231
+            },
+            {
+                "name": "div.visualization timelineDirective",
+                "id": 232
+            },
+            {
+                "name": "div.expand-trigger",
+                "id": 233
+            },
+            {
+                "name": "rect.[object SVGAnimatedString]",
+                "id": 234
+            },
+            {
+                "name": "div.expand-trigger",
+                "id": 235
+            },
+            {
+                "name": "rect.[object SVGAnimatedString]",
+                "id": 236
+            },
+            {
+                "name": "div.expand-trigger",
+                "id": 237
+            },
+            {
+                "name": "div#widget-title-container.text-container options-container",
+                "id": 238
+            },
+            {
+                "name": "div#widget-title-container.text-container options-container",
+                "id": 239
+            },
+            {
+                "name": "rect.[object SVGAnimatedString]",
+                "id": 240
+            },
+            {
+                "name": "div.gridster-item-resizable-handler handle-e",
+                "id": 241
+            },
+            {
+                "name": "rect.[object SVGAnimatedString]",
+                "id": 242
+            },
+            {
+                "name": "div.gridster-item-resizable-handler handle-e",
+                "id": 243
+            },
+            {
+                "name": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "id": 244
+            },
+            {
+                "name": "div.gridster-item-resizable-handler handle-w",
+                "id": 245
+            },
+            {
+                "name": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "id": 246
+            },
+            {
+                "name": "div.gridster-item-resizable-handler handle-w",
+                "id": 247
+            },
+            {
+                "name": "div.ng-scope superclass ng-isolate-scope",
+                "id": 248
+            },
+            {
+                "name": "#document",
+                "id": 249
+            },
+            {
+                "name": "div.ng-scope superclass ng-isolate-scope",
+                "id": 250
+            },
+            {
+                "name": "#document",
+                "id": 251
+            },
+            {
+                "name": "svg#OpenLayers_Layer_Vector_RootContainer_4126_svgRoot.[object SVGAnimatedString]",
+                "id": 252
+            },
+            {
+                "name": "svg#plot.[object SVGAnimatedString]",
+                "id": 253
+            },
+            {
+                "name": "svg#OpenLayers_Layer_Vector_RootContainer_4126_svgRoot.[object SVGAnimatedString]",
+                "id": 254
+            },
+            {
+                "name": "svg#plot.[object SVGAnimatedString]",
+                "id": 255
+            },
+            {
+                "name": "#document",
+                "id": 256
+            },
+            {
+                "name": "#document",
+                "id": 257
+            },
+            {
+                "name": "div#filter-builder-inputs.filter neon-well form-inline",
+                "id": 258
+            },
+            {
+                "name": "div#filter-builder-inputs.filter neon-well form-inline",
+                "id": 259
+            },
+            {
+                "name": "#document",
+                "id": 260
+            },
+            {
+                "name": "#document",
+                "id": 261
+            },
+            {
+                "name": "div.ng-scope ng-isolate-scope filter-directive",
+                "id": 262
+            },
+            {
+                "name": "div.ng-scope superclass ng-isolate-scope",
+                "id": 263
+            },
+            {
+                "name": "div.ng-scope ng-isolate-scope filter-directive",
+                "id": 264
+            },
+            {
+                "name": "div.ng-scope superclass ng-isolate-scope",
+                "id": 265
+            },
+            {
+                "name": "div.ag-body-viewport",
+                "id": 266
+            },
+            {
+                "name": "div#neon-dashboard.container",
+                "id": 267
+            },
+            {
+                "name": "div.ag-body-viewport",
+                "id": 268
+            },
+            {
+                "name": "div#neon-dashboard.container",
+                "id": 269
+            },
+            {
+                "name": "div.ag-body-viewport",
+                "id": 270
+            },
+            {
+                "name": "div.ag-cell ag-cell-no-focus cell-col-3 ag-cell-value",
+                "id": 271
+            },
+            {
+                "name": "div.ag-body-viewport",
+                "id": 272
+            },
+            {
+                "name": "#document",
+                "id": 273
+            },
+            {
+                "name": "div.ag-cell ag-cell-no-focus cell-col-3 ag-cell-value",
+                "id": 274
+            },
+            {
+                "name": "#document",
+                "id": 275
+            },
+            {
+                "name": "div.ag-cell ag-cell-no-focus cell-col-3 ag-cell-value",
+                "id": 276
+            },
+            {
+                "name": "span#open/close-options-menu.text pull-left ng-binding",
+                "id": 277
+            },
+            {
+                "name": "div.ag-cell ag-cell-no-focus cell-col-3 ag-cell-value",
+                "id": 278
+            },
+            {
+                "name": "span#open/close-options-menu.text pull-left ng-binding",
+                "id": 279
+            },
+            {
+                "name": "div.ng-scope superclass ng-isolate-scope",
+                "id": 280
+            },
+            {
+                "name": "svg#plot.[object SVGAnimatedString]",
+                "id": 281
+            },
+            {
+                "name": "div.ng-scope superclass ng-isolate-scope",
+                "id": 282
+            },
+            {
+                "name": "svg#plot.[object SVGAnimatedString]",
+                "id": 283
+            },
+            {
+                "name": "rect.[object SVGAnimatedString]",
+                "id": 284
+            },
+            {
+                "name": "svg#plot.[object SVGAnimatedString]",
+                "id": 285
+            },
+            {
+                "name": "rect.[object SVGAnimatedString]",
+                "id": 286
+            },
+            {
+                "name": "svg#plot.[object SVGAnimatedString]",
+                "id": 287
+            },
+            {
+                "name": "div.gridster-item-resizable-handler handle-s",
+                "id": 288
+            },
+            {
+                "name": "div.visualization-drag-handle",
+                "id": 289
+            },
+            {
+                "name": "div.gridster-item-resizable-handler handle-s",
+                "id": 290
+            },
+            {
+                "name": "div.visualization-drag-handle",
+                "id": 291
+            },
+            {
+                "name": "div#widget-title-container.text-container options-container",
+                "id": 292
+            },
+            {
+                "name": "div.visualization dataTableDirective",
+                "id": 293
+            },
+            {
+                "name": "div#widget-title-container.text-container options-container",
+                "id": 294
+            },
+            {
+                "name": "div.visualization dataTableDirective",
+                "id": 295
+            },
+            {
+                "name": "div.ag-header-cell-label",
+                "id": 296
+            },
+            {
+                "name": "div.ag-header-cell-label",
+                "id": 297
+            },
+            {
+                "name": "div.ng-scope superclass ng-isolate-scope",
+                "id": 298
+            },
+            {
+                "name": "div.ng-scope superclass ng-isolate-scope",
+                "id": 299
+            },
+            {
+                "name": "div.ag-cell ag-cell-no-focus cell-col-1 ag-cell-value",
+                "id": 300
+            },
+            {
+                "name": "span.legend-text ng-binding",
+                "id": 301
+            },
+            {
+                "name": "div.ag-cell ag-cell-no-focus cell-col-1 ag-cell-value",
+                "id": 302
+            },
+            {
+                "name": "span.legend-text ng-binding",
+                "id": 303
+            },
+            {
+                "name": "rect.[object SVGAnimatedString]",
+                "id": 304
+            },
+            {
+                "name": "svg#OpenLayers_Layer_Vector_RootContainer_4126_svgRoot.[object SVGAnimatedString]",
+                "id": 305
+            },
+            {
+                "name": "rect.[object SVGAnimatedString]",
+                "id": 306
+            },
+            {
+                "name": "svg#OpenLayers_Layer_Vector_RootContainer_4126_svgRoot.[object SVGAnimatedString]",
+                "id": 307
+            },
+            {
+                "name": "div#navbar-container.container",
+                "id": 308
+            }
+        ],
+        "links": [{
+                "sequenceID": "Window->html",
+                "target": 3,
+                "sourceName": "Window",
+                "targetName": "html",
+                "value": 1,
+                "source": 2,
+                "pathLength": 1,
+                "typeChange": 1,
+                "type": "focus",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "#document->div.expand-trigger",
+                "target": 0,
+                "sourceName": "#document",
+                "targetName": "div.expand-trigger",
+                "value": 1,
+                "source": 1,
+                "pathLength": 1,
+                "typeChange": 1,
+                "type": "load",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "html->Window",
+                "target": 5,
+                "sourceName": "html",
+                "targetName": "Window",
+                "value": 1,
+                "source": 6,
+                "pathLength": 3,
+                "typeChange": 1,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.expand-trigger->div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "target": 7,
+                "sourceName": "div.expand-trigger",
+                "targetName": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "value": 1,
+                "source": 4,
+                "pathLength": 8,
+                "typeChange": 1,
+                "type": "scroll",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "Window->html",
+                "target": 9,
+                "sourceName": "Window",
+                "targetName": "html",
+                "value": 1,
+                "source": 8,
+                "pathLength": 1,
+                "typeChange": 1,
+                "type": "blur",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded->html",
+                "target": 9,
+                "sourceName": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "targetName": "html",
+                "value": 1,
+                "source": 10,
+                "pathLength": 6,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "html->body.ng-scope",
+                "target": 11,
+                "sourceName": "html",
+                "targetName": "body.ng-scope",
+                "value": 1,
+                "source": 12,
+                "pathLength": 3,
+                "typeChange": 1,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "body.ng-scope->div.expand-trigger",
+                "target": 13,
+                "sourceName": "body.ng-scope",
+                "targetName": "div.expand-trigger",
+                "value": 1,
+                "source": 14,
+                "pathLength": 4,
+                "typeChange": 1,
+                "type": "keydown",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.expand-trigger->Window",
+                "target": 16,
+                "sourceName": "div.expand-trigger",
+                "targetName": "Window",
+                "value": 1,
+                "source": 15,
+                "pathLength": 8,
+                "typeChange": 1,
+                "type": "scroll",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "Window->html",
+                "target": 18,
+                "sourceName": "Window",
+                "targetName": "html",
+                "value": 1,
+                "source": 17,
+                "pathLength": 1,
+                "typeChange": 1,
+                "type": "resize",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "html->div#start-message.popover-content",
+                "target": 19,
+                "sourceName": "html",
+                "targetName": "div#start-message.popover-content",
+                "value": 1,
+                "source": 20,
+                "pathLength": 3,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#start-message.popover-content->h3#start-here-message.popover-title",
+                "target": 22,
+                "sourceName": "div#start-message.popover-content",
+                "targetName": "h3#start-here-message.popover-title",
+                "value": 1,
+                "source": 21,
+                "pathLength": 11,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "h3#start-here-message.popover-title->div#start-message.popover-content",
+                "target": 23,
+                "sourceName": "h3#start-here-message.popover-title",
+                "targetName": "div#start-message.popover-content",
+                "value": 1,
+                "source": 24,
+                "pathLength": 11,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#start-message.popover-content->p#start-message-text",
+                "target": 26,
+                "sourceName": "div#start-message.popover-content",
+                "targetName": "p#start-message-text",
+                "value": 1,
+                "source": 25,
+                "pathLength": 11,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "p#start-message-text->div#start-message.popover-content",
+                "target": 27,
+                "sourceName": "p#start-message-text",
+                "targetName": "div#start-message.popover-content",
+                "value": 1,
+                "source": 28,
+                "pathLength": 12,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#start-message.popover-content->div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "target": 30,
+                "sourceName": "div#start-message.popover-content",
+                "targetName": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "value": 1,
+                "source": 29,
+                "pathLength": 11,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded->h3#start-here-message.popover-title",
+                "target": 31,
+                "sourceName": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "targetName": "h3#start-here-message.popover-title",
+                "value": 1,
+                "source": 32,
+                "pathLength": 6,
+                "typeChange": 1,
+                "type": "click",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "h3#start-here-message.popover-title->div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "target": 33,
+                "sourceName": "h3#start-here-message.popover-title",
+                "targetName": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "value": 1,
+                "source": 34,
+                "pathLength": 11,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded->div#neon-dashboard.container",
+                "target": 35,
+                "sourceName": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "targetName": "div#neon-dashboard.container",
+                "value": 1,
+                "source": 36,
+                "pathLength": 6,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#neon-dashboard.container->li.dropdown",
+                "target": 38,
+                "sourceName": "div#neon-dashboard.container",
+                "targetName": "li.dropdown",
+                "value": 1,
+                "source": 37,
+                "pathLength": 5,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "li.dropdown->a#dataset-dropdown-link.dropdown-toggle primary ng-binding",
+                "target": 39,
+                "sourceName": "li.dropdown",
+                "targetName": "a#dataset-dropdown-link.dropdown-toggle primary ng-binding",
+                "value": 1,
+                "source": 40,
+                "pathLength": 10,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "a#dataset-dropdown-link.dropdown-toggle primary ng-binding->ul.dropdown-menu",
+                "target": 41,
+                "sourceName": "a#dataset-dropdown-link.dropdown-toggle primary ng-binding",
+                "targetName": "ul.dropdown-menu",
+                "value": 1,
+                "source": 42,
+                "pathLength": 11,
+                "typeChange": 1,
+                "type": "click",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "ul.dropdown-menu->a#select-preset-database.ng-binding",
+                "target": 44,
+                "sourceName": "ul.dropdown-menu",
+                "targetName": "a#select-preset-database.ng-binding",
+                "value": 1,
+                "source": 43,
+                "pathLength": 11,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "a#select-preset-database.ng-binding->a#dataset-dropdown-link.dropdown-toggle primary ng-binding",
+                "target": 45,
+                "sourceName": "a#select-preset-database.ng-binding",
+                "targetName": "a#dataset-dropdown-link.dropdown-toggle primary ng-binding",
+                "value": 1,
+                "source": 46,
+                "pathLength": 13,
+                "typeChange": 1,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "a#dataset-dropdown-link.dropdown-toggle primary ng-binding->a#select-preset-database.ng-binding",
+                "target": 48,
+                "sourceName": "a#dataset-dropdown-link.dropdown-toggle primary ng-binding",
+                "targetName": "a#select-preset-database.ng-binding",
+                "value": 1,
+                "source": 47,
+                "pathLength": 11,
+                "typeChange": 1,
+                "type": "blur",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "a#select-preset-database.ng-binding->div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "target": 49,
+                "sourceName": "a#select-preset-database.ng-binding",
+                "targetName": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "value": 1,
+                "source": 50,
+                "pathLength": 13,
+                "typeChange": 1,
+                "type": "blur",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded->div.contract-trigger",
+                "target": 51,
+                "sourceName": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "targetName": "div.contract-trigger",
+                "value": 1,
+                "source": 52,
+                "pathLength": 6,
+                "typeChange": 1,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.contract-trigger->div#timeline-selector.timeline-selector-chart",
+                "target": 53,
+                "sourceName": "div.contract-trigger",
+                "targetName": "div#timeline-selector.timeline-selector-chart",
+                "value": 1,
+                "source": 54,
+                "pathLength": 14,
+                "typeChange": 1,
+                "type": "scroll",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#timeline-selector.timeline-selector-chart->div.visualization timelineDirective",
+                "target": 56,
+                "sourceName": "div#timeline-selector.timeline-selector-chart",
+                "targetName": "div.visualization timelineDirective",
+                "value": 1,
+                "source": 55,
+                "pathLength": 15,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.visualization timelineDirective->div.contract-trigger",
+                "target": 57,
+                "sourceName": "div.visualization timelineDirective",
+                "targetName": "div.contract-trigger",
+                "value": 1,
+                "source": 58,
+                "pathLength": 12,
+                "typeChange": 1,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.contract-trigger->rect.[object SVGAnimatedString]",
+                "target": 60,
+                "sourceName": "div.contract-trigger",
+                "targetName": "rect.[object SVGAnimatedString]",
+                "value": 1,
+                "source": 59,
+                "pathLength": 17,
+                "typeChange": 1,
+                "type": "scroll",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "rect.[object SVGAnimatedString]->span#move-to-bottom-icon2.glyphicon glyphicon-chevron-down",
+                "target": 61,
+                "sourceName": "rect.[object SVGAnimatedString]",
+                "targetName": "span#move-to-bottom-icon2.glyphicon glyphicon-chevron-down",
+                "value": 1,
+                "source": 62,
+                "pathLength": 19,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "span#move-to-bottom-icon2.glyphicon glyphicon-chevron-down->rect.[object SVGAnimatedString]",
+                "target": 64,
+                "sourceName": "span#move-to-bottom-icon2.glyphicon glyphicon-chevron-down",
+                "targetName": "rect.[object SVGAnimatedString]",
+                "value": 1,
+                "source": 63,
+                "pathLength": 13,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "rect.[object SVGAnimatedString]->Window",
+                "target": 65,
+                "sourceName": "rect.[object SVGAnimatedString]",
+                "targetName": "Window",
+                "value": 1,
+                "source": 66,
+                "pathLength": 18,
+                "typeChange": 1,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "Window->div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "target": 68,
+                "sourceName": "Window",
+                "targetName": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "value": 1,
+                "source": 67,
+                "pathLength": 1,
+                "typeChange": 1,
+                "type": "resize",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded->rect.[object SVGAnimatedString]",
+                "target": 70,
+                "sourceName": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "targetName": "rect.[object SVGAnimatedString]",
+                "value": 1,
+                "source": 69,
+                "pathLength": 6,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "rect.[object SVGAnimatedString]->div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "target": 71,
+                "sourceName": "rect.[object SVGAnimatedString]",
+                "targetName": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "value": 1,
+                "source": 72,
+                "pathLength": 18,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded->svg#OpenLayers_Layer_Vector_RootContainer_49_svgRoot.[object SVGAnimatedString]",
+                "target": 74,
+                "sourceName": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "targetName": "svg#OpenLayers_Layer_Vector_RootContainer_49_svgRoot.[object SVGAnimatedString]",
+                "value": 1,
+                "source": 73,
+                "pathLength": 6,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "svg#OpenLayers_Layer_Vector_RootContainer_49_svgRoot.[object SVGAnimatedString]->rect.[object SVGAnimatedString]",
+                "target": 75,
+                "sourceName": "svg#OpenLayers_Layer_Vector_RootContainer_49_svgRoot.[object SVGAnimatedString]",
+                "targetName": "rect.[object SVGAnimatedString]",
+                "value": 1,
+                "source": 76,
+                "pathLength": 17,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "rect.[object SVGAnimatedString]->div#visualization-header.text-container headers-container",
+                "target": 77,
+                "sourceName": "rect.[object SVGAnimatedString]",
+                "targetName": "div#visualization-header.text-container headers-container",
+                "value": 1,
+                "source": 78,
+                "pathLength": 19,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#visualization-header.text-container headers-container->div#widget-title-container.text-container options-container",
+                "target": 80,
+                "sourceName": "div#visualization-header.text-container headers-container",
+                "targetName": "div#widget-title-container.text-container options-container",
+                "value": 1,
+                "source": 79,
+                "pathLength": 13,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#widget-title-container.text-container options-container->a#add-visualization-link.collapsed dropdown-toggle primary",
+                "target": 82,
+                "sourceName": "div#widget-title-container.text-container options-container",
+                "targetName": "a#add-visualization-link.collapsed dropdown-toggle primary",
+                "value": 1,
+                "source": 81,
+                "pathLength": 13,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "a#add-visualization-link.collapsed dropdown-toggle primary->li.dropdown",
+                "target": 83,
+                "sourceName": "a#add-visualization-link.collapsed dropdown-toggle primary",
+                "targetName": "li.dropdown",
+                "value": 1,
+                "source": 84,
+                "pathLength": 11,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "li.dropdown->a#dataset-dropdown-link.dropdown-toggle primary ng-binding",
+                "target": 85,
+                "sourceName": "li.dropdown",
+                "targetName": "a#dataset-dropdown-link.dropdown-toggle primary ng-binding",
+                "value": 1,
+                "source": 86,
+                "pathLength": 10,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "a#dataset-dropdown-link.dropdown-toggle primary ng-binding->div.visualization-drag-handle",
+                "target": 87,
+                "sourceName": "a#dataset-dropdown-link.dropdown-toggle primary ng-binding",
+                "targetName": "div.visualization-drag-handle",
+                "value": 1,
+                "source": 88,
+                "pathLength": 11,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.visualization-drag-handle->div#widget-title-text.header text pull-left ng-binding",
+                "target": 90,
+                "sourceName": "div.visualization-drag-handle",
+                "targetName": "div#widget-title-text.header text pull-left ng-binding",
+                "value": 1,
+                "source": 89,
+                "pathLength": 10,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#widget-title-text.header text pull-left ng-binding->span.ng-binding",
+                "target": 91,
+                "sourceName": "div#widget-title-text.header text pull-left ng-binding",
+                "targetName": "span.ng-binding",
+                "value": 1,
+                "source": 92,
+                "pathLength": 14,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "span.ng-binding->svg.[object SVGAnimatedString]",
+                "target": 94,
+                "sourceName": "span.ng-binding",
+                "targetName": "svg.[object SVGAnimatedString]",
+                "value": 1,
+                "source": 93,
+                "pathLength": 17,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "svg.[object SVGAnimatedString]->rect.[object SVGAnimatedString]",
+                "target": 95,
+                "sourceName": "svg.[object SVGAnimatedString]",
+                "targetName": "rect.[object SVGAnimatedString]",
+                "value": 1,
+                "source": 96,
+                "pathLength": 16,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "rect.[object SVGAnimatedString]->div.ng-scope superclass ng-isolate-scope",
+                "target": 97,
+                "sourceName": "rect.[object SVGAnimatedString]",
+                "targetName": "div.ng-scope superclass ng-isolate-scope",
+                "value": 1,
+                "source": 98,
+                "pathLength": 19,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.ng-scope superclass ng-isolate-scope->div.visualization lineChartDirective",
+                "target": 99,
+                "sourceName": "div.ng-scope superclass ng-isolate-scope",
+                "targetName": "div.visualization lineChartDirective",
+                "value": 1,
+                "source": 100,
+                "pathLength": 10,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.visualization lineChartDirective->div#visualization-header.text-container headers-container",
+                "target": 102,
+                "sourceName": "div.visualization lineChartDirective",
+                "targetName": "div#visualization-header.text-container headers-container",
+                "value": 1,
+                "source": 101,
+                "pathLength": 12,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#visualization-header.text-container headers-container->rect.[object SVGAnimatedString]",
+                "target": 104,
+                "sourceName": "div#visualization-header.text-container headers-container",
+                "targetName": "rect.[object SVGAnimatedString]",
+                "value": 1,
+                "source": 103,
+                "pathLength": 13,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "rect.[object SVGAnimatedString]->Window",
+                "target": 105,
+                "sourceName": "rect.[object SVGAnimatedString]",
+                "targetName": "Window",
+                "value": 1,
+                "source": 106,
+                "pathLength": 18,
+                "typeChange": 1,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "Window->div.ng-scope superclass ng-isolate-scope",
+                "target": 108,
+                "sourceName": "Window",
+                "targetName": "div.ng-scope superclass ng-isolate-scope",
+                "value": 1,
+                "source": 107,
+                "pathLength": 1,
+                "typeChange": 1,
+                "type": "focus",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.ng-scope superclass ng-isolate-scope->svg#OpenLayers_Layer_Vector_RootContainer_49_svgRoot.[object SVGAnimatedString]",
+                "target": 110,
+                "sourceName": "div.ng-scope superclass ng-isolate-scope",
+                "targetName": "svg#OpenLayers_Layer_Vector_RootContainer_49_svgRoot.[object SVGAnimatedString]",
+                "value": 1,
+                "source": 109,
+                "pathLength": 10,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "svg#OpenLayers_Layer_Vector_RootContainer_49_svgRoot.[object SVGAnimatedString]->ul",
+                "target": 111,
+                "sourceName": "svg#OpenLayers_Layer_Vector_RootContainer_49_svgRoot.[object SVGAnimatedString]",
+                "targetName": "ul",
+                "value": 1,
+                "source": 112,
+                "pathLength": 17,
+                "typeChange": 1,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "ul->div.expand-trigger",
+                "target": 113,
+                "sourceName": "ul",
+                "targetName": "div.expand-trigger",
+                "value": 1,
+                "source": 114,
+                "pathLength": 7,
+                "typeChange": 1,
+                "type": "click",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.expand-trigger->div#widget-title-container.text-container options-container",
+                "target": 116,
+                "sourceName": "div.expand-trigger",
+                "targetName": "div#widget-title-container.text-container options-container",
+                "value": 1,
+                "source": 115,
+                "pathLength": 18,
+                "typeChange": 1,
+                "type": "scroll",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#widget-title-container.text-container options-container->span#options-icon.icon-Options_34x34 neon-sprite",
+                "target": 118,
+                "sourceName": "div#widget-title-container.text-container options-container",
+                "targetName": "span#options-icon.icon-Options_34x34 neon-sprite",
+                "value": 1,
+                "source": 117,
+                "pathLength": 13,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "span#options-icon.icon-Options_34x34 neon-sprite->div#open-options-dropdown.dropdown pull-right",
+                "target": 120,
+                "sourceName": "span#options-icon.icon-Options_34x34 neon-sprite",
+                "targetName": "div#open-options-dropdown.dropdown pull-right",
+                "value": 1,
+                "source": 119,
+                "pathLength": 10,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#open-options-dropdown.dropdown pull-right->div.expand-trigger",
+                "target": 121,
+                "sourceName": "div#open-options-dropdown.dropdown pull-right",
+                "targetName": "div.expand-trigger",
+                "value": 1,
+                "source": 122,
+                "pathLength": 8,
+                "typeChange": 1,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.expand-trigger->div#filter-dropdown-list.dropdown filter-tray-filters",
+                "target": 124,
+                "sourceName": "div.expand-trigger",
+                "targetName": "div#filter-dropdown-list.dropdown filter-tray-filters",
+                "value": 1,
+                "source": 123,
+                "pathLength": 18,
+                "typeChange": 1,
+                "type": "scroll",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#filter-dropdown-list.dropdown filter-tray-filters->a#filter-dropdown-list-link.dropdown-toggle navbar-text",
+                "target": 125,
+                "sourceName": "div#filter-dropdown-list.dropdown filter-tray-filters",
+                "targetName": "a#filter-dropdown-list-link.dropdown-toggle navbar-text",
+                "value": 1,
+                "source": 126,
+                "pathLength": 9,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "a#filter-dropdown-list-link.dropdown-toggle navbar-text->span#filter-dropdown-text.ng-binding",
+                "target": 128,
+                "sourceName": "a#filter-dropdown-list-link.dropdown-toggle navbar-text",
+                "targetName": "span#filter-dropdown-text.ng-binding",
+                "value": 1,
+                "source": 127,
+                "pathLength": 10,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "span#filter-dropdown-text.ng-binding->a#filter-dropdown-list-link.dropdown-toggle navbar-text",
+                "target": 129,
+                "sourceName": "span#filter-dropdown-text.ng-binding",
+                "targetName": "a#filter-dropdown-list-link.dropdown-toggle navbar-text",
+                "value": 1,
+                "source": 130,
+                "pathLength": 11,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "a#filter-dropdown-list-link.dropdown-toggle navbar-text->span.caret",
+                "target": 132,
+                "sourceName": "a#filter-dropdown-list-link.dropdown-toggle navbar-text",
+                "targetName": "span.caret",
+                "value": 1,
+                "source": 131,
+                "pathLength": 10,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "span.caret->a#filter-dropdown-list-link.dropdown-toggle navbar-text",
+                "target": 133,
+                "sourceName": "span.caret",
+                "targetName": "a#filter-dropdown-list-link.dropdown-toggle navbar-text",
+                "value": 1,
+                "source": 134,
+                "pathLength": 11,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "a#filter-dropdown-list-link.dropdown-toggle navbar-text->div#filter-dropdown-list.dropdown filter-tray-filters",
+                "target": 136,
+                "sourceName": "a#filter-dropdown-list-link.dropdown-toggle navbar-text",
+                "targetName": "div#filter-dropdown-list.dropdown filter-tray-filters",
+                "value": 1,
+                "source": 135,
+                "pathLength": 10,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#filter-dropdown-list.dropdown filter-tray-filters->a#filter-dropdown-list-link.dropdown-toggle navbar-text",
+                "target": 137,
+                "sourceName": "div#filter-dropdown-list.dropdown filter-tray-filters",
+                "targetName": "a#filter-dropdown-list-link.dropdown-toggle navbar-text",
+                "value": 1,
+                "source": 138,
+                "pathLength": 9,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "a#filter-dropdown-list-link.dropdown-toggle navbar-text->span.caret",
+                "target": 140,
+                "sourceName": "a#filter-dropdown-list-link.dropdown-toggle navbar-text",
+                "targetName": "span.caret",
+                "value": 1,
+                "source": 139,
+                "pathLength": 10,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "span.caret->a#filter-dropdown-list-link.dropdown-toggle navbar-text",
+                "target": 141,
+                "sourceName": "span.caret",
+                "targetName": "a#filter-dropdown-list-link.dropdown-toggle navbar-text",
+                "value": 1,
+                "source": 142,
+                "pathLength": 11,
+                "typeChange": 1,
+                "type": "click",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "a#filter-dropdown-list-link.dropdown-toggle navbar-text->div#filter-dropdown-list.dropdown filter-tray-filters open",
+                "target": 144,
+                "sourceName": "a#filter-dropdown-list-link.dropdown-toggle navbar-text",
+                "targetName": "div#filter-dropdown-list.dropdown filter-tray-filters open",
+                "value": 1,
+                "source": 143,
+                "pathLength": 10,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#filter-dropdown-list.dropdown filter-tray-filters open->ul#filter-dropdown-menu.dropdown-menu",
+                "target": 145,
+                "sourceName": "div#filter-dropdown-list.dropdown filter-tray-filters open",
+                "targetName": "ul#filter-dropdown-menu.dropdown-menu",
+                "value": 1,
+                "source": 146,
+                "pathLength": 9,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "ul#filter-dropdown-menu.dropdown-menu->li#filter-dropdown-item.filter-tray-item filter-tray-filter ng-scope",
+                "target": 148,
+                "sourceName": "ul#filter-dropdown-menu.dropdown-menu",
+                "targetName": "li#filter-dropdown-item.filter-tray-item filter-tray-filter ng-scope",
+                "value": 1,
+                "source": 147,
+                "pathLength": 10,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "li#filter-dropdown-item.filter-tray-item filter-tray-filter ng-scope->span#filter-item-text.filter-label ng-binding",
+                "target": 150,
+                "sourceName": "li#filter-dropdown-item.filter-tray-item filter-tray-filter ng-scope",
+                "targetName": "span#filter-item-text.filter-label ng-binding",
+                "value": 1,
+                "source": 149,
+                "pathLength": 11,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "span#filter-item-text.filter-label ng-binding->li#filter-dropdown-item.filter-tray-item filter-tray-filter ng-scope",
+                "target": 151,
+                "sourceName": "span#filter-item-text.filter-label ng-binding",
+                "targetName": "li#filter-dropdown-item.filter-tray-item filter-tray-filter ng-scope",
+                "value": 1,
+                "source": 152,
+                "pathLength": 12,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "li#filter-dropdown-item.filter-tray-item filter-tray-filter ng-scope->div#open-options-dropdown.dropdown pull-right",
+                "target": 154,
+                "sourceName": "li#filter-dropdown-item.filter-tray-item filter-tray-filter ng-scope",
+                "targetName": "div#open-options-dropdown.dropdown pull-right",
+                "value": 1,
+                "source": 153,
+                "pathLength": 11,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#open-options-dropdown.dropdown pull-right->a#options-dropdown.dropdown-toggle navbar-text",
+                "target": 155,
+                "sourceName": "div#open-options-dropdown.dropdown pull-right",
+                "targetName": "a#options-dropdown.dropdown-toggle navbar-text",
+                "value": 1,
+                "source": 156,
+                "pathLength": 8,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "a#options-dropdown.dropdown-toggle navbar-text->span#options-text",
+                "target": 157,
+                "sourceName": "a#options-dropdown.dropdown-toggle navbar-text",
+                "targetName": "span#options-text",
+                "value": 1,
+                "source": 158,
+                "pathLength": 9,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "span#options-text->a#options-dropdown.dropdown-toggle navbar-text",
+                "target": 160,
+                "sourceName": "span#options-text",
+                "targetName": "a#options-dropdown.dropdown-toggle navbar-text",
+                "value": 1,
+                "source": 159,
+                "pathLength": 10,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "a#options-dropdown.dropdown-toggle navbar-text->span#options-text",
+                "target": 161,
+                "sourceName": "a#options-dropdown.dropdown-toggle navbar-text",
+                "targetName": "span#options-text",
+                "value": 1,
+                "source": 162,
+                "pathLength": 9,
+                "typeChange": 1,
+                "type": "click",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "span#options-text->a#export-format-text.unselectable",
+                "target": 164,
+                "sourceName": "span#options-text",
+                "targetName": "a#export-format-text.unselectable",
+                "value": 1,
+                "source": 163,
+                "pathLength": 10,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "a#export-format-text.unselectable->li#export-format-options",
+                "target": 166,
+                "sourceName": "a#export-format-text.unselectable",
+                "targetName": "li#export-format-options",
+                "value": 1,
+                "source": 165,
+                "pathLength": 11,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "li#export-format-options->label#export-format-btn.btn btn-default ng-scope",
+                "target": 167,
+                "sourceName": "li#export-format-options",
+                "targetName": "label#export-format-btn.btn btn-default ng-scope",
+                "value": 1,
+                "source": 168,
+                "pathLength": 10,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "label#export-format-btn.btn btn-default ng-scope->li#export-format-options",
+                "target": 170,
+                "sourceName": "label#export-format-btn.btn btn-default ng-scope",
+                "targetName": "li#export-format-options",
+                "value": 1,
+                "source": 169,
+                "pathLength": 12,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "li#export-format-options->li#export-all-visualizations",
+                "target": 171,
+                "sourceName": "li#export-format-options",
+                "targetName": "li#export-all-visualizations",
+                "value": 1,
+                "source": 172,
+                "pathLength": 10,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "li#export-all-visualizations->button#export-all-visualizations-btn.btn btn-default",
+                "target": 174,
+                "sourceName": "li#export-all-visualizations",
+                "targetName": "button#export-all-visualizations-btn.btn btn-default",
+                "value": 1,
+                "source": 173,
+                "pathLength": 10,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "button#export-all-visualizations-btn.btn btn-default->ul#expanded-options-dropdown.dropdown-menu",
+                "target": 175,
+                "sourceName": "button#export-all-visualizations-btn.btn btn-default",
+                "targetName": "ul#expanded-options-dropdown.dropdown-menu",
+                "value": 1,
+                "source": 176,
+                "pathLength": 11,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "ul#expanded-options-dropdown.dropdown-menu->a#theme-selection-label.unselectable",
+                "target": 178,
+                "sourceName": "ul#expanded-options-dropdown.dropdown-menu",
+                "targetName": "a#theme-selection-label.unselectable",
+                "value": 1,
+                "source": 177,
+                "pathLength": 9,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "a#theme-selection-label.unselectable->ul#expanded-options-dropdown.dropdown-menu",
+                "target": 179,
+                "sourceName": "a#theme-selection-label.unselectable",
+                "targetName": "ul#expanded-options-dropdown.dropdown-menu",
+                "value": 1,
+                "source": 180,
+                "pathLength": 11,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "ul#expanded-options-dropdown.dropdown-menu->select#select-theme.select-theme form-control navbar-indented ng-pristine ng-untouched ng-valid",
+                "target": 182,
+                "sourceName": "ul#expanded-options-dropdown.dropdown-menu",
+                "targetName": "select#select-theme.select-theme form-control navbar-indented ng-pristine ng-untouched ng-valid",
+                "value": 1,
+                "source": 181,
+                "pathLength": 9,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "select#select-theme.select-theme form-control navbar-indented ng-pristine ng-untouched ng-valid->ul#expanded-options-dropdown.dropdown-menu",
+                "target": 183,
+                "sourceName": "select#select-theme.select-theme form-control navbar-indented ng-pristine ng-untouched ng-valid",
+                "targetName": "ul#expanded-options-dropdown.dropdown-menu",
+                "value": 1,
+                "source": 184,
+                "pathLength": 11,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "ul#expanded-options-dropdown.dropdown-menu->a#save-state-button",
+                "target": 186,
+                "sourceName": "ul#expanded-options-dropdown.dropdown-menu",
+                "targetName": "a#save-state-button",
+                "value": 1,
+                "source": 185,
+                "pathLength": 9,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "a#save-state-button->a#load-state-button",
+                "target": 187,
+                "sourceName": "a#save-state-button",
+                "targetName": "a#load-state-button",
+                "value": 1,
+                "source": 188,
+                "pathLength": 11,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "a#load-state-button->a#options-dropdown.dropdown-toggle navbar-text",
+                "target": 190,
+                "sourceName": "a#load-state-button",
+                "targetName": "a#options-dropdown.dropdown-toggle navbar-text",
+                "value": 1,
+                "source": 189,
+                "pathLength": 11,
+                "typeChange": 1,
+                "type": "focus",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "a#options-dropdown.dropdown-toggle navbar-text->a#load-state-button",
+                "target": 192,
+                "sourceName": "a#options-dropdown.dropdown-toggle navbar-text",
+                "targetName": "a#load-state-button",
+                "value": 1,
+                "source": 191,
+                "pathLength": 9,
+                "typeChange": 1,
+                "type": "blur",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "a#load-state-button->svg#OpenLayers_Layer_Vector_RootContainer_49_svgRoot.[object SVGAnimatedString]",
+                "target": 194,
+                "sourceName": "a#load-state-button",
+                "targetName": "svg#OpenLayers_Layer_Vector_RootContainer_49_svgRoot.[object SVGAnimatedString]",
+                "value": 1,
+                "source": 193,
+                "pathLength": 11,
+                "typeChange": 1,
+                "type": "blur",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "svg#OpenLayers_Layer_Vector_RootContainer_49_svgRoot.[object SVGAnimatedString]->div#loadStateModal.load-state modal fade neon-popup in",
+                "target": 196,
+                "sourceName": "svg#OpenLayers_Layer_Vector_RootContainer_49_svgRoot.[object SVGAnimatedString]",
+                "targetName": "div#loadStateModal.load-state modal fade neon-popup in",
+                "value": 1,
+                "source": 195,
+                "pathLength": 17,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#loadStateModal.load-state modal fade neon-popup in->div#load-state-footer.modal-footer",
+                "target": 197,
+                "sourceName": "div#loadStateModal.load-state modal fade neon-popup in",
+                "targetName": "div#load-state-footer.modal-footer",
+                "value": 1,
+                "source": 198,
+                "pathLength": 9,
+                "typeChange": 1,
+                "type": "focus",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#load-state-footer.modal-footer->div#load-state-body.modal-body",
+                "target": 199,
+                "sourceName": "div#load-state-footer.modal-footer",
+                "targetName": "div#load-state-body.modal-body",
+                "value": 1,
+                "source": 200,
+                "pathLength": 12,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#load-state-body.modal-body->select#select-state-to-load.form-control ng-pristine ng-untouched ng-valid",
+                "target": 202,
+                "sourceName": "div#load-state-body.modal-body",
+                "targetName": "select#select-state-to-load.form-control ng-pristine ng-untouched ng-valid",
+                "value": 1,
+                "source": 201,
+                "pathLength": 12,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "select#select-state-to-load.form-control ng-pristine ng-untouched ng-valid->div#loadStateModal.load-state modal fade neon-popup in",
+                "target": 204,
+                "sourceName": "select#select-state-to-load.form-control ng-pristine ng-untouched ng-valid",
+                "targetName": "div#loadStateModal.load-state modal fade neon-popup in",
+                "value": 1,
+                "source": 203,
+                "pathLength": 14,
+                "typeChange": 1,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#loadStateModal.load-state modal fade neon-popup in->select#select-state-to-load.form-control ng-pristine ng-untouched ng-valid",
+                "target": 205,
+                "sourceName": "div#loadStateModal.load-state modal fade neon-popup in",
+                "targetName": "select#select-state-to-load.form-control ng-pristine ng-untouched ng-valid",
+                "value": 1,
+                "source": 206,
+                "pathLength": 9,
+                "typeChange": 1,
+                "type": "blur",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "select#select-state-to-load.form-control ng-pristine ng-untouched ng-valid->select#select-state-to-load.form-control ng-untouched ng-valid ng-dirty ng-valid-parse",
+                "target": 208,
+                "sourceName": "select#select-state-to-load.form-control ng-pristine ng-untouched ng-valid",
+                "targetName": "select#select-state-to-load.form-control ng-untouched ng-valid ng-dirty ng-valid-parse",
+                "value": 1,
+                "source": 207,
+                "pathLength": 14,
+                "typeChange": 1,
+                "type": "input",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "select#select-state-to-load.form-control ng-untouched ng-valid ng-dirty ng-valid-parse->div#loadStateModal.load-state modal fade neon-popup in",
+                "target": 209,
+                "sourceName": "select#select-state-to-load.form-control ng-untouched ng-valid ng-dirty ng-valid-parse",
+                "targetName": "div#loadStateModal.load-state modal fade neon-popup in",
+                "value": 1,
+                "source": 210,
+                "pathLength": 14,
+                "typeChange": 1,
+                "type": "click",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#loadStateModal.load-state modal fade neon-popup in->div#load-state-footer.modal-footer",
+                "target": 211,
+                "sourceName": "div#loadStateModal.load-state modal fade neon-popup in",
+                "targetName": "div#load-state-footer.modal-footer",
+                "value": 1,
+                "source": 212,
+                "pathLength": 9,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#load-state-footer.modal-footer->button#cancel-btn.btn btn-alert",
+                "target": 214,
+                "sourceName": "div#load-state-footer.modal-footer",
+                "targetName": "button#cancel-btn.btn btn-alert",
+                "value": 1,
+                "source": 213,
+                "pathLength": 12,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "button#cancel-btn.btn btn-alert->div#load-state-footer.modal-footer",
+                "target": 215,
+                "sourceName": "button#cancel-btn.btn btn-alert",
+                "targetName": "div#load-state-footer.modal-footer",
+                "value": 1,
+                "source": 216,
+                "pathLength": 13,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#load-state-footer.modal-footer->button#load-btn.btn btn-success",
+                "target": 218,
+                "sourceName": "div#load-state-footer.modal-footer",
+                "targetName": "button#load-btn.btn btn-success",
+                "value": 1,
+                "source": 217,
+                "pathLength": 12,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "button#load-btn.btn btn-success->select#select-state-to-load.form-control ng-untouched ng-valid ng-dirty ng-valid-parse",
+                "target": 219,
+                "sourceName": "button#load-btn.btn btn-success",
+                "targetName": "select#select-state-to-load.form-control ng-untouched ng-valid ng-dirty ng-valid-parse",
+                "value": 1,
+                "source": 220,
+                "pathLength": 13,
+                "typeChange": 1,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "select#select-state-to-load.form-control ng-untouched ng-valid ng-dirty ng-valid-parse->button#load-btn.btn btn-success",
+                "target": 221,
+                "sourceName": "select#select-state-to-load.form-control ng-untouched ng-valid ng-dirty ng-valid-parse",
+                "targetName": "button#load-btn.btn btn-success",
+                "value": 1,
+                "source": 222,
+                "pathLength": 14,
+                "typeChange": 1,
+                "type": "blur",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "button#load-btn.btn btn-success->div.contract-trigger",
+                "target": 223,
+                "sourceName": "button#load-btn.btn btn-success",
+                "targetName": "div.contract-trigger",
+                "value": 1,
+                "source": 224,
+                "pathLength": 13,
+                "typeChange": 1,
+                "type": "click",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.contract-trigger->div#loadStateModal.load-state modal fade neon-popup",
+                "target": 226,
+                "sourceName": "div.contract-trigger",
+                "targetName": "div#loadStateModal.load-state modal fade neon-popup",
+                "value": 1,
+                "source": 225,
+                "pathLength": 14,
+                "typeChange": 1,
+                "type": "scroll",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#loadStateModal.load-state modal fade neon-popup->button#load-btn.btn btn-success",
+                "target": 227,
+                "sourceName": "div#loadStateModal.load-state modal fade neon-popup",
+                "targetName": "button#load-btn.btn btn-success",
+                "value": 1,
+                "source": 228,
+                "pathLength": 9,
+                "typeChange": 1,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "button#load-btn.btn btn-success->div.visualization timelineDirective",
+                "target": 229,
+                "sourceName": "button#load-btn.btn btn-success",
+                "targetName": "div.visualization timelineDirective",
+                "value": 1,
+                "source": 230,
+                "pathLength": 13,
+                "typeChange": 1,
+                "type": "blur",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.visualization timelineDirective->div.expand-trigger",
+                "target": 231,
+                "sourceName": "div.visualization timelineDirective",
+                "targetName": "div.expand-trigger",
+                "value": 1,
+                "source": 232,
+                "pathLength": 12,
+                "typeChange": 1,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.expand-trigger->rect.[object SVGAnimatedString]",
+                "target": 234,
+                "sourceName": "div.expand-trigger",
+                "targetName": "rect.[object SVGAnimatedString]",
+                "value": 1,
+                "source": 233,
+                "pathLength": 18,
+                "typeChange": 1,
+                "type": "scroll",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "rect.[object SVGAnimatedString]->div.expand-trigger",
+                "target": 235,
+                "sourceName": "rect.[object SVGAnimatedString]",
+                "targetName": "div.expand-trigger",
+                "value": 1,
+                "source": 236,
+                "pathLength": 19,
+                "typeChange": 1,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.expand-trigger->div#widget-title-container.text-container options-container",
+                "target": 238,
+                "sourceName": "div.expand-trigger",
+                "targetName": "div#widget-title-container.text-container options-container",
+                "value": 1,
+                "source": 237,
+                "pathLength": 18,
+                "typeChange": 1,
+                "type": "scroll",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#widget-title-container.text-container options-container->rect.[object SVGAnimatedString]",
+                "target": 240,
+                "sourceName": "div#widget-title-container.text-container options-container",
+                "targetName": "rect.[object SVGAnimatedString]",
+                "value": 1,
+                "source": 239,
+                "pathLength": 13,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "rect.[object SVGAnimatedString]->div.gridster-item-resizable-handler handle-e",
+                "target": 241,
+                "sourceName": "rect.[object SVGAnimatedString]",
+                "targetName": "div.gridster-item-resizable-handler handle-e",
+                "value": 1,
+                "source": 242,
+                "pathLength": 18,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.gridster-item-resizable-handler handle-e->div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "target": 244,
+                "sourceName": "div.gridster-item-resizable-handler handle-e",
+                "targetName": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "value": 1,
+                "source": 243,
+                "pathLength": 9,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded->div.gridster-item-resizable-handler handle-w",
+                "target": 245,
+                "sourceName": "div#gridster-div.ng-scope gridster gridster-desktop gridster-loaded",
+                "targetName": "div.gridster-item-resizable-handler handle-w",
+                "value": 1,
+                "source": 246,
+                "pathLength": 6,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.gridster-item-resizable-handler handle-w->div.ng-scope superclass ng-isolate-scope",
+                "target": 248,
+                "sourceName": "div.gridster-item-resizable-handler handle-w",
+                "targetName": "div.ng-scope superclass ng-isolate-scope",
+                "value": 1,
+                "source": 247,
+                "pathLength": 9,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.ng-scope superclass ng-isolate-scope->#document",
+                "target": 249,
+                "sourceName": "div.ng-scope superclass ng-isolate-scope",
+                "targetName": "#document",
+                "value": 1,
+                "source": 250,
+                "pathLength": 10,
+                "typeChange": 1,
+                "type": "wheel",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "#document->svg#OpenLayers_Layer_Vector_RootContainer_4126_svgRoot.[object SVGAnimatedString]",
+                "target": 252,
+                "sourceName": "#document",
+                "targetName": "svg#OpenLayers_Layer_Vector_RootContainer_4126_svgRoot.[object SVGAnimatedString]",
+                "value": 1,
+                "source": 251,
+                "pathLength": 2,
+                "typeChange": 1,
+                "type": "scroll",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "svg#OpenLayers_Layer_Vector_RootContainer_4126_svgRoot.[object SVGAnimatedString]->svg#plot.[object SVGAnimatedString]",
+                "target": 253,
+                "sourceName": "svg#OpenLayers_Layer_Vector_RootContainer_4126_svgRoot.[object SVGAnimatedString]",
+                "targetName": "svg#plot.[object SVGAnimatedString]",
+                "value": 1,
+                "source": 254,
+                "pathLength": 17,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "svg#plot.[object SVGAnimatedString]->#document",
+                "target": 256,
+                "sourceName": "svg#plot.[object SVGAnimatedString]",
+                "targetName": "#document",
+                "value": 1,
+                "source": 255,
+                "pathLength": 15,
+                "typeChange": 1,
+                "type": "wheel",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "#document->div#filter-builder-inputs.filter neon-well form-inline",
+                "target": 258,
+                "sourceName": "#document",
+                "targetName": "div#filter-builder-inputs.filter neon-well form-inline",
+                "value": 1,
+                "source": 257,
+                "pathLength": 2,
+                "typeChange": 1,
+                "type": "scroll",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#filter-builder-inputs.filter neon-well form-inline->#document",
+                "target": 260,
+                "sourceName": "div#filter-builder-inputs.filter neon-well form-inline",
+                "targetName": "#document",
+                "value": 1,
+                "source": 259,
+                "pathLength": 11,
+                "typeChange": 1,
+                "type": "wheel",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "#document->div.ng-scope ng-isolate-scope filter-directive",
+                "target": 262,
+                "sourceName": "#document",
+                "targetName": "div.ng-scope ng-isolate-scope filter-directive",
+                "value": 1,
+                "source": 261,
+                "pathLength": 2,
+                "typeChange": 1,
+                "type": "scroll",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.ng-scope ng-isolate-scope filter-directive->div.ng-scope superclass ng-isolate-scope",
+                "target": 263,
+                "sourceName": "div.ng-scope ng-isolate-scope filter-directive",
+                "targetName": "div.ng-scope superclass ng-isolate-scope",
+                "value": 1,
+                "source": 264,
+                "pathLength": 10,
+                "typeChange": 1,
+                "type": "wheel",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.ng-scope superclass ng-isolate-scope->div.ag-body-viewport",
+                "target": 266,
+                "sourceName": "div.ng-scope superclass ng-isolate-scope",
+                "targetName": "div.ag-body-viewport",
+                "value": 1,
+                "source": 265,
+                "pathLength": 10,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.ag-body-viewport->div#neon-dashboard.container",
+                "target": 267,
+                "sourceName": "div.ag-body-viewport",
+                "targetName": "div#neon-dashboard.container",
+                "value": 1,
+                "source": 268,
+                "pathLength": 23,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#neon-dashboard.container->div.ag-body-viewport",
+                "target": 270,
+                "sourceName": "div#neon-dashboard.container",
+                "targetName": "div.ag-body-viewport",
+                "value": 1,
+                "source": 269,
+                "pathLength": 5,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.ag-body-viewport->div.ag-cell ag-cell-no-focus cell-col-3 ag-cell-value",
+                "target": 271,
+                "sourceName": "div.ag-body-viewport",
+                "targetName": "div.ag-cell ag-cell-no-focus cell-col-3 ag-cell-value",
+                "value": 1,
+                "source": 272,
+                "pathLength": 23,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.ag-cell ag-cell-no-focus cell-col-3 ag-cell-value->#document",
+                "target": 273,
+                "sourceName": "div.ag-cell ag-cell-no-focus cell-col-3 ag-cell-value",
+                "targetName": "#document",
+                "value": 1,
+                "source": 274,
+                "pathLength": 26,
+                "typeChange": 1,
+                "type": "wheel",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "#document->div.ag-cell ag-cell-no-focus cell-col-3 ag-cell-value",
+                "target": 276,
+                "sourceName": "#document",
+                "targetName": "div.ag-cell ag-cell-no-focus cell-col-3 ag-cell-value",
+                "value": 1,
+                "source": 275,
+                "pathLength": 2,
+                "typeChange": 1,
+                "type": "scroll",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.ag-cell ag-cell-no-focus cell-col-3 ag-cell-value->span#open/close-options-menu.text pull-left ng-binding",
+                "target": 277,
+                "sourceName": "div.ag-cell ag-cell-no-focus cell-col-3 ag-cell-value",
+                "targetName": "span#open/close-options-menu.text pull-left ng-binding",
+                "value": 1,
+                "source": 278,
+                "pathLength": 26,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "span#open/close-options-menu.text pull-left ng-binding->div.ng-scope superclass ng-isolate-scope",
+                "target": 280,
+                "sourceName": "span#open/close-options-menu.text pull-left ng-binding",
+                "targetName": "div.ng-scope superclass ng-isolate-scope",
+                "value": 1,
+                "source": 279,
+                "pathLength": 17,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.ng-scope superclass ng-isolate-scope->svg#plot.[object SVGAnimatedString]",
+                "target": 281,
+                "sourceName": "div.ng-scope superclass ng-isolate-scope",
+                "targetName": "svg#plot.[object SVGAnimatedString]",
+                "value": 1,
+                "source": 282,
+                "pathLength": 10,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "svg#plot.[object SVGAnimatedString]->rect.[object SVGAnimatedString]",
+                "target": 284,
+                "sourceName": "svg#plot.[object SVGAnimatedString]",
+                "targetName": "rect.[object SVGAnimatedString]",
+                "value": 1,
+                "source": 283,
+                "pathLength": 15,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "rect.[object SVGAnimatedString]->svg#plot.[object SVGAnimatedString]",
+                "target": 285,
+                "sourceName": "rect.[object SVGAnimatedString]",
+                "targetName": "svg#plot.[object SVGAnimatedString]",
+                "value": 1,
+                "source": 286,
+                "pathLength": 17,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "svg#plot.[object SVGAnimatedString]->div.gridster-item-resizable-handler handle-s",
+                "target": 288,
+                "sourceName": "svg#plot.[object SVGAnimatedString]",
+                "targetName": "div.gridster-item-resizable-handler handle-s",
+                "value": 1,
+                "source": 287,
+                "pathLength": 15,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.gridster-item-resizable-handler handle-s->div.visualization-drag-handle",
+                "target": 289,
+                "sourceName": "div.gridster-item-resizable-handler handle-s",
+                "targetName": "div.visualization-drag-handle",
+                "value": 1,
+                "source": 290,
+                "pathLength": 9,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.visualization-drag-handle->div#widget-title-container.text-container options-container",
+                "target": 292,
+                "sourceName": "div.visualization-drag-handle",
+                "targetName": "div#widget-title-container.text-container options-container",
+                "value": 1,
+                "source": 291,
+                "pathLength": 10,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div#widget-title-container.text-container options-container->div.visualization dataTableDirective",
+                "target": 293,
+                "sourceName": "div#widget-title-container.text-container options-container",
+                "targetName": "div.visualization dataTableDirective",
+                "value": 1,
+                "source": 294,
+                "pathLength": 13,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.visualization dataTableDirective->div.ag-header-cell-label",
+                "target": 296,
+                "sourceName": "div.visualization dataTableDirective",
+                "targetName": "div.ag-header-cell-label",
+                "value": 1,
+                "source": 295,
+                "pathLength": 12,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.ag-header-cell-label->div.ng-scope superclass ng-isolate-scope",
+                "target": 298,
+                "sourceName": "div.ag-header-cell-label",
+                "targetName": "div.ng-scope superclass ng-isolate-scope",
+                "value": 1,
+                "source": 297,
+                "pathLength": 25,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.ng-scope superclass ng-isolate-scope->div.ag-cell ag-cell-no-focus cell-col-1 ag-cell-value",
+                "target": 300,
+                "sourceName": "div.ng-scope superclass ng-isolate-scope",
+                "targetName": "div.ag-cell ag-cell-no-focus cell-col-1 ag-cell-value",
+                "value": 1,
+                "source": 299,
+                "pathLength": 10,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "div.ag-cell ag-cell-no-focus cell-col-1 ag-cell-value->span.legend-text ng-binding",
+                "target": 301,
+                "sourceName": "div.ag-cell ag-cell-no-focus cell-col-1 ag-cell-value",
+                "targetName": "span.legend-text ng-binding",
+                "value": 1,
+                "source": 302,
+                "pathLength": 26,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "span.legend-text ng-binding->rect.[object SVGAnimatedString]",
+                "target": 304,
+                "sourceName": "span.legend-text ng-binding",
+                "targetName": "rect.[object SVGAnimatedString]",
+                "value": 1,
+                "source": 303,
+                "pathLength": 17,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "rect.[object SVGAnimatedString]->svg#OpenLayers_Layer_Vector_RootContainer_4126_svgRoot.[object SVGAnimatedString]",
+                "target": 305,
+                "sourceName": "rect.[object SVGAnimatedString]",
+                "targetName": "svg#OpenLayers_Layer_Vector_RootContainer_4126_svgRoot.[object SVGAnimatedString]",
+                "value": 1,
+                "source": 306,
+                "pathLength": 18,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            },
+            {
+                "sequenceID": "svg#OpenLayers_Layer_Vector_RootContainer_4126_svgRoot.[object SVGAnimatedString]->div#navbar-container.container",
+                "target": 308,
+                "sourceName": "svg#OpenLayers_Layer_Vector_RootContainer_4126_svgRoot.[object SVGAnimatedString]",
+                "targetName": "div#navbar-container.container",
+                "value": 1,
+                "source": 307,
+                "pathLength": 17,
+                "typeChange": 0,
+                "type": "mouseover",
+                "targetChange": 1
+            }
+        ],
+        "sessions": [{
+                "key": "session_1503590000289",
+                "doc_count": 207
+            },
+            {
+                "key": "session_1503587161469",
+                "doc_count": 9
+            }
+        ]
+    }
+}

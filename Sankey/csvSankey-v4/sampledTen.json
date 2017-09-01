@@ -1,0 +1,217 @@
+{
+    "nodes": [
+        {
+            "id": 0,
+            "name": "#document"
+        },
+        {
+            "id": 1,
+            "name": "a"
+        },
+        {
+            "id": 2,
+            "name": "a.btn"
+        },
+        {
+            "id": 3,
+            "name": "a.collapsed dropdown-toggle primary"
+        },
+        {
+            "id": 4,
+            "name": "a.dropdown-toggle navbar-text"
+        },
+        {
+            "id": 5,
+            "name": "a.dropdown-toggle primary ng-binding"
+        },
+        {
+            "id": 6,
+            "name": "a.modebar-btn"
+        },
+        {
+            "id": 7,
+            "name": "a.modebar-btn active"
+        },
+        {
+            "id": 8,
+            "name": "a.navbar-text neon-popup-button pull-right"
+        },
+        {
+            "id": 9,
+            "name": "a.ng-binding"
+        }
+    ],
+    "links": [
+        {
+            "value": 1,
+            "target": 5,
+            "source": 4,
+            "duration": 0,
+            "typeChange": true,
+            "type": "blur",
+            "targetChange": true
+        },
+        {
+            "value": 1,
+            "target": 5,
+            "source": 3,
+            "duration": 305,
+            "typeChange": false,
+            "type": "mouseover",
+            "targetChange": true
+        },
+        {
+            "value": 1,
+            "target": 5,
+            "source": 3,
+            "duration": 28,
+            "typeChange": false,
+            "type": "mouseover",
+            "targetChange": true
+        },
+        {
+            "value": 1,
+            "target": 5,
+            "source": 3,
+            "duration": 241,
+            "typeChange": false,
+            "type": "mouseover",
+            "targetChange": true
+        },
+        {
+            "value": 1,
+            "target": 5,
+            "source": 3,
+            "duration": 82,
+            "typeChange": false,
+            "type": "mouseover",
+            "targetChange": true
+        },
+        {
+            "value": 1,
+            "target": 5,
+            "source": 1,
+            "duration": 9,
+            "typeChange": true,
+            "type": "click",
+            "targetChange": false
+        },
+        {
+            "value": 1,
+            "target": 5,
+            "source": 1,
+            "duration": 314,
+            "typeChange": true,
+            "type": "mouseover",
+            "targetChange": true
+        },
+        {
+            "value": 1,
+            "target": 5,
+            "source": 1,
+            "duration": 895,
+            "typeChange": false,
+            "type": "mouseover",
+            "targetChange": true
+        },
+        {
+            "value": 1,
+            "target": 5,
+            "source": 1,
+            "duration": 246,
+            "typeChange": true,
+            "type": "mouseover",
+            "targetChange": true
+        },
+        {
+            "value": 1,
+            "target": 5,
+            "source": 1,
+            "duration": 456,
+            "typeChange": true,
+            "type": "mouseover",
+            "targetChange": true
+        },
+        {
+            "value": 1,
+            "target": 0,
+            "source": 0,
+            "duration": 8883,
+            "typeChange": false,
+            "type": "mouseover",
+            "targetChange": true
+        },
+        {
+            "value": 1,
+            "target": 0,
+            "source": 0,
+            "duration": 132609,
+            "typeChange": true,
+            "type": "blur",
+            "targetChange": false
+        },
+        {
+            "value": 1,
+            "target": 1,
+            "source": 3,
+            "duration": -762069,
+            "typeChange": true,
+            "type": "mouseover",
+            "targetChange": false
+        },
+        {
+            "value": 1,
+            "target": 0,
+            "source": 0,
+            "duration": 40634,
+            "typeChange": true,
+            "type": "blur",
+            "targetChange": false
+        },
+        {
+            "value": 1,
+            "target": 0,
+            "source": 0,
+            "duration": 32341,
+            "typeChange": true,
+            "type": "blur",
+            "targetChange": false
+        },
+        {
+            "value": 1,
+            "target": 1,
+            "source": 3,
+            "duration": -545841,
+            "typeChange": true,
+            "type": "mouseover",
+            "targetChange": false
+        },
+        {
+            "value": 1,
+            "target": 0,
+            "source": 0,
+            "duration": 3170,
+            "typeChange": true,
+            "type": "blur",
+            "targetChange": false
+        },
+        {
+            "value": 1,
+            "target": 0,
+            "source": 0,
+            "duration": 1260,
+            "typeChange": true,
+            "type": "focus",
+            "targetChange": false
+        },
+        {
+            "value": 1,
+            "target": 0,
+            "source": 3,
+            "duration": 74,
+            "typeChange": false,
+            "type": "mouseover",
+            "targetChange": true
+        }
+    ]
+}
