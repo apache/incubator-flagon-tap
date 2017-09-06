@@ -73,11 +73,11 @@ class AppResults extends Component {
     //   },
     // });
 
-    $('#ab-toggle').checkbox({
-      onChange : () => {
-        this.setState({ ab : $('input[name=a-b]').is(':checked') });
-      },
-    });
+    // $('#ab-toggle').checkbox({
+    //   onChange : () => {
+    //     this.setState({ ab : $('input[name=a-b]').is(':checked') });
+    //   },
+    // });
 
     $('#graph-ab-toggle').checkbox({
       onChange: () => {
@@ -87,27 +87,27 @@ class AppResults extends Component {
   }
 
   render() {
-    console.log("is an app defined here?");
-    console.log(this.props.app);
+    //console.log("is an app defined here?");
+    //console.log(this.props.app);
 
     const { name, results } = this.props.app;
 
 
     // get graph data from distill
-    var url = 'http://localhost:8090/sankey/userale?from=now-15m&to=now&size=20';
-    //var url = 'http://localhost:8090';       
-    axios.get(url)
-      .then( (response) => {
-        console.log("response", response);
-        var sankeyhtml = response.data;
-        // this.setState({
-        //   fetchUser: response.data
-        // });
-        //console.log("fetchUser", this.state.fetchUser);
-      })
-      .catch( (error) => {
-        console.log(error);
-      }); 
+    // var url = 'http://distill:8090/sankey/userale?from=now-15m&to=now&size=20'; //snarl-distill calls
+    // //var url = 'http://localhost:8090';       
+    // axios.get(url)
+    //   .then( (response) => {
+    //     //console.log("response", response);
+    //     var sankeyhtml = response.data;
+    //     // this.setState({
+    //     //   fetchUser: response.data
+    //     // });
+    //     //console.log("fetchUser", this.state.fetchUser);
+    //   })
+    //   .catch( (error) => {
+    //     console.log(error);
+    //   }); 
     var sankeyhtml = "";
 
     // var url = 'http://distill:8090/sankey/userale?from=now-15m&to=now&size=20';
@@ -140,23 +140,56 @@ class AppResults extends Component {
               <div className='item'>
                 <a id='counts' className='active main-controls title'>
                   <i className='dropdown icon'></i>
-                  Activity Counts
+                  Sankey and Counts
                 </a>
                 <div className='active content'>
 
-                    <div className='field'>
-                      <div id='ab-toggle' className='ui toggle checkbox'>
-                        <input type='checkbox' name='a-b'></input>
-                        <label>A/B</label>
+                  <div className='content'>
+                    <div className='ui form'>
+                      <div className='grouped fields'>
+                        <div className='field'>
+                          <div className='ui radio checkbox'>
+                            <input type='radio' name='metric' value='out_degree' defaultChecked></input>
+                            <label>Out Degree</label>
+                          </div>
+                        </div>
+                        <div className='field'>
+                          <div className='ui radio checkbox'>
+                            <input type='radio' name='metric' value='in_degree'></input>
+                            <label>In Degree</label>
+                          </div>
+                        </div>
+                        <div className='field'>
+                          <div className='ui radio checkbox'>
+                            <input type='radio' name='metric' value='betweenness_cent_dir_weighted'></input>
+                            <label>Weighted Betweenness</label>
+                          </div>
+                        </div>
+                        <div className='field'>
+                          <div className='ui radio checkbox'>
+                            <input type='radio' name='metric' value='closeness_cent_dir_weighted'></input>
+                            <label>Weighted Closeness</label>
+                          </div>
+                        </div>
+                        <div className='field'>
+                          <div className='ui radio checkbox'>
+                            <input type='radio' name='metric' value='closeness_cent_dir_unweighted'></input>
+                            <label>Unweighted Closeness</label>
+                          </div>
+                        </div>
                       </div>
+
                     </div>
+                  </div>
                 </div>
               </div>
+
+
 
               <div className='item'>
                 <a id='graph' className='main-controls title'>
                   <i className='dropdown icon'></i>
-                  Graph Metrics
+                  Graph Metrics Example
                 </a>
                 <div className='content'>
                   <div className='ui form'>
@@ -276,25 +309,17 @@ class AppResults extends Component {
                   case 'sankey':
                     return (
                       <div>
-                          <iframe srcDoc={sankeyhtml} height="300px" width="700px" style={{border: '0px'}}/>
+                        <SankeyPlot filters={this.state} data={results.graph} element='sankey-plot-viz' metric={this.state.metric} />
                       </div>
                     );
                   case 'counts':
-                  default:  
-                    return <Counts filters={this.state} data={results.counts} />;
-                  // case 'countsandbowie':
-                  //   return (
-                  //     <div>
-                  //       <CountsAndBowie metric={this.state.metric} element='graph-metrics-viz' data={results.graph} />
-                  //       {this.state.graphAb ?
-                  //         <CountsAndBowie
-                  //           metric='betweenness_cent_dir_weighted'
-                  //           element='graph-metrics-viz-b'
-                  //           data={results.graph}
-                  //         /> : null
-                  //       }
-                  //     </div>
-                  //   );
+                  default: 
+                    return (
+                      <div>
+                        <SankeyPlot filters={this.state} data={results.graph} element='sankey-plot-viz' metric={this.state.metric} />
+                        <Counts filters={this.state} data={results.counts} />
+                      </div>
+                    ); 
                 }
               })()}
             </div>
