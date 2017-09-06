@@ -15,6 +15,8 @@
 
 import React, { Component, PropTypes } from 'react';
 import * as d3 from 'd3';
+//import {'d3-interpolate'} from 'd3';
+//require('../../d3sankey.js').default;
 
 const colors_old = ['#A7003C', '#00A76B', '#0090A7', '#003DA7', '#6B00A7'];
 const colors_new = ['#d45d35', '#DBA915', '#BFD02C', '#38A6D8', '#852EB7'];
@@ -22,7 +24,9 @@ const colors_new = ['#d45d35', '#DBA915', '#BFD02C', '#38A6D8', '#852EB7'];
 class SankeyPlot extends Component {
   constructor(props) {
     super(props);
-    this.d3element = props.element;
+
+    //this.d3element = props.element;
+    this.d3element = 'sankey-plot';
   }
 
   componentDidMount() {
@@ -49,142 +53,113 @@ class SankeyPlot extends Component {
       left : 20,
     };
     this.fullWidth = 600;
-    this.fullHeight = 400;
+    this.fullHeight = 300;
     this.width = this.fullWidth - this.margin.left - this.margin.right;
     this.height = this.fullHeight - this.margin.top - this.margin.bottom;
-    this.mainRadius = 280;
 
-    // this.color = d3.scaleOrdinal()
-    //   .range([
-    //     '#A7003C', // Red
-    //     '#00A76B', // Green
-    //     '#0090A7', // Teal
-    //     '#003DA7', // Blue
-    //     '#6B00A7'  // Purple
-    //   ]);
+    this.formatNumber = d3.format(',.0f');
+    this.format = d => `${this.formatNumber(d)} TWh`;
+    
 
     this.color = d3.scaleOrdinal()
       .range(colors_old);
 
-    this.arc = d3.arc()
-      // .padAngle(0.002)
-      .innerRadius(this.mainRadius - 50)
-      .outerRadius(this.mainRadius);
-
-    this.ribbon = d3.ribbon();
-
-    this.graphFlow = graphFlow()
-      .radius(this.mainRadius - 50)
-      .innerRadius(this.mainRadius - 150);
-
     this.svg = d3.select(`#${this.d3element}`).append('svg')
       .attr('width', this.fullWidth)
       .attr('height', this.fullHeight)
-      .append('g')
-      .attr('transform', `translate(${this.margin.left + this.width / 2},${this.margin.top + this.height / 2})`);
+      .append('g');
+      
+    this.sankey = sankey()
+      .nodeWidth(15)
+      .nodePadding(10)
+      .size([this.width, this.height]);
 
-    this.tooltip = d3.select('body').append('div')
-      .attr('class', 'tooltip')
-      .style('opacity', 0);
+    this.path = this.sankey.link();
+
+
+    // this.tooltip = d3.select('body').append('div')
+    //   .attr('class', 'tooltip')
+    //   .style('opacity', 0);
 
     this.update();
   }
 
   // D3 render
   update() {
-    let data = this.props.data[this.props.metric];
-    let layout = this.graphFlow(data);
+    //let data = this.props.data[this.props.metric];
+    let data = require('../../sankey_example.js').default;
+    console.log("data in update = " + data);
+    console.log("nodes: "+ data[0].nodes.length);
+    console.log("links: "+ data[1].links.length);
 
-    let t = d3.transition()
-      .duration(500);
+    this.sankey
+      .nodes(data[0].nodes)
+      .links(data[1].links)
+      .layout(32);
 
-    this.arcs = this.svg.selectAll('.arc')
-      .data(layout.inArcs.concat(layout.outArcs), (d) => d.type + d.index);
+    const link = this.svg.append('g').selectAll('.link')
+      .data(data[1].links)
+      .enter().append('path')
+      .attr('class', 'linkSankey')
+      .attr('d', this.path)
+      .style('stroke-width', d => Math.max(100, d.dy))
+      .style('fill', 'none')
+      .style('stroke', "#000")
+      .style('stroke-opacity', .2)
+      .sort((a, b) => b.dy - a.dy);
 
-    this.arcs.exit()
-      .attr('class', 'exit')
-      .transition(t)
-      .style('fill-opacity', 0)
-      .remove();
+    link.append('title')
+      .text(d => `${d.source.name} → ${d.target.name}\n${this.format(d.value)}`);
 
-    this.arcs = this.arcs.enter()
-      .append('path')
-      .attr('class', 'arc')
-      .merge(this.arcs);
-
-    this.arcs
-      .on('mouseover', (d) => {
-        this.highlight(d, 'arc');
-        this.showTooltip(data.in[d.index], d3.event.pageX, d3.event.pageY);
-      })
-      .on('mouseout', (d) => {
-        this.restore();
-        this.hideTooltip();
-      })
-      .transition(t)
-      // TODO : add arc tweens
-      .attr('d', this.arc)
-      .style('fill', (d) => this.color(data.in[d.index].elementGroup));
-
-    this.chords = this.svg.selectAll('.chord')
-      .data(layout.inChords.concat(layout.outChords), (d) => d.index + d.type + d.subindex);
-
-    this.chords.exit()
-      .attr('class', 'exit')
-      .transition(t)
-      .style('fill-opacity', 0)
-      .remove();
-
-    this.chords = this.chords.enter()
-      .append('path')
-      .attr('class', 'chord')
-      .style('fill', '#B0B9BE')
-      .merge(this.chords);
-
-    this.chords
-      .transition(t)
-      .attr('d', this.ribbon)
-      .style('fill-opacity', 0.5);
-
-    this.circles = this.svg.selectAll('.node')
-      .data($.map(layout.blt, (val, key) => val), (d) => d.index);
-
-    this.circles.exit()
-      .attr('class', 'exit')
-      .transition(t)
-      .attr('r', 0)
-      .remove();
-
-    this.circles = this.circles.enter()
-      .append('circle')
+    const node = this.svg.append('g').selectAll('.node')
+      .data(data[0].nodes)
+      .enter().append('g')
       .attr('class', 'node')
-      .merge(this.circles);
+      .attr('transform', d => `translate(${d.x},${d.y})`)
+      .call(d3.drag()
+        .subject(d => d)
+        .on('start', function() {
+          this.parentNode.appendChild(this);
+        })
+        .on('drag', this.dragmove(d => d)));
 
-    this.circles
-      .on('mouseover', (d) => {
-        this.highlight(d, 'circle');
-        this.showTooltip(data.in[d.index], d3.event.pageX, d3.event.pageY);
-      })
-      .on('mouseout', (d) => {
-        this.restore();
-        this.hideTooltip();
-      })
-      .transition(t)
-      .attr('r', (d) => d.r)
-      .attr('cx', (d) => d.x)
-      .attr('cy', (d) => d.y)
-      .style('fill', (d) => this.color(data.in[d.index].elementGroup))
-      .style('fill-opacity', 0.75);
+    node.append('rect')
+      .attr('height', d => d.dy)
+      .attr('width', this.sankey.nodeWidth())
+      .style('fill', d => d.color = this.color(d.name.replace(/ .*/, '')))
+      .style('stroke', d => d3.rgb(d.color).darker(2))
+      .append('title')
+      .text(d => `${d.name}\n${this.format(d.value)}`);
 
+    node.append('text')
+      .attr('x', -6)
+      .attr('y', d => d.dy / 2)
+      .attr('dy', '.35em')
+      .attr('text-anchor', 'end')
+      .attr('transform', null)
+      .text(d => d.name)
+      .filter(d => d.x < this.width / 2)
+      .attr('x', 6 + this.sankey.nodeWidth())
+      .attr('text-anchor', 'start');
+
+  }
+  
+  dragmove(d) {
+    //TODO: fix dragmove: the function is called unnecessarily and doens't work
+    // d3.select(this).attr('transform', `translate(${d.x},${d.y = Math.max(0, Math.min(this.height - d.dy, d3.event.y))})`);
+    // sankey.relayout();
+    // link.attr('d', this.path);
   }
 
   hideTooltip() {
+    //console.log("HIDE TOOLTIP HAPPENED - todo: verify");
     this.tooltip.transition()
       .duration(350)
       .style('opacity', 0);
   }
 
   showTooltip(activity, x, y) {
+    //console.log("SHOW TOOLTIP HAPPENED - todo: verify");
     this.tooltip.transition()
       .duration(350)
       .style('opacity', 0.9);
@@ -195,231 +170,314 @@ class SankeyPlot extends Component {
       .html(`Action: ${activity.action}<br>Id: ${activity.elementId}<br>Group: ${activity.elementGroup}`);
   }
 
-  highlight(d, type) {
-    var indices = [];
-
-    if (type === 'arc') {
-      this.chords.style('fill-opacity', (c) => {
-        if (c.index !== d.index || c.type !== d.type) {
-          return 0.1;
-        } else {
-          indices.push(c.subindex);
-          return 0.5;
-        }
-      });
-
-      this.circles.style('fill-opacity', (c) => indices.includes(c.index) ? 0.75 : 0.1);
-      this.arcs.style('fill-opacity', (c) => c === d ? 1 : 0.25);
-    } else if (type === 'circle') {
-      this.chords.style('fill-opacity', (c) => {
-        if (c.subindex !== d.index) {
-          return 0.1;
-        } else {
-          indices.push(c.index);
-          return 0.5;
-        }
-      });
-
-      this.circles.style('fill-opacity', (c) => c === d ? 0.75 : 0.25);
-      this.arcs.style('fill-opacity', (c) => indices.includes(c.index) ? 1 : 0.1);
-    }
-  }
-
-  restore() {
-    this.chords.style('fill-opacity', 0.5);
-    this.circles.style('fill-opacity', 0.75);
-    this.arcs.style('fill-opacity', 1);
-  }
-
 }
 
 
-// Custom layout function for graph viz
-// Converts input data into return arrays of component svg elements
-function graphFlow() {
-  const tau = Math.PI * 2;
 
-  var padAngle = 0;
-  var spaceAngle = tau / 4;
-  var radius = 0;
-  var innerRadius = 0;
+// d3-sankey layout taken from: <<>> and modified by Ryan
+function sankey() {
+    var sankey = {},
+      nodeWidth = 24,
+      nodePadding = 8,
+      size = [1, 1],
+      nodes = [],
+      links = [];
 
-  function layout(data) {
-    var result = {};
-
-    result.in = arrayToObj(data.in);
-    result.out = arrayToObj(data.out);
-    result.blt = arrayToObj(circleLayout(data.blt, innerRadius));
-
-    var arcAngle = (tau - (spaceAngle * 2)) / 2;
-    var inStart = (tau + spaceAngle) / 2;
-    var outStart = spaceAngle / 2;
-
-    var inSide = sideLayout(data.inMatrix, result.blt, inStart, arcAngle, padAngle, radius, 'in');
-    var outSide = sideLayout(data.outMatrix, result.blt, outStart, arcAngle, padAngle, radius, 'out');
-
-    result.inArcs = inSide[0];
-    result.inChords = inSide[1];
-    result.outArcs = outSide[0];
-    result.outChords = outSide[1];
-
-    return result;
-  }
-
-  layout.padAngle = (value) => {
-    return value ? (padAngle = value, layout) : padAngle;
-  };
-
-  layout.spaceAngle = (value) => {
-    return value ? (spaceAngle = value, layout) : spaceAngle;
-  };
-
-  layout.radius = (value) => {
-    return value ? (radius = value, layout) : radius;
-  };
-
-  layout.innerRadius = (value) => {
-    return value ? (innerRadius = value, layout) : innerRadius;
-  };
-
-  return layout;
-}
-
-function sideLayout(matrix, circles, startAngle, angle, padAngle, radius, type) {
-  var n = matrix.length;
-  var m = matrix[0].length;
-  var groupSums = [];
-  var total = 0;
-  var arcs = new Array(n);
-  var chordTemp = new Array(n * m);
-  var chords = [];
-  var k;
-  var dx;
-  var x;
-  var x0;
-  var i;
-  var j;
-
-  matrix.forEach((group) => {
-    groupSums.push(group.reduce( (prev, curr) => prev + curr ));
-  });
-
-  total = groupSums.reduce( (prev, curr) => prev + curr );
-
-  k = Math.max(0, angle - padAngle * n) / total;
-  dx = k ? padAngle : angle / n;
-
-  x = startAngle;
-  i = -1;
-
-  while(++i < n) {
-    x0 = x;
-    j = -1;
-
-    while(++j < n) {
-      var v = matrix[i][j];
-      var a0 = x;
-      var a1 = x += v * k;
-
-      chordTemp[j + (n * i)] = {
-        index : i,
-        subindex : j,
-        startAngle : a0,
-        endAngle : a1,
-        value : v,
-      };
-    }
-
-    arcs[i] = {
-      index : i,
-      type : type,
-      startAngle : x0,
-      endAngle : x,
-      value : groupSums[i],
+    sankey.nodeWidth = function(_) {
+      if (!arguments.length) return nodeWidth;
+      nodeWidth = +_;
+      return sankey;
     };
 
-    x += dx;
-  }
+    sankey.nodePadding = function(_) {
+      if (!arguments.length) return nodePadding;
+      nodePadding = +_;
+      return sankey;
+    };
 
-  chordTemp.forEach((chord) => {
-    if (chord.value > 0) {
-      let circle = circles[chord.subindex];
+    sankey.nodes = function(_) {
+      if (!arguments.length) return nodes;
+      nodes = _;
+      return sankey;
+    };
 
-      chords.push({
-        index : chord.index,
-        subindex : chord.subindex,
-        type : type,
-        source : {
-          startAngle : chord.startAngle,
-          endAngle : chord.endAngle,
-          radius : radius,
-        },
-        target : {
-          startAngle : circle.theta - 0.001,
-          endAngle : circle.theta + 0.001,
-          radius : circle.radius,
-        },
+    sankey.links = function(_) {
+      if (!arguments.length) return links;
+      links = _;
+      return sankey;
+    };
+
+    sankey.size = function(_) {
+      if (!arguments.length) return size;
+      size = _;
+      return sankey;
+    };
+
+    sankey.layout = function(iterations) {
+      computeNodeLinks();
+      computeNodeValues();
+      computeNodeBreadths();
+      computeNodeDepths(iterations);
+      computeLinkDepths();
+      return sankey;
+    };
+
+    sankey.relayout = function() {
+      computeLinkDepths();
+      return sankey;
+    };
+
+    sankey.link = function() {
+      var curvature = .5;
+
+      function link(d) {
+        var x0 = d.source.x + d.source.dx,
+          x1 = d.target.x,
+          xi = d3.interpolateNumber(x0, x1),
+          x2 = xi(curvature),
+          x3 = xi(1 - curvature),
+          y0 = d.source.y + d.sy + d.dy / 2,
+          y1 = d.target.y + d.ty + d.dy / 2;
+        return "M" + x0 + "," + y0 + "C" + x2 + "," + y0 + " " + x3 + "," + y1 + " " + x1 + "," + y1;
+      }
+
+      link.curvature = function(_) {
+        if (!arguments.length) return curvature;
+        curvature = +_;
+        return link;
+      };
+
+      return link;
+    };
+
+    // Populate the sourceLinks and targetLinks for each node.
+    // Also, if the source and target are not objects, assume they are indices.
+    function computeNodeLinks() {
+      nodes.forEach(function(node) {
+        node.sourceLinks = [];
+        node.targetLinks = [];
+      });
+      links.forEach(function(link) {
+        var source = link.source,
+          target = link.target;
+        if (typeof source === "number") source = link.source = nodes[link.source];
+        if (typeof target === "number") target = link.target = nodes[link.target];
+        source.sourceLinks.push(link);
+        target.targetLinks.push(link);
       });
     }
-  });
 
-  return [arcs, chords];
+    // Compute the value (size) of each node by summing the associated links.
+    function computeNodeValues() {
+      nodes.forEach(function(node) {
+        node.value = Math.max(
+          d3.sum(node.sourceLinks, value),
+          d3.sum(node.targetLinks, value)
+        );
+      });
+    }
 
-}
+    // Iteratively assign the breadth (x-position) for each node.
+    // Nodes are assigned the maximum breadth of incoming neighbors plus one;
+    // nodes with no incoming links are assigned breadth zero, while
+    // nodes with no outgoing links are assigned the maximum breadth.
+    function computeNodeBreadths() {
+      var remainingNodes = nodes,
+        nextNodes,
+        x = 0;
 
-function circleLayout(circles, innerRadius) {
-  circles.forEach((d) => {
-    d.r = d.value;
-  });
+      while (remainingNodes.length) {
+        nextNodes = [];
+        remainingNodes.forEach(function(node) {
+          node.x = x;
+          node.dx = nodeWidth;
+          node.sourceLinks.forEach(function(link) {
+            if (nextNodes.indexOf(link.target) < 0) {
+              nextNodes.push(link.target);
+            }
+          });
+        });
+        remainingNodes = nextNodes;
+        ++x;
+      }
 
-  d3.packSiblings(circles);
-  var enclose = d3.packEnclose(circles);
-  var k = innerRadius / enclose.r;
+      //
+      moveSinksRight(x);
+      scaleNodeBreadths((size[0] - nodeWidth) / (x - 1));
+    }
 
-  circles.forEach((d) => {
-    d.r = d.r * k;
-    d.x = d.x * k;
-    d.y = d.y * k;
+    function moveSourcesRight() {
+      nodes.forEach(function(node) {
+        if (!node.targetLinks.length) {
+          node.x = d3.min(node.sourceLinks, function(d) {
+            return d.target.x;
+          }) - 1;
+        }
+      });
+    }
 
-    let rSq = Math.pow(d.x, 2) + Math.pow(d.y, 2);
-    d.radius = Math.sqrt(rSq);
-    d.theta = Math.atan2(d.y, d.x) + (Math.PI / 2);
-  });
+    function moveSinksRight(x) {
+      nodes.forEach(function(node) {
+        if (!node.sourceLinks.length) {
+          node.x = x - 1;
+        }
+      });
+    }
 
-  return circles;
-}
+    function scaleNodeBreadths(kx) {
+      nodes.forEach(function(node) {
+        node.x *= kx;
+      });
+    }
 
-function arrayToObj(a) {
-  var o = {};
+    function computeNodeDepths(iterations) {
+      var nodesByBreadth = d3.nest()
+        .key(function(d) {
+          return d.x;
+        })
+        .sortKeys(d3.ascending)
+        .entries(nodes)
+        .map(function(d) {
+          return d.values;
+        });
 
-  a.forEach((d) => {
-    o[d.index] = d;
-  });
+      //
+      initializeNodeDepth();
+      resolveCollisions();
+      for (var alpha = 1; iterations > 0; --iterations) {
+        relaxRightToLeft(alpha *= .99);
+        resolveCollisions();
+        relaxLeftToRight(alpha);
+        resolveCollisions();
+      }
 
-  return o;
+      function initializeNodeDepth() {
+        var ky = d3.min(nodesByBreadth, function(nodes) {
+          return (size[1] - (nodes.length - 1) * nodePadding) / d3.sum(nodes, value);
+        });
+
+        nodesByBreadth.forEach(function(nodes) {
+          nodes.forEach(function(node, i) {
+            node.y = i;
+            node.dy = node.value * ky;
+          });
+        });
+
+        links.forEach(function(link) {
+          link.dy = link.value * ky;
+        });
+      }
+
+      function relaxLeftToRight(alpha) {
+        nodesByBreadth.forEach(function(nodes, breadth) {
+          nodes.forEach(function(node) {
+            if (node.targetLinks.length) {
+              var y = d3.sum(node.targetLinks, weightedSource) / d3.sum(node.targetLinks, value);
+              node.y += (y - center(node)) * alpha;
+            }
+          });
+        });
+
+        function weightedSource(link) {
+          return center(link.source) * link.value;
+        }
+      }
+
+      function relaxRightToLeft(alpha) {
+        nodesByBreadth.slice().reverse().forEach(function(nodes) {
+          nodes.forEach(function(node) {
+            if (node.sourceLinks.length) {
+              var y = d3.sum(node.sourceLinks, weightedTarget) / d3.sum(node.sourceLinks, value);
+              node.y += (y - center(node)) * alpha;
+            }
+          });
+        });
+
+        function weightedTarget(link) {
+          return center(link.target) * link.value;
+        }
+      }
+
+      function resolveCollisions() {
+        nodesByBreadth.forEach(function(nodes) {
+          var node,
+            dy,
+            y0 = 0,
+            n = nodes.length,
+            i;
+
+          // Push any overlapping nodes down.
+          nodes.sort(ascendingDepth);
+          for (i = 0; i < n; ++i) {
+            node = nodes[i];
+            dy = y0 - node.y;
+            if (dy > 0) node.y += dy;
+            y0 = node.y + node.dy + nodePadding;
+          }
+
+          // If the bottommost node goes outside the bounds, push it back up.
+          dy = y0 - nodePadding - size[1];
+          if (dy > 0) {
+            y0 = node.y -= dy;
+
+            // Push any overlapping nodes back up.
+            for (i = n - 2; i >= 0; --i) {
+              node = nodes[i];
+              dy = node.y + node.dy + nodePadding - y0;
+              if (dy > 0) node.y -= dy;
+              y0 = node.y;
+            }
+          }
+        });
+      }
+
+      function ascendingDepth(a, b) {
+        return a.y - b.y;
+      }
+    }
+
+    function computeLinkDepths() {
+      nodes.forEach(function(node) {
+        node.sourceLinks.sort(ascendingTargetDepth);
+        node.targetLinks.sort(ascendingSourceDepth);
+      });
+      nodes.forEach(function(node) {
+        var sy = 0,
+          ty = 0;
+        node.sourceLinks.forEach(function(link) {
+          link.sy = sy;
+          sy += link.dy;
+        });
+        node.targetLinks.forEach(function(link) {
+          link.ty = ty;
+          ty += link.dy;
+        });
+      });
+
+      function ascendingSourceDepth(a, b) {
+        return a.source.y - b.source.y;
+      }
+
+      function ascendingTargetDepth(a, b) {
+        return a.target.y - b.target.y;
+      }
+    }
+
+    function center(node) {
+      return node.y + node.dy / 2;
+    }
+
+    function value(link) {
+      return link.value;
+    }
+
+    return sankey;
 }
 
 SankeyPlot.propTypes = {
   element : PropTypes.string.isRequired,
   data : PropTypes.object,
   metric : PropTypes.string.isRequired,
-  // data : PropTypes.shape({
-  //   inMatrix : PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)),
-  //   outMatrix : PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)),
-  //   in : PropTypes.arrayOf(PropTypes.shape({
-  //     index : PropTypes.number,
-  //     name : PropTypes.string,
-  //   })),
-  //   out : PropTypes.arrayOf(PropTypes.shape({
-  //     index : PropTypes.number,
-  //     name : PropTypes.string,
-  //   })),
-  //   between : PropTypes.arrayOf(PropTypes.shape({
-  //     index : PropTypes.number,
-  //     name : PropTypes.string,
-  //     value : PropTypes.number,
-  //   })),
-  // }).isRequired,
 };
 
 
