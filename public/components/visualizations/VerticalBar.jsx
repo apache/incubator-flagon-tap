@@ -33,8 +33,8 @@ class VerticalBar extends Component {
       bottom : 30,
       left : 40,
     };
-    this.fullWidth = 500;
-    this.fullHeight = 400;
+    this.fullWidth = 600;
+    this.fullHeight = 300;
     this.width = this.fullWidth - this.margin.left - this.margin.right;
     this.height = this.fullHeight - this.margin.top - this.margin.bottom;
 
@@ -43,8 +43,9 @@ class VerticalBar extends Component {
       .padding(0.1)
       .align(0.1);
 
-    this.x1 = d3.scaleBand()
-      .domain(['ot1', 'ot2']);
+    //x1 is for ab testing
+    // this.x1 = d3.scaleBand()
+    //   .domain(['ot1', 'ot2']);
 
     this.y = d3.scaleLinear()
       .rangeRound([this.height, 0]);
@@ -87,7 +88,12 @@ class VerticalBar extends Component {
 
     this.svg.append('g')
       .attr('class', 'x axis')
-      .attr('transform', `translate(0,${this.height})`);
+      .attr('transform', `translate(0,${this.height})`)
+    .selectAll("text")
+      //.style("text-anchor", "end")
+      //.attr("dx", "-.8em")
+      //.attr("dy", "-.55em")
+      .attr("transform", "rotate(90)" ); //TODO: text on x axis not rotating
 
     this.svg.append('g')
       .attr('class', 'y axis');
@@ -97,22 +103,22 @@ class VerticalBar extends Component {
 
   update() {
     let data = this.props.data;
-    let grouped = this.props.grouped;
+    //let grouped = this.props.grouped; //grouped is for ab testing
+    let grouped = false;
 
     let t = d3.transition()
       .duration(500);
 
-    this.x.domain(data.map((d) => d.id));
-    this.x1.rangeRound([0, this.x.bandwidth()]);
+    this.x.domain(data.map((d) => d.ot1.target));//ot1.target));
     this.y.domain([0, d3.max(data, (d) => {
-      return grouped ? Math.max(d.ot1, d.ot2) : (d.ot1 + d.ot2);
+      return d.ot1.counts.reduce((a, b) => a + b, 0);
     })]);
 
     this.svg.select('.x.axis').call(this.xAxis);
     this.svg.select('.y.axis').call(this.yAxis);
 
     this.groups = this.svg.selectAll('.group')
-      .data(data, (d) => d.id);
+      .data(data, (d) => d.ot1.target);
 
     this.groups.exit()
       .attr('class', 'exit')
@@ -127,31 +133,14 @@ class VerticalBar extends Component {
 
     this.groups
       .transition(t)
-      .attr('transform', (d) => `translate(${this.x(d.id)},0)`);
+      .attr('transform', (d) => `translate(${this.x(d.ot1.target)},0)`);
+
 
     this.bars = this.groups.selectAll('.bar')
       .data((d) => {
-        if (grouped) {
-          var ot1 = {
-            id : d.id,
-            selected : d.selected,
-            count : d.ot1,
-            type : 'ot1',
-          };
-
-          var ot2 = {
-            id : d.id,
-            selected : d.selected,
-            count : d.ot2,
-            type : 'ot2',
-          };
-
-          return [ot1, ot2];
-        } else {
-          d.count = d.ot1 + d.ot2;
+          d.count = d.ot1.counts.reduce((a, b) => a + b, 0);
           return [d];
-        }
-      });
+        });
 
     this.bars.exit()
       .attr('class', 'exit')
@@ -167,14 +156,14 @@ class VerticalBar extends Component {
 
     this.bars
       .on('click', (d) => {
-        this.props.select(d.id);
+        this.props.select(d.ot1.target);
       })
       .transition(t)
-      .attr('x', (d) => grouped ? this.x1(d.type) : 0)
-      .attr('width', (d) => grouped ? this.x1.bandwidth() : this.x.bandwidth())
+      .attr('x', (d) => 0)
+      .attr('width', (d) => this.x.bandwidth())
       .attr('y', (d) => this.y(d.count))
       .attr('height', (d) => this.height - this.y(d.count))
-      .style('fill', (d) => grouped ? this.color(d.type) : this.color(d.id))
+      .style('fill', (d) => this.color(d.id))
       .style('stroke', (d) => d.selected ? '#283F4E' : '')
       .style('stroke-width', (d) => d.selected ? '3px' : '0px');
 
