@@ -17,6 +17,7 @@ import React, { Component, PropTypes } from 'react';
 import * as d3 from 'd3';
 //import {'d3-interpolate'} from 'd3';
 //require('../../d3sankey.js').default;
+//import sankey as sankeynow from '/d3-sankey.js';
 
 const colors_old = ['#A7003C', '#00A76B', '#0090A7', '#003DA7', '#6B00A7'];
 const colors_new = ['#d45d35', '#DBA915', '#BFD02C', '#38A6D8', '#852EB7'];
@@ -52,14 +53,17 @@ class SankeyPlot extends Component {
       bottom : 20,
       left : 20,
     };
-    this.fullWidth = 600;
-    this.fullHeight = 300;
+    this.fullWidth = 800;
+    this.fullHeight = 400;
     this.width = this.fullWidth - this.margin.left - this.margin.right;
     this.height = this.fullHeight - this.margin.top - this.margin.bottom;
 
     this.formatNumber = d3.format(',.0f');
     this.format = d => `${this.formatNumber(d)} TWh`;
     
+    //this.mainRadius = 280;
+
+    //this.update();
 
     this.color = d3.scaleOrdinal()
       .range(colors_old);
@@ -68,7 +72,8 @@ class SankeyPlot extends Component {
       .attr('width', this.fullWidth)
       .attr('height', this.fullHeight)
       .append('g');
-      
+      //.attr('transform', `translate(${this.margin.left + this.width / 2},${this.margin.top + this.height / 2})`);
+
     this.sankey = sankey()
       .nodeWidth(15)
       .nodePadding(10)
@@ -86,50 +91,76 @@ class SankeyPlot extends Component {
 
   // D3 render
   update() {
-    //let data = this.props.data[this.props.metric];
-    let data = require('../../sankey_example.js').default;
-    console.log("data in update = " + data);
-    console.log("nodes: "+ data[0].nodes.length);
-    console.log("links: "+ data[1].links.length);
+
+    let data = this.props.data;//[this.props.metric];
+    //if (data == null) {
+    //let data = require('../../sankey_example.js').default;
+    //};
+    console.log("SANKEY PROPS DATA");
+    console.log(this.props.data);
+    // console.log("data in update = " + data);
+    // console.log("nodes: "+ data[0].nodes.length);
+    // console.log("links: "+ data[1].links.length);
+
+
 
     this.sankey
-      .nodes(data[0].nodes)
-      .links(data[1].links)
+      .nodes(data.nodes)
+      .links(data.links)
       .layout(32);
 
-    const link = this.svg.append('g').selectAll('.link')
-      .data(data[1].links)
+    d3.selectAll(".linkSankey").remove();
+    d3.selectAll(".nodeSankey").remove();
+
+    const link = this.svg.append('g').selectAll('.linkSankey')
+      .data(data.links)
       .enter().append('path')
       .attr('class', 'linkSankey')
       .attr('d', this.path)
-      .style('stroke-width', d => Math.max(100, d.dy))
+      .style('stroke-width', d => d.dy) //d => Math.max(50, d.dy))
       .style('fill', 'none')
       .style('stroke', "#000")
       .style('stroke-opacity', .2)
       .sort((a, b) => b.dy - a.dy);
 
     link.append('title')
-      .text(d => `${d.source.name} → ${d.target.name}\n${this.format(d.value)}`);
+      .text(d => `${d.source.name} → ${d.target.name}\n${d.value}`);
 
-    const node = this.svg.append('g').selectAll('.node')
-      .data(data[0].nodes)
+    const node = this.svg.append('g').selectAll('.nodeSankey')
+      .data(data.nodes)
       .enter().append('g')
-      .attr('class', 'node')
+      .attr('class', 'nodeSankey')
       .attr('transform', d => `translate(${d.x},${d.y})`)
       .call(d3.drag()
         .subject(d => d)
         .on('start', function() {
           this.parentNode.appendChild(this);
         })
-        .on('drag', this.dragmove(d => d)));
+        //.on('drag', this.dragmove()));
+        .on('drag', function(d) {
+            // console.log("YAY DRAG");
+            // console.log(d.x);
+            // console.log(d.y);
+            // console.log(d3.event.y);
+            // d3.select(this).attr('transform', d => `translate(${d.x},50)`);//${d.y = Math.max(0, Math.min(this.fullHeight - d.dy, d3.event.y))})`);
+            // this.sankey.relayout();
+            // link.attr('d', this.path);
+        }));
+
+    // console.log("rect size");
+    // console.log(d => d.dy);
 
     node.append('rect')
       .attr('height', d => d.dy)
       .attr('width', this.sankey.nodeWidth())
       .style('fill', d => d.color = this.color(d.name.replace(/ .*/, '')))
       .style('stroke', d => d3.rgb(d.color).darker(2))
-      .append('title')
-      .text(d => `${d.name}\n${this.format(d.value)}`);
+      .append('title');
+      //.text(d => `${d.name}`);
+
+    // node.append('title')
+    //   .text(d => `${d.name}`);// → ${d.target.name}\n${d.value}`);
+
 
     node.append('text')
       .attr('x', -6)
@@ -137,7 +168,7 @@ class SankeyPlot extends Component {
       .attr('dy', '.35em')
       .attr('text-anchor', 'end')
       .attr('transform', null)
-      .text(d => d.name)
+      .text(d => d.name[0,9])
       .filter(d => d.x < this.width / 2)
       .attr('x', 6 + this.sankey.nodeWidth())
       .attr('text-anchor', 'start');
@@ -145,21 +176,21 @@ class SankeyPlot extends Component {
   }
   
   dragmove(d) {
-    //TODO: fix dragmove: the function is called unnecessarily and doens't work
+    console.log("DRAGGING HAPPENED");// - dragmove called unnecessarily - todo: fix");
     // d3.select(this).attr('transform', `translate(${d.x},${d.y = Math.max(0, Math.min(this.height - d.dy, d3.event.y))})`);
     // sankey.relayout();
     // link.attr('d', this.path);
   }
 
   hideTooltip() {
-    //console.log("HIDE TOOLTIP HAPPENED - todo: verify");
+    console.log("HIDE TOOLTIP HAPPENED - todo: verify");
     this.tooltip.transition()
       .duration(350)
       .style('opacity', 0);
   }
 
   showTooltip(activity, x, y) {
-    //console.log("SHOW TOOLTIP HAPPENED - todo: verify");
+    console.log("SHOW TOOLTIP HAPPENED - todo: verify");
     this.tooltip.transition()
       .duration(350)
       .style('opacity', 0.9);
@@ -170,18 +201,18 @@ class SankeyPlot extends Component {
       .html(`Action: ${activity.action}<br>Id: ${activity.elementId}<br>Group: ${activity.elementGroup}`);
   }
 
-}
-
 
 
 // d3-sankey layout taken from: <<>> and modified by Ryan
 function sankey() {
-    var sankey = {},
+  var sankey = {},
       nodeWidth = 24,
-      nodePadding = 8,
+      nodePadding = 20,
       size = [1, 1],
+      align = 'left',
       nodes = [],
       links = [];
+      
 
     sankey.nodeWidth = function(_) {
       if (!arguments.length) return nodeWidth;
@@ -276,7 +307,9 @@ function sankey() {
         );
       });
     }
-
+    sankey.nodeAlign = function(_) {
+      return arguments.length ? (align = typeof _ === "function" ? _ : constant(_), sankey) : align;
+    };
     // Iteratively assign the breadth (x-position) for each node.
     // Nodes are assigned the maximum breadth of incoming neighbors plus one;
     // nodes with no incoming links are assigned breadth zero, while
@@ -301,9 +334,41 @@ function sankey() {
         ++x;
       }
 
-      //
-      moveSinksRight(x);
+      // if (reverse) {
+      //   // Flip nodes horizontally
+      //   nodes.forEach(function(node) {
+      //     node.x *= -1;
+      //     node.x += x - 1;
+      //   });
+      // }
+  
+      if (align === 'center') {
+        moveSourcesRight();
+      }
+      if (align === 'justify') {
+        moveSinksRight(x);
+      }
+  
       scaleNodeBreadths((size[0] - nodeWidth) / (x - 1));
+    }
+  
+    function moveSourcesRight() {
+      nodes.slice()
+        // Pack nodes from right to left
+        .sort(function(a, b) { return b.x - a.x; })
+        .forEach(function(node) {
+          if (!node.targetLinks.length) {
+            node.x = d3Array.min(node.sourceLinks, function(d) { return d.target.x; }) - 1;
+          }
+        });
+    }
+  
+    function moveSinksRight(x) {
+      nodes.forEach(function(node) {
+        if (!node.sourceLinks.length) {
+          node.x = x - 1;
+        }
+      });
     }
 
     function moveSourcesRight() {
@@ -471,13 +536,38 @@ function sankey() {
       return link.value;
     }
 
+    sankey.align = function(_) {
+      if (!arguments.length) return align;
+      align = _.toLowerCase();
+      return sankey;
+    };
+
     return sankey;
-}
+  }
+
+
 
 SankeyPlot.propTypes = {
   element : PropTypes.string.isRequired,
   data : PropTypes.object,
   metric : PropTypes.string.isRequired,
+  // data : PropTypes.shape({
+  //   inMatrix : PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)),
+  //   outMatrix : PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)),
+  //   in : PropTypes.arrayOf(PropTypes.shape({
+  //     index : PropTypes.number,
+  //     name : PropTypes.string,
+  //   })),
+  //   out : PropTypes.arrayOf(PropTypes.shape({
+  //     index : PropTypes.number,
+  //     name : PropTypes.string,
+  //   })),
+  //   between : PropTypes.arrayOf(PropTypes.shape({
+  //     index : PropTypes.number,
+  //     name : PropTypes.string,
+  //     value : PropTypes.number,
+  //   })),
+  // }).isRequired,
 };
 
 

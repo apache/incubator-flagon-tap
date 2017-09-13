@@ -27,7 +27,7 @@ class AppResults extends Component {
     super(props);
     this.state = {
       result : 'counts',
-      metric : 'out_degree',
+      metric : 'click',
       //educationlevels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
       //gender : 0,
       ab : false,
@@ -91,24 +91,37 @@ class AppResults extends Component {
     //console.log(this.props.app);
 
     const { name, results } = this.props.app;
+    console.log("RESULTS:");
+    console.log(name);
+    console.log(results);
 
 
-    // get graph data from distill
-    // var url = 'http://distill:8090/sankey/userale?from=now-15m&to=now&size=20'; //snarl-distill calls
-    // //var url = 'http://localhost:8090';       
-    // axios.get(url)
-    //   .then( (response) => {
-    //     //console.log("response", response);
-    //     var sankeyhtml = response.data;
-    //     // this.setState({
-    //     //   fetchUser: response.data
-    //     // });
-    //     //console.log("fetchUser", this.state.fetchUser);
-    //   })
-    //   .catch( (error) => {
-    //     console.log(error);
-    //   }); 
-    var sankeyhtml = "";
+    //get graph data from distill
+    //var url = 'http://distill:8090/sankey/userale?from=now-15m&to=now&size=20'; //snarl-distill calls
+    var url = 'http://vlsmsbx.draper.com:8090/sankey/userale-js?from=now-25d&to=now-10d&size=10&event='+this.state.metric;//mouseover,click'
+    //var url = 'http://localhost:8090';       
+    axios.get(url)
+      .then( (response) => {
+        //console.log("response", response);
+        //var sankeyhtml = response.data;
+        console.log(url);
+        console.log("RESPONSE DATA FROM DISTILL");
+        console.log(response.data);
+        console.log("Filters:" + this.state.metric);
+        this.props.app.results.counts = response.data.histogram;
+        this.props.app.results.sankey = {
+            nodes : response.data.nodes, 
+            links : response.data.links,
+          };
+        // this.setState({
+        //   fetchUser: response.data
+        // });
+        //console.log("fetchUser", this.state.fetchUser);
+      })
+      .catch( (error) => {
+        console.log(error);
+      }); 
+    //var sankeyhtml = "";
 
     // var url = 'http://distill:8090/sankey/userale?from=now-15m&to=now&size=20';
     // var url = 'http://localhost:8090';
@@ -149,32 +162,32 @@ class AppResults extends Component {
                       <div className='grouped fields'>
                         <div className='field'>
                           <div className='ui radio checkbox'>
-                            <input type='radio' name='metric' value='out_degree' defaultChecked></input>
-                            <label>Out Degree</label>
+                            <input type='radio' name='metric' value='mouseover' defaultChecked></input>
+                            <label>Mouseover</label>
                           </div>
                         </div>
                         <div className='field'>
                           <div className='ui radio checkbox'>
-                            <input type='radio' name='metric' value='in_degree'></input>
-                            <label>In Degree</label>
+                            <input type='radio' name='metric' value='click'></input>
+                            <label>Click</label>
                           </div>
                         </div>
                         <div className='field'>
                           <div className='ui radio checkbox'>
-                            <input type='radio' name='metric' value='betweenness_cent_dir_weighted'></input>
-                            <label>Weighted Betweenness</label>
+                            <input type='radio' name='metric' value='blur'></input>
+                            <label>Blur</label>
                           </div>
                         </div>
                         <div className='field'>
                           <div className='ui radio checkbox'>
-                            <input type='radio' name='metric' value='closeness_cent_dir_weighted'></input>
-                            <label>Weighted Closeness</label>
+                            <input type='radio' name='metric' value='focus'></input>
+                            <label>Focus</label>
                           </div>
                         </div>
                         <div className='field'>
                           <div className='ui radio checkbox'>
-                            <input type='radio' name='metric' value='closeness_cent_dir_unweighted'></input>
-                            <label>Unweighted Closeness</label>
+                            <input type='radio' name='metric' value='other'></input>
+                            <label>Other</label>
                           </div>
                         </div>
                       </div>
@@ -309,14 +322,14 @@ class AppResults extends Component {
                   case 'sankey':
                     return (
                       <div>
-                        <SankeyPlot filters={this.state} data={results.graph} element='sankey-plot-viz' metric={this.state.metric} />
+                        <SankeyPlot filters={this.state} data={results.sankey} element='sankey-plot-viz' metric={this.state.metric} />
                       </div>
                     );
                   case 'counts':
                   default: 
                     return (
                       <div>
-                        <SankeyPlot filters={this.state} data={results.graph} element='sankey-plot-viz' metric={this.state.metric} />
+                        <SankeyPlot filters={this.state} data={results.sankey} element='sankey-plot-viz' metric={this.state.metric} />
                         <Counts filters={this.state} data={results.counts} />
                       </div>
                     ); 
