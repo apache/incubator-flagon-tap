@@ -103,22 +103,24 @@ class VerticalBar extends Component {
 
   update() {
     let data = this.props.data;
+    console.log("update vertical-bar data:");
+    console.log(data);
     //let grouped = this.props.grouped; //grouped is for ab testing
     let grouped = false;
 
     let t = d3.transition()
       .duration(500);
 
-    this.x.domain(data.map((d) => d.ot1.target));//ot1.target));
+    this.x.domain(data.map((d) => d.target));//ot1.target));
     this.y.domain([0, d3.max(data, (d) => {
-      return d.ot1.counts.reduce((a, b) => a + b, 0);
+      return d.counts.reduce((a, b) => a + b, 0);
     })]);
 
     this.svg.select('.x.axis').call(this.xAxis);
     this.svg.select('.y.axis').call(this.yAxis);
 
     this.groups = this.svg.selectAll('.group')
-      .data(data, (d) => d.ot1.target);
+      .data(data, (d) => d.target);
 
     this.groups.exit()
       .attr('class', 'exit')
@@ -133,12 +135,12 @@ class VerticalBar extends Component {
 
     this.groups
       .transition(t)
-      .attr('transform', (d) => `translate(${this.x(d.ot1.target)},0)`);
+      .attr('transform', (d) => `translate(${this.x(d.target)},0)`);
 
 
     this.bars = this.groups.selectAll('.bar')
       .data((d) => {
-          d.count = d.ot1.counts.reduce((a, b) => a + b, 0);
+          d.count = d.counts.reduce((a, b) => a + b, 0);
           return [d];
         });
 
@@ -156,17 +158,16 @@ class VerticalBar extends Component {
 
     this.bars
       .on('click', (d) => {
-        this.props.select(d.ot1.target);
+        this.props.select(d.target);
       })
       .transition(t)
       .attr('x', (d) => 0)
       .attr('width', (d) => this.x.bandwidth())
       .attr('y', (d) => this.y(d.count))
       .attr('height', (d) => this.height - this.y(d.count))
-      .style('fill', (d) => this.color(d.id))
+      .style('fill', (d) => this.color(d.target))
       .style('stroke', (d) => d.selected ? '#283F4E' : '')
       .style('stroke-width', (d) => d.selected ? '3px' : '0px');
-
 
   }
 }

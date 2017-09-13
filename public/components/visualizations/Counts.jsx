@@ -22,6 +22,11 @@ class Counts extends Component {
   constructor(props) {
     super(props);
 
+    //console.log("dataset = " + this.props.data);
+    //console.log("dataset = " + this.props.data[0].counts);
+    //console.log("dataset = " + this.props.data[1].target);
+    //console.log("dataset = " + this.props.data[2].types);
+
     this.state = {
       selectedGroup : '',
       selectedActivity : '',
@@ -40,7 +45,21 @@ class Counts extends Component {
   }
 
   render() {
-    var dataSubset = subset(this.props.data, this.props.filters);
+    var dataSubset = this.props.data; //snarl - for now, use the full dataset without filters
+    //var dataSubset = subset(this.props.data, this.props.filters);
+    //console.log("counts dataSubset = " + dataSubset);
+
+    // var selectedGroup = this.state.selectedGroup;
+    // if (selectedGroup == '') {
+    //   selectedGroup = Object.keys(dataSubset)[0];
+    // }
+
+    // var selectedActivity = this.state.selectedActivity;
+    // //if (selectedActivity == '') {
+    //   //selectedActivity = Object.keys(dataSubset[selectedGroup].activities)[0];
+    // //}
+
+    // var activity = dataSubset[selectedGroup].activities[selectedActivity];
 
     return(
       <div className='ui grid'>
@@ -48,12 +67,7 @@ class Counts extends Component {
           <VerticalBar grouped={this.props.filters.ab} select={this.selectGroup} data={(() => {
             var groupData = [];
 
-            $.each(dataSubset, (group, logs) => {
-              groupData.push({
-                id : group,
-                ot1 : logs,
-              });
-            });
+            groupData = this.props.data;
 
             return groupData;
           })()} />
@@ -79,6 +93,7 @@ function subset(data, filters) {
         logs[log.group] = {
           group : log.group,
           ot1count : 0,
+          //ot2count : 0,
           activities : {},
         };
       }
@@ -87,6 +102,7 @@ function subset(data, filters) {
         logs[log.group].activities[log.id] = {
           id : id,
           ot1count : 0,
+          //ot2count : 0,
           name : log.name,
           ele : log.ele,
           group : log.group,
@@ -104,29 +120,7 @@ function subset(data, filters) {
 
 function preprocessData(data) {
   data.forEach(function (p) {
-    // var ot1logs = {};
-
-    // p.counts.forEach(function (cnt, i) {
-    //   if;
-    // })
-
-    // p.log_data.OT1.logs.log_id.forEach(function (id, i) {
-    //   if (ot1logs.hasOwnProperty(id)) {
-    //     ot1logs[id].count += p.log_data.OT1.logs.count[i];
-    //   } else {
-    //     ot1logs[id] = {
-    //       'id' : id,
-    //       'count' : p.log_data.OT1.logs.count[i],
-    //       'name' : p.log_data.OT1.logs.log_strings[i],
-    //       'ele' : p.log_data.OT1.logs.elementId[i],
-    //       'group' : p.log_data.OT1.logs.elementGroup[i]
-    //     };
-    //   }
-    // });
-
-    //p.ot1logs = ot1logs;
-    //p.ot2logs = ot1logs; //set ot2 logs to be same as ot1 logs - snarl
-
+    //excluded ot1 and ot2 preprocessing
   });
 }
 
