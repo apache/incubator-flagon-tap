@@ -138,9 +138,9 @@ class AppResults extends Component {
 
     return(
 
-      <div className='ui container'>
-        <div className='ui large header'>
-          Log Analysis for Demo
+      <div className='ui padded grid'>
+        <div className='sixteen wide column ui large header center aligned'>
+          Log Analysis
           {//name
           }
         </div>

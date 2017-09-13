@@ -61,10 +61,11 @@ class Main extends Component {
             <div className='ui container'>
 
               <Link to='/'>
-                <h2 className='ui inverted header item'>Tap</h2>
+                <h2 className='ui inverted header item center aligned'>Tap</h2>
               </Link>
 
-              {authHeader}
+              {//authHeader
+              }
 
             </div>
           </div>

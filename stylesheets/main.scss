@@ -27,12 +27,12 @@ $background : $white;
 
 #react-container {
   display: flex;
-  min-height: 100vh;
+  min-height: 90vh;
   flex-direction: column;
 }
 
 #main-container {
-  min-height: 100vh;
+  min-height: 90vh;
   flex: 1;
 }
 
@@ -51,7 +51,9 @@ $background : $white;
 
 #page-wrapper {
   padding-top: 40px;
-  min-height: calc(100vh - 120px);
+  padding-left: .8rem;
+  padding-right: .8rem;
+  min-height: calc(90vh - 90px);
 }
 
 #main-masthead {
@@ -87,4 +89,25 @@ $background : $white;
 
 #app-list {
   background-color: $background;
+}
+
+.node rect {
+  cursor: move;
+  fill-opacity: .9;
+  shape-rendering: crispEdges;
+}
+
+.node text {
+  pointer-events: none;
+  text-shadow: 0 1px 0 #fff;
+}
+
+.linkSankey {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .2;
+}
+
+.linkSankey:hover {
+  stroke-opacity: .5;
 }
