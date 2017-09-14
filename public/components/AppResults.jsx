@@ -147,19 +147,42 @@ class AppResults extends Component {
 
         <div className='ui padded grid'>
 
+
           <div className='three wide column'>
             <div id='results-controls' className='ui vertical fluid accordion menu'>
 
               <div className='item'>
                 <a id='counts' className='active main-controls title'>
                   <i className='dropdown icon'></i>
-                  Sankey and Counts
+                  Control Panel
                 </a>
                 <div className='active content'>
 
                   <div className='content'>
                     <div className='ui form'>
+
+                      <h4 className="ui dividing header">Path Length Filter</h4>
                       <div className='grouped fields'>
+                        <div className='two fields'>
+                          <div className='ui field'>
+                            <label>Min</label>
+                            <input type="text" name="min-path-length" placeholder="1"></input>
+                          </div>
+                          <div className='ui field'>
+                            <label>Max</label>
+                            <input type="text" name="max-path-length" placeholder="10"></input>
+                          </div>
+                        </div>
+                      </div>
+
+                      <h4 className="ui dividing header">Event Based Filter</h4>
+                      <div className='grouped fields'>
+                        <div className='field'>
+                          <div className='ui radio checkbox'>
+                            <input type='radio' name='metric' value=''></input>
+                            <label>All</label>
+                          </div>
+                        </div>
                         <div className='field'>
                           <div className='ui radio checkbox'>
                             <input type='radio' name='metric' value='mouseover' defaultChecked></input>
@@ -182,12 +205,6 @@ class AppResults extends Component {
                           <div className='ui radio checkbox'>
                             <input type='radio' name='metric' value='focus'></input>
                             <label>Focus</label>
-                          </div>
-                        </div>
-                        <div className='field'>
-                          <div className='ui radio checkbox'>
-                            <input type='radio' name='metric' value='other'></input>
-                            <label>Other</label>
                           </div>
                         </div>
                       </div>
