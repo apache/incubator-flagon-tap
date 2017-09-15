@@ -18,42 +18,67 @@ import Iframe from 'react-iframe';
 import axios from 'axios';
 
 import Counts from './visualizations/Counts';
-import GraphMetrics from './visualizations/GraphMetrics';
+//import GraphMetrics from './visualizations/GraphMetrics';
 import SankeyPlot from './visualizations/SankeyPlot';
 //import sankeyhtml from './visualizations/sankeyhtml';
 
+const DISTILL_URL = require('../../secrets/senssoftconfig').default.distill_url;
+
+// import DISTILL_URL from './././secrets/secret.py';
+
 class AppResults extends Component {
   constructor(props) {
+    
+    //let initialResults = 
+    
     super(props);
+    this.props.app.results.allTargets = this.getInitialAppResults().allTargets;//initialResults.allTargets;
     this.state = {
       result : 'counts',
-      metric : 'click',
+      metric : 'blur',
+      minpathlength : 1,
+      maxpathlength : 8,
+      starttime : 'now-10d',
+      endtime : 'now',
       //educationlevels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
       //gender : 0,
       ab : false,
       graphAb : false,
+      includedTargetQuery : '',
+      //allTargets : [],//[{"target": "document", "pathLength": 1}, {"target": "Window", "pathLength": 1}], 
     };
+
+
+    // this.state = {
+    //   allTargets : initialResults.allTargets,
+    // }
+
+    // this.props.app.results.counts = initialResults.counts;
+    // this.props.app.results.sankey = initialResults.sankey;
+    // this.props.app.results.allTargets = initialResults.allTargets;
+    //this.props.app.results.allTargets = parseForAllTargets(response.data.histogram);
+
   }
 
   componentDidMount() {
-    // $('#education-accordion').accordion({
-    //   collapsible : true,
-    // });
-    $('#results-controls').accordion({
-      collapsible : false,
-    });
-
-    $('.main-controls.title').on('click', (e) => {
-      let result = e.currentTarget.id;
-      if (result !== this.state.result) {
-        this.setState({ result : result });
-      }
-    });
 
     $('.ui.radio.checkbox').checkbox({
       onChange : () => {
         let metric = $('input[name=metric]:checked').val();
         this.setState({ metric : metric });
+        console.log("metric updated");
+      },
+    });
+
+    $('.ui.field').checkbox({
+      onChange : () => {
+
+        this.setState({ minpathlength : $('input[name=min-path-length]').val()});
+        this.setState({ maxpathlength : $('input[name=max-path-length]').val()});
+        this.setState({ starttime : $('input[name=start-time]').val()});
+        this.setState({ endtime : $('input[name=end-time]').val()});
+
+        console.log("text field updated");
       },
     });
 
@@ -67,38 +92,17 @@ class AppResults extends Component {
     //   },
     // });
 
-    // $('#gender-select').dropdown({
-    //   onChange : (val) => {
-    //     this.setState({ gender : val });
-    //   },
-    // });
-
-    // $('#ab-toggle').checkbox({
-    //   onChange : () => {
-    //     this.setState({ ab : $('input[name=a-b]').is(':checked') });
-    //   },
-    // });
-
-    $('#graph-ab-toggle').checkbox({
-      onChange: () => {
-        this.setState({ graphAb: $('input[name=graph-a-b]').is(':checked') });
-      },
-    });
   }
 
   render() {
-    //console.log("is an app defined here?");
-    //console.log(this.props.app);
+
+    // console.log(DISTILL_URL);
+    // console.log("hERERE");
 
     const { name, results } = this.props.app;
-    console.log("RESULTS:");
-    console.log(name);
-    console.log(results);
+    let includedTargetQuery = defineIncludedTargets(this.props.app.results.allTargets);
 
-
-    //get graph data from distill
-    //var url = 'http://distill:8090/sankey/userale?from=now-15m&to=now&size=20'; //snarl-distill calls
-    var url = 'http://vlsmsbx.draper.com:8090/sankey/userale-js?from=now-25d&to=now-10d&size=10&event='+this.state.metric;//mouseover,click'
+    var url = DISTILL_URL+'?from='+this.state.starttime+'&to='+this.state.endtime+'&event='+this.state.metric+'&target_in='+includedTargetQuery;
     //var url = 'http://localhost:8090';       
     axios.get(url)
       .then( (response) => {
@@ -107,38 +111,24 @@ class AppResults extends Component {
         console.log(url);
         console.log("RESPONSE DATA FROM DISTILL");
         console.log(response.data);
-        console.log("Filters:" + this.state.metric);
+        //console.log("Filters: " + this.state.metric);
+
         this.props.app.results.counts = response.data.histogram;
         this.props.app.results.sankey = {
             nodes : response.data.nodes, 
             links : response.data.links,
           };
-        // this.setState({
-        //   fetchUser: response.data
-        // });
-        //console.log("fetchUser", this.state.fetchUser);
       })
       .catch( (error) => {
         console.log(error);
-      }); 
-    //var sankeyhtml = "";
-
-    // var url = 'http://distill:8090/sankey/userale?from=now-15m&to=now&size=20';
-    // var url = 'http://localhost:8090';
-    // console.log('clicked');
-    // $.get( url, function(data) {
-    //      //As soon as the browser finished downloading, this function is called.
-    //      console.log('url was: ' + url);
-    //      console.log('data: ' + data);
-    //      //$('#demo').html();
-    //      });
+      });
 
 
 
 
     return(
 
-      <div className='ui padded grid'>
+      <div className='ui padded grid' id='results-content'>
         <div className='sixteen wide column ui large header center aligned'>
           Log Analysis
           {//name
@@ -147,33 +137,18 @@ class AppResults extends Component {
 
         <div className='ui padded grid'>
 
-
           <div className='three wide column'>
             <div id='results-controls' className='ui vertical fluid accordion menu'>
 
               <div className='item'>
                 <a id='counts' className='active main-controls title'>
-                  <i className='dropdown icon'></i>
-                  Control Panel
+                  <h2 className="ui dividing header">Control Panel</h2>
+                  <br/>
                 </a>
                 <div className='active content'>
 
                   <div className='content'>
                     <div className='ui form'>
-
-                      <h4 className="ui dividing header">Path Length Filter</h4>
-                      <div className='grouped fields'>
-                        <div className='two fields'>
-                          <div className='ui field'>
-                            <label>Min</label>
-                            <input type="text" name="min-path-length" placeholder="1"></input>
-                          </div>
-                          <div className='ui field'>
-                            <label>Max</label>
-                            <input type="text" name="max-path-length" placeholder="10"></input>
-                          </div>
-                        </div>
-                      </div>
 
                       <h4 className="ui dividing header">Event Based Filter</h4>
                       <div className='grouped fields'>
@@ -185,13 +160,13 @@ class AppResults extends Component {
                         </div>
                         <div className='field'>
                           <div className='ui radio checkbox'>
-                            <input type='radio' name='metric' value='mouseover' defaultChecked></input>
+                            <input type='radio' name='metric' value='mouseover'></input>
                             <label>Mouseover</label>
                           </div>
                         </div>
                         <div className='field'>
-                          <div className='ui radio checkbox'>
-                            <input type='radio' name='metric' value='click'></input>
+                          <div className='ui radio checked checkbox'>
+                            <input type='radio' name='metric' value='click' defaultChecked></input>
                             <label>Click</label>
                           </div>
                         </div>
@@ -209,113 +184,48 @@ class AppResults extends Component {
                         </div>
                       </div>
 
+
+                      <h4 className="ui dividing header">Path Length Filter</h4>
+                      <div className='grouped fields'>
+                        <div className='two fields'>
+                          <div className='ui field'>
+                            <label>Min</label>
+                            <input type="text" name="min-path-length" defaultValue="2"></input>
+                          </div>
+                          <div className='ui field'>
+                            <label>Max</label>
+                            <input type="text" name="max-path-length" defaultValue="10"></input>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <h4 className="ui dividing header">Timeframe Filter</h4>
+                      <div className='grouped fields'>
+                        <div className='two fields'>
+                          <div className='ui field' id="start-time-div" >
+                            <label>Start logs from:</label>
+                            <input type="text" name="start-time" defaultValue="now-10d"></input>
+                          </div>
+                          <div className='ui field' id="end-time-div">
+                            <label>End logs at:</label>
+                            <input type="text" name="end-time" defaultValue="now"></input>
+                          </div>
+                        </div>
+                      </div>
+
                     </div>
                   </div>
                 </div>
               </div>
 
-
-
-              <div className='item'>
-                <a id='graph' className='main-controls title'>
-                  <i className='dropdown icon'></i>
-                  Graph Metrics Example
-                </a>
-                <div className='content'>
-                  <div className='ui form'>
-                    <div className='grouped fields'>
-                      <div className='field'>
-                        <div className='ui radio checkbox'>
-                          <input type='radio' name='metric' value='out_degree' defaultChecked></input>
-                          <label>Out Degree</label>
-                        </div>
-                      </div>
-                      <div className='field'>
-                        <div className='ui radio checkbox'>
-                          <input type='radio' name='metric' value='in_degree'></input>
-                          <label>In Degree</label>
-                        </div>
-                      </div>
-                      <div className='field'>
-                        <div className='ui radio checkbox'>
-                          <input type='radio' name='metric' value='betweenness_cent_dir_weighted'></input>
-                          <label>Weighted Betweenness</label>
-                        </div>
-                      </div>
-                      <div className='field'>
-                        <div className='ui radio checkbox'>
-                          <input type='radio' name='metric' value='closeness_cent_dir_weighted'></input>
-                          <label>Weighted Closeness</label>
-                        </div>
-                      </div>
-                      <div className='field'>
-                        <div className='ui radio checkbox'>
-                          <input type='radio' name='metric' value='closeness_cent_dir_unweighted'></input>
-                          <label>Unweighted Closeness</label>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className='field'>
-                      <div id='graph-ab-toggle' className='ui toggle checkbox'>
-                        <input type='checkbox' name='graph-a-b'></input>
-                        <label>A/B</label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className='item'>
-                <a id='sankey' className='main-controls title'>
-                  <i className='dropdown icon'></i>
-                  SankeyPlot
-                </a>
-                <div className='content'>
-                  <div className='ui form'>
-                    <div className='grouped fields'>
-                      <div className='field'>
-                        <div className='ui radio checkbox'>
-                          <input type='radio' name='metric' value='sankey1' defaultChecked></input>
-                          <label>Filter 1</label>
-                        </div>
-                      </div>
-                      <div className='field'>
-                        <div className='ui radio checkbox'>
-                          <input type='radio' name='metric' value='sankey2'></input>
-                          <label>Filter 2</label>
-                        </div>
-                      </div>
-                      <div className='field'>
-                        <div className='ui radio checkbox'>
-                          <input type='radio' name='metric' value='sankey3'></input>
-                          <label>Filter 3</label>
-                        </div>
-                      </div>
-                      <div className='field'>
-                        <div className='ui radio checkbox'>
-                          <input type='radio' name='metric' value='sankey4'></input>
-                          <label>Filter 4</label>
-                        </div>
-                      </div>
-                      <div className='field'>
-                        <div className='ui radio checkbox'>
-                          <input type='radio' name='metric' value='sankey5'></input>
-                          <label>Filter 5</label>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className='field'>
-                      <div id='sankey-ab-toggle' className='ui toggle checkbox'>
-                        <input type='checkbox' name='sankey-a-b'></input>
-                        <label>A/B</label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
+
+            <br/>
+            May take a several seconds for initial render...
+            <br/>
+            <br/>
+            If screen stalls and is blank for more than several seconds at any time, toggle between the event based filters.
           </div>
           
 
@@ -359,6 +269,110 @@ class AppResults extends Component {
         
         );
   }
+
+getInitialAppResults() {
+
+    var url = DISTILL_URL+'?from=now-50d&to=now&size=250';
+    //var url = 'http://localhost:8090/sankey/userale-js?from=now-25d&to=now-20d&size=25;       
+    axios.get(url)
+      .then( (response) => {
+        console.log(url);
+        console.log("RESPONSE DATA FROM DISTILL, should be upon load, in apps.js");
+        console.log(response.data);
+
+        let counts = response.data.histogram;
+        let sankey = {
+            nodes : response.data.nodes, 
+            links : response.data.links,
+          };
+
+        let allTargets = getAllTargets(response.data.histogram);
+        
+        let excludedTargetQuery = defineExcludedTargets(allTargets);
+        let includedTargetQuery = defineIncludedTargets(allTargets);
+
+        this.props.app.results.allTargets = allTargets;
+        return { 
+            counts: counts, 
+            sankey: sankey, 
+            allTargets: allTargets,
+            includedTargetQuery: includedTargetQuery,
+        };
+      })
+      .catch( (error) => {
+        console.log(error);
+      }); 
+
+      return {counts: [], sankey: {}, allTargets: [], includedTargetQuery: ""};
+
+}
+
+
+
+};
+
+
+function getAllTargets(histdata) {
+
+    let everyTarget = [];
+
+    histdata.forEach(function(d) {
+      everyTarget.push(
+        {"target" : d.target,
+         "pathLength" : d.pathLength,
+        });
+    });
+
+
+    return everyTarget;
+};
+
+function defineExcludedTargets(everyTarget) {
+  let minLen = $('input[name=min-path-length]').val();
+  let maxLen = $('input[name=max-path-length]').val();
+
+  let newQuery = '';
+  let count = 0;
+
+  everyTarget.forEach(function(d) {
+    if(d.pathLength <= minLen || d.pathLength >= maxLen) {
+      let reformattedTarget = d.target.replace(/#/g, "%23");
+      reformattedTarget = reformattedTarget.replace(/ /g, "%20");
+      newQuery = newQuery+reformattedTarget+",";
+      count = count+1;
+    };
+    
+
+  });
+
+  console.log("excluded targets: " + count);
+  return newQuery;
+
+};
+
+
+function defineIncludedTargets(everyTarget) {
+  let minLen = $('input[name=min-path-length]').val();
+  let maxLen = $('input[name=max-path-length]').val();
+
+  let newQuery = '';
+  let count = 0;
+
+  everyTarget.forEach(function(d) {
+    if(d.pathLength >= minLen & d.pathLength <= maxLen) {
+      let reformattedTarget = d.target.replace(/#/g, "%23");
+      reformattedTarget = reformattedTarget.replace(/ /g, "%20");
+      newQuery = newQuery+reformattedTarget+",";
+      count = count+1;
+    };
+    
+
+  });
+
+  console.log("included targets: " + count);
+  return newQuery;
+
+
 };
 
 

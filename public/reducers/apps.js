@@ -18,19 +18,31 @@ import * as ActionTypes from '../actions/ActionTypes';
 // If default/example app data is provided, fill in file paths here:
 const defaultAvailable = true;
 const defaultApp = defaultAvailable ? {
-  name: 'Neon',
+  name: 'Application',
   id: 'default',
   results: {
-    counts: require('../neon_counts.js').default,
-    graph: require('../neon_graph.js').default,
+    //counts: require('../neon_counts.js').default,
+    counts: require('../histogram_loader.js').default,
+    sankey: require('../sankey_loader.js').default,
+    allTargets: [],
+    //graph: require('../neon_graph.js').default,
   },
-} : {};
+} : {
+  name: 'Empty Demo',
+  id: 'emptyDemo',
+  results: {
+    counts: [],
+    sankey: {},
+    allTargets: [],
+    //graph: [],
+  },
+};
 
 
 export default function apps (state = {
   appIds: [],
   apps: {
-    default: defaultApp,
+    default:  defaultApp,
   },
   listPending: false,
   listSuccess: false,
