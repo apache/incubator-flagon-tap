@@ -22,11 +22,6 @@ class Counts extends Component {
   constructor(props) {
     super(props);
 
-    //console.log("dataset = " + this.props.data);
-    //console.log("dataset = " + this.props.data[0].counts);
-    //console.log("dataset = " + this.props.data[1].target);
-    //console.log("dataset = " + this.props.data[2].types);
-
     this.state = {
       selectedGroup : '',
       selectedActivity : '',
@@ -45,28 +40,14 @@ class Counts extends Component {
   }
 
   render() {
-    var dataSubset = this.props.data; //snarl - for now, use the full dataset without filters
-    //var dataSubset = subset(this.props.data, this.props.filters);
-    //console.log("counts dataSubset = " + dataSubset);
+    var dataSubset = this.props.data;
 
-    // var selectedGroup = this.state.selectedGroup;
-    // if (selectedGroup == '') {
-    //   selectedGroup = Object.keys(dataSubset)[0];
-    // }
-
-    // var selectedActivity = this.state.selectedActivity;
-    // //if (selectedActivity == '') {
-    //   //selectedActivity = Object.keys(dataSubset[selectedGroup].activities)[0];
-    // //}
-
-    // var activity = dataSubset[selectedGroup].activities[selectedActivity];
 
     return(
       <div className='ui grid'>
         <div className='sixteen wide column'>
           <VerticalBar grouped={this.props.filters.ab} select={this.selectGroup} data={(() => {
             var groupData = [];
-
             groupData = this.props.data;
 
             return groupData;
@@ -78,12 +59,7 @@ class Counts extends Component {
 }
 
 function subset(data, filters) {
-  preprocessData(data);
-
-  // var dataSubset = data.filter((p) => {
-  //   return (filters.gender === 0 || filters.gender == p.intake_data.demographics.Gender) && (filters.educationlevels.includes(+p.intake_data.education["Most school completed"]));
-  // });
-  var dataSubset = data; //snarl apply filtered data here
+  var dataSubset = data;
 
   var logs = {};
 
@@ -118,11 +94,6 @@ function subset(data, filters) {
   return logs;
 }
 
-function preprocessData(data) {
-  data.forEach(function (p) {
-    //excluded ot1 and ot2 preprocessing
-  });
-}
 
 Counts.propTypes = {
   data : PropTypes.array,
