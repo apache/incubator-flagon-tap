@@ -33,8 +33,9 @@ class VerticalBar extends Component {
       bottom : 30,
       left : 40,
     };
-    this.fullWidth = 600;
-    this.fullHeight = 300;
+    this.fullWidth = 1200;
+    this.fullHeight = 400;
+    this.axisHeight = 200;
     this.width = this.fullWidth - this.margin.left - this.margin.right;
     this.height = this.fullHeight - this.margin.top - this.margin.bottom;
 
@@ -82,31 +83,30 @@ class VerticalBar extends Component {
   create() {
     this.svg = d3.select(`#${this.d3element}`).append('svg')
       .attr('width', this.fullWidth)
-      .attr('height', this.fullHeight)
+      .attr('height', this.fullHeight+this.axisHeight)
       .append('g')
       .attr('transform', `translate(${this.margin.left},${this.margin.top})`);
 
     this.svg.append('g')
       .attr('class', 'x axis')
       .attr('transform', `translate(0,${this.height})`)
-    .selectAll("text")
-      //.style("text-anchor", "end")
-      //.attr("dx", "-.8em")
-      //.attr("dy", "-.55em")
-      .attr("transform", "rotate(90)" ); //TODO: text on x axis not rotating
+      //.call(this.xAxis)
 
     this.svg.append('g')
-      .attr('class', 'y axis');
+      .attr('class', 'y axis')
+      //.call(this.yAxis);
 
     this.update();
   }
 
   update() {
     let data = this.props.data;
-    console.log("update vertical-bar data:");
-    console.log(data);
+    //console.log("update vertical-bar data:");
+    //console.log(data);
     //let grouped = this.props.grouped; //grouped is for ab testing
     let grouped = false;
+
+    d3.selectAll(".x.axis").remove();
 
     let t = d3.transition()
       .duration(500);
@@ -118,6 +118,22 @@ class VerticalBar extends Component {
 
     this.svg.select('.x.axis').call(this.xAxis);
     this.svg.select('.y.axis').call(this.yAxis);
+
+    // this.svg.selectAll('text').exit()
+    //   .attr('class', 'exit')
+    //   .transition(t)
+    //   .remove();
+
+    this.svg.append('g')
+      .attr('class', 'x axis')
+      .attr('transform', `translate(0,${this.height})`)
+      .call(this.xAxis)
+      .selectAll("text")
+        .style("text-anchor", "start")
+        .attr("dx", "1em")
+        .attr("dy", "-.5em")
+        // .attr("y", ".8em")
+        .attr("transform", "rotate(70)");
 
     this.groups = this.svg.selectAll('.group')
       .data(data, (d) => d.target);
