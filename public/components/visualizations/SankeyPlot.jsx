@@ -53,17 +53,10 @@ class SankeyPlot extends Component {
       bottom : 20,
       left : 20,
     };
-    this.fullWidth = 800;
+    this.fullWidth = 1200;
     this.fullHeight = 400;
     this.width = this.fullWidth - this.margin.left - this.margin.right;
     this.height = this.fullHeight - this.margin.top - this.margin.bottom;
-
-    this.formatNumber = d3.format(',.0f');
-    this.format = d => `${this.formatNumber(d)} TWh`;
-    
-    //this.mainRadius = 280;
-
-    //this.update();
 
     this.color = d3.scaleOrdinal()
       .range(colors_old);
@@ -81,10 +74,9 @@ class SankeyPlot extends Component {
 
     this.path = this.sankey.link();
 
-
-    // this.tooltip = d3.select('body').append('div')
-    //   .attr('class', 'tooltip')
-    //   .style('opacity', 0);
+    this.tooltip = d3.select('body').append('div')
+      .attr('class', 'tooltip')
+      .style('opacity', 0);
 
     this.update();
   }
@@ -124,7 +116,7 @@ class SankeyPlot extends Component {
       .sort((a, b) => b.dy - a.dy);
 
     link.append('title')
-      .text(d => `${d.source.name} → ${d.target.name}\n${d.value}`);
+      .text(d => `${d.source.name}\n → ${d.target.name}\nValue: ${d.value}`);
 
     const node = this.svg.append('g').selectAll('.nodeSankey')
       .data(data.nodes)
@@ -155,11 +147,21 @@ class SankeyPlot extends Component {
       .attr('width', this.sankey.nodeWidth())
       .style('fill', d => d.color = this.color(d.name.replace(/ .*/, '')))
       .style('stroke', d => d3.rgb(d.color).darker(2))
-      .append('title');
+      .append('title')
+      .on('mouseover', (d) => {
+        this.showTooltip(d.name, d3.event.pageX, d3.event.pageY);
+        console.log("show tool tip: "+ d.dy);
+      })
+      .on('click', (d) => {
+        console.log("clicked !!");
+        this.showTooltip(d.name, d3.event.pageX, d3.event.pageY);
+        //this.props.select(d.target);
+      })
+      ;
       //.text(d => `${d.name}`);
 
-    // node.append('title')
-    //   .text(d => `${d.name}`);// → ${d.target.name}\n${d.value}`);
+    node.append('title')
+      .text(d => `${d.name}`);// → ${d.target.name}\n${d.value}`);
 
 
     node.append('text')
@@ -168,38 +170,42 @@ class SankeyPlot extends Component {
       .attr('dy', '.35em')
       .attr('text-anchor', 'end')
       .attr('transform', null)
-      .text(d => d.name[0,9])
+      .attr('font-size', '8px')
+      .text(d => d.name.substring(0,6))
       .filter(d => d.x < this.width / 2)
       .attr('x', 6 + this.sankey.nodeWidth())
       .attr('text-anchor', 'start');
 
   }
   
-  dragmove(d) {
-    console.log("DRAGGING HAPPENED");// - dragmove called unnecessarily - todo: fix");
-    // d3.select(this).attr('transform', `translate(${d.x},${d.y = Math.max(0, Math.min(this.height - d.dy, d3.event.y))})`);
-    // sankey.relayout();
-    // link.attr('d', this.path);
-  }
+  // dragmove(d) {
+  //   console.log("DRAGGING HAPPENED");// - dragmove called unnecessarily - todo: fix");
+  //   // d3.select(this).attr('transform', `translate(${d.x},${d.y = Math.max(0, Math.min(this.height - d.dy, d3.event.y))})`);
+  //   // sankey.relayout();
+  //   // link.attr('d', this.path);
+  // }
 
-  hideTooltip() {
-    console.log("HIDE TOOLTIP HAPPENED - todo: verify");
-    this.tooltip.transition()
-      .duration(350)
-      .style('opacity', 0);
-  }
+  // hideTooltip() {
+  //   console.log("HIDE TOOLTIP HAPPENED - todo: verify");
+  //   this.tooltip.transition()
+  //     .duration(350)
+  //     .style('opacity', 0);
+  // }
 
-  showTooltip(activity, x, y) {
-    console.log("SHOW TOOLTIP HAPPENED - todo: verify");
-    this.tooltip.transition()
-      .duration(350)
-      .style('opacity', 0.9);
+  // showTooltip(text, x, y) {
+  //   console.log("SHOW TOOLTIP HAPPENED - todo: verify");
+  //   this.tooltip.transition()
+  //     .duration(350)
+  //     .style('opacity', 0.9);
 
-    this.tooltip
-      .style('left', (x + 6) + 'px')
-      .style('top', (y - 28) + 'px')
-      .html(`Action: ${activity.action}<br>Id: ${activity.elementId}<br>Group: ${activity.elementGroup}`);
-  }
+  //   this.tooltip
+  //     .style('left', (x + 6) + 'px')
+  //     .style('top', (y - 28) + 'px')
+  //     .html(text);
+  //     //.html(`Node: ${text}<br>Id: ${activity.elementId}<br>Group: ${activity.elementGroup}`);
+  // }
+
+}
 
 
 
@@ -551,23 +557,6 @@ SankeyPlot.propTypes = {
   element : PropTypes.string.isRequired,
   data : PropTypes.object,
   metric : PropTypes.string.isRequired,
-  // data : PropTypes.shape({
-  //   inMatrix : PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)),
-  //   outMatrix : PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)),
-  //   in : PropTypes.arrayOf(PropTypes.shape({
-  //     index : PropTypes.number,
-  //     name : PropTypes.string,
-  //   })),
-  //   out : PropTypes.arrayOf(PropTypes.shape({
-  //     index : PropTypes.number,
-  //     name : PropTypes.string,
-  //   })),
-  //   between : PropTypes.arrayOf(PropTypes.shape({
-  //     index : PropTypes.number,
-  //     name : PropTypes.string,
-  //     value : PropTypes.number,
-  //   })),
-  // }).isRequired,
 };
 
 
