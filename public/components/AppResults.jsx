@@ -185,7 +185,7 @@ class AppResults extends Component {
                         <div className='field'>
                           <div className='ui radio checkbox'>
                             <input type='radio' name='metric' value='scroll'></input>
-                            <label>Focus</label>
+                            <label>Scroll</label>
                           </div>
                         </div>
                       </div>
