@@ -35,10 +35,10 @@ class AppResults extends Component {
     this.props.app.results.allTargets = this.getInitialAppResults().allTargets;//initialResults.allTargets;
     this.state = {
       result : 'counts',
-      metric : 'blur',
+      metric : '',
       minpathlength : 1,
       maxpathlength : 8,
-      starttime : 'now-10d',
+      starttime : 'now-15m',
       endtime : 'now',
       //educationlevels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
       //gender : 0,
@@ -154,7 +154,7 @@ class AppResults extends Component {
                       <div className='grouped fields'>
                         <div className='field'>
                           <div className='ui radio checkbox'>
-                            <input type='radio' name='metric' value=''></input>
+                            <input type='radio' name='metric' value='' defaultChecked></input>
                             <label>All</label>
                           </div>
                         </div>
@@ -166,7 +166,7 @@ class AppResults extends Component {
                         </div>
                         <div className='field'>
                           <div className='ui radio checked checkbox'>
-                            <input type='radio' name='metric' value='click' defaultChecked></input>
+                            <input type='radio' name='metric' value='click'></input>
                             <label>Click</label>
                           </div>
                         </div>
@@ -179,6 +179,12 @@ class AppResults extends Component {
                         <div className='field'>
                           <div className='ui radio checkbox'>
                             <input type='radio' name='metric' value='focus'></input>
+                            <label>Focus</label>
+                          </div>
+                        </div>
+                        <div className='field'>
+                          <div className='ui radio checkbox'>
+                            <input type='radio' name='metric' value='scroll'></input>
                             <label>Focus</label>
                           </div>
                         </div>
@@ -205,7 +211,7 @@ class AppResults extends Component {
                         <div className='two fields'>
                           <div className='ui field' id="start-time-div" >
                             <label>Start logs from:</label>
-                            <input type="text" name="start-time" defaultValue="now-10d"></input>
+                            <input type="text" name="start-time" defaultValue="now-15m"></input>
                           </div>
                           <div className='ui field' id="end-time-div">
                             <label>End logs at:</label>
