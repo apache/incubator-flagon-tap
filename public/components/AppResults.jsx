@@ -14,125 +14,163 @@
 // limitations under the License.
 
 import React, { Component, PropTypes } from 'react';
-import Iframe from 'react-iframe';
 import axios from 'axios';
 
 import Counts from './visualizations/Counts';
-//import GraphMetrics from './visualizations/GraphMetrics';
 import SankeyPlot from './visualizations/SankeyPlot';
-//import sankeyhtml from './visualizations/sankeyhtml';
 
 const DISTILL_URL = require('../../secrets/senssoftconfig').default.distill_url;
 
-// import DISTILL_URL from './././secrets/secret.py';
-
 class AppResults extends Component {
-  constructor(props) {
-    
-    //let initialResults = 
-    
+  constructor(props) {    
     super(props);
-    this.props.app.results.allTargets = this.getInitialAppResults().allTargets;//initialResults.allTargets;
+
     this.state = {
       result : 'counts',
       metric : '',
-      minpathlength : 1,
-      maxpathlength : 8,
-      starttime : 'now-15m',
+      minpathlength : 2,
+      maxpathlength : 10,
+      starttime : 'now-15d',
       endtime : 'now',
-      //educationlevels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-      //gender : 0,
       ab : false,
       graphAb : false,
       includedTargetQuery : '',
-      //allTargets : [],//[{"target": "document", "pathLength": 1}, {"target": "Window", "pathLength": 1}], 
     };
-
-
-    // this.state = {
-    //   allTargets : initialResults.allTargets,
-    // }
-
-    // this.props.app.results.counts = initialResults.counts;
-    // this.props.app.results.sankey = initialResults.sankey;
-    // this.props.app.results.allTargets = initialResults.allTargets;
-    //this.props.app.results.allTargets = parseForAllTargets(response.data.histogram);
-
   }
 
   componentDidMount() {
+    this.getInitialAppResults();
 
     $('.ui.radio.checkbox').checkbox({
-      onChange : () => {
-        let metric = $('input[name=metric]:checked').val();
-        this.setState({ metric : metric });
+      onChange: () => {
+        this.updateResultParameters({ metric: $('input[name=metric]:checked').val() });
         console.log("metric updated");
       },
     });
 
-    $('.ui.field').checkbox({
-      onChange : () => {
+    $('.ui.field input').on('change', () => {
+      const minpathlength = $('input[name=min-path-length]').val();
+      const maxpathlength = $('input[name=max-path-length]').val();
+      const starttime = $('input[name=start-time]').val();
+      const endtime = $('input[name=end-time]').val();
+      
+      this.updateResultParameters({
+        minpathlength,
+        maxpathlength,
+        starttime,
+        endtime,
+      });
 
-        this.setState({ minpathlength : $('input[name=min-path-length]').val()});
-        this.setState({ maxpathlength : $('input[name=max-path-length]').val()});
-        this.setState({ starttime : $('input[name=start-time]').val()});
-        this.setState({ endtime : $('input[name=end-time]').val()});
-
-        console.log("text field updated");
-      },
+      console.log("text field updated");
     });
-
-    // $('.ui.education.checkbox').checkbox({
-    //   onChange : () => {
-    //     let educationlevels = [];
-    //     $('input[name=education]:checked').each((i, el) => {
-    //       educationlevels.push(+$(el).val());
-    //     });
-    //     this.setState({ educationlevels : educationlevels });
-    //   },
-    // });
-
   }
 
-  render() {
+  updateResultParameters(stateChanges, query = '', depth = 1) {
+    const nextState = Object.assign({}, this.state, stateChanges);
 
-    // console.log(DISTILL_URL);
-    // console.log("hERERE");
+    let url = `${DISTILL_URL}?size=250&event=${nextState.metric}&`;
+    if (nextState.starttime) {
+      url += `from=${encodeURIComponent(nextState.starttime)}&`;
+    }
+    if (nextState.endtime) {
+      url += `to=${encodeURIComponent(nextState.endtime)}&`;
+    }
+    if (nextState.minpathlength) {
+      url += `minpathlength=${encodeURIComponent(nextState.minpathlength)}&`;
+    }
+    if (nextState.maxpathlength) {
+      url += `maxpathlength=${encodeURIComponent(nextState.maxpathlength)}&`;
+    }
+    if (query) {
+      url += `target_in=${query}&`;
+    }
 
-    const { name, results } = this.props.app;
-    let includedTargetQuery = defineIncludedTargets(this.props.app.results.allTargets);
+    this.setState(nextState);
 
-    var url = DISTILL_URL+'?from='+this.state.starttime+'&to='+this.state.endtime+'&event='+this.state.metric+'&target_in='+includedTargetQuery;
-    //var url = 'http://localhost:8090';       
-    axios.get(url)
-      .then( (response) => {
-        //console.log("response", response);
-        //var sankeyhtml = response.data;
-        console.log(url);
-        console.log("RESPONSE DATA FROM DISTILL");
-        console.log(response.data);
-        //console.log("Filters: " + this.state.metric);
+    const requestHandler = (response) => {
+      console.log(url);
+      console.log("RESPONSE DATA FROM DISTILL");
+      console.log(response.data);
 
-        this.props.app.results.counts = response.data.histogram;
-        this.props.app.results.sankey = {
+      const allTargets = getAllTargets(response.data.histogram);
+
+      const includedTargetQuery = defineIncludedTargets(allTargets);
+      const excludedTargetQuery = defineExcludedTargets(allTargets);
+
+      return new Promise((resolve) => {
+        this.setState({ includedTargetQuery }, () => {
+          this.props.app.results.counts = response.data.histogram;
+          this.props.app.results.sankey = {
             nodes : response.data.nodes, 
             links : response.data.links,
           };
-      })
-      .catch( (error) => {
-        console.log(error);
+          this.props.app.results.allTargets = allTargets;
+
+          this.forceUpdate();
+          resolve();
+        });
       });
+    };
 
+    if (!query && depth) {
+      return axios.get(url)
+        .then(requestHandler)
+        .then(() => this.updateResultParameters({}, this.state.includedTargetQuery, depth - 1))
+        .catch((e) => {
+          console.error(e);
+        });
+    }
 
+    return axios.get(url)
+      .then(requestHandler)
+      .catch((e) => {
+        console.error(e);
+      });
+  }
 
+getInitialAppResults() {
+  const { endtime, includedTargetQuery, maxpathlength, minpathlength, starttime } = this.state;
+
+  let url = `${DISTILL_URL}?from=`;
+  url += `${encodeURIComponent(starttime)}&to=`;
+  url += `${encodeURIComponent(endtime)}&size=250&target_in=`;
+  url += `${encodeURIComponent(includedTargetQuery)}&`;
+  url += `minpathlength=${encodeURIComponent(minpathlength)}&`;
+  url += `maxpathlength=${encodeURIComponent(maxpathlength)}&`;
+  url += 'event=';
+
+  return axios.get(url)
+    .then((response) => {
+      console.log(url);
+      console.log("RESPONSE DATA FROM DISTILL, should be upon load, in apps.js");
+      console.log(response.data);
+
+      let allTargets = getAllTargets(response.data.histogram);
+      
+      let excludedTargetQuery = defineExcludedTargets(allTargets);
+      let includedTargetQuery = defineIncludedTargets(allTargets);
+
+      this.props.app.results.counts = response.data.histogram;
+      this.props.app.results.sankey = {
+        nodes : response.data.nodes, 
+        links : response.data.links,
+      };
+      this.props.app.results.allTargets = allTargets;
+
+      this.updateResultParameters({ includedTargetQuery }, includedTargetQuery);
+    })
+    .catch( (error) => {
+      console.log(error);
+    });
+  }
+
+  render() {
+    const { name, results } = this.props.app;
 
     return(
-
       <div className='ui padded grid' id='results-content'>
         <div className='sixteen wide column ui large header center aligned'>
           Log Analysis
-          {//name
-          }
         </div>
 
         <div className='ui padded grid'>
@@ -196,11 +234,11 @@ class AppResults extends Component {
                         <div className='two fields'>
                           <div className='ui field'>
                             <label>Min</label>
-                            <input type="text" name="min-path-length" defaultValue="2"></input>
+                            <input type="text" name="min-path-length" defaultValue={this.state.minpathlength} />
                           </div>
                           <div className='ui field'>
                             <label>Max</label>
-                            <input type="text" name="max-path-length" defaultValue="10"></input>
+                            <input type="text" name="max-path-length" defaultValue={this.state.maxpathlength} />
                           </div>
                         </div>
                       </div>
@@ -211,15 +249,14 @@ class AppResults extends Component {
                         <div className='two fields'>
                           <div className='ui field' id="start-time-div" >
                             <label>Start logs from:</label>
-                            <input type="text" name="start-time" defaultValue="now-15m"></input>
+                            <input type="text" name="start-time" defaultValue={this.state.starttime}></input>
                           </div>
                           <div className='ui field' id="end-time-div">
                             <label>End logs at:</label>
-                            <input type="text" name="end-time" defaultValue="now"></input>
+                            <input type="text" name="end-time" defaultValue={this.state.endtime}></input>
                           </div>
                         </div>
                       </div>
-
                     </div>
                   </div>
                 </div>
@@ -272,49 +309,8 @@ class AppResults extends Component {
           </div>
         </div>
       </div>
-        
-        );
+    );
   }
-
-getInitialAppResults() {
-
-    var url = DISTILL_URL+'?from=now-50d&to=now&size=250';
-    //var url = 'http://localhost:8090/sankey/userale-js?from=now-25d&to=now-20d&size=25;       
-    axios.get(url)
-      .then( (response) => {
-        console.log(url);
-        console.log("RESPONSE DATA FROM DISTILL, should be upon load, in apps.js");
-        console.log(response.data);
-
-        let counts = response.data.histogram;
-        let sankey = {
-            nodes : response.data.nodes, 
-            links : response.data.links,
-          };
-
-        let allTargets = getAllTargets(response.data.histogram);
-        
-        let excludedTargetQuery = defineExcludedTargets(allTargets);
-        let includedTargetQuery = defineIncludedTargets(allTargets);
-
-        this.props.app.results.allTargets = allTargets;
-        return { 
-            counts: counts, 
-            sankey: sankey, 
-            allTargets: allTargets,
-            includedTargetQuery: includedTargetQuery,
-        };
-      })
-      .catch( (error) => {
-        console.log(error);
-      }); 
-
-      return {counts: [], sankey: {}, allTargets: [], includedTargetQuery: ""};
-
-}
-
-
-
 };
 
 
