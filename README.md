@@ -1,6 +1,6 @@
 # Apache Flagon TAP
 
-NOTE: This project is not currently maintained and will be refactored. If you are interested in TAP, join the discussion on our [dev list](dev-subscribe@flagon.incubator.apache.org). 
+NOTE: This project is not currently maintained and will be refactored. If you are interested in TAP, join the discussion on our [dev list](mailto:dev-subscribe@flagon.incubator.apache.org). 
 
 Apache TAP is part of the Flagon software stack. It's a React based app with a Django backend that allows you to access your applications' usage data via custom D3 visualizations.
 
@@ -58,6 +58,4 @@ Contributions are welcome!  Simply submit an issue report for problems you encou
 
 ## License
 
-Copyright 2016 The Charles Stark Draper Laboratory, Inc.
-
-TAP is released under the Apache v2.0 License.  See the LICENSE file for more information.  
+TAP is released under the Apache v2.0 License.  See the LICENSE and NOTICE file for more information.  
