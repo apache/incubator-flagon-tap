@@ -1,6 +1,8 @@
-# Apache SensSoft TAP
+# Apache Flagon TAP
 
-Apache TAP is part of the SensSoft software stack. It's a React based app with a Django backend that allows you to access your applications' usage data via custom D3 visualizations.
+####NOTE: This project is not currently maintained and will be refactored. If you are interested in TAP, join the discussion on our [dev list](dev-subscribe@flagon.incubator.apache.org). 
+
+Apache TAP is part of the Flagon software stack. It's a React based app with a Django backend that allows you to access your applications' usage data via custom D3 visualizations.
 
 
 
