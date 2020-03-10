@@ -17,9 +17,9 @@
 FROM ubuntu:16.04
 
 # install system wide deps
-RUN apt-get -yqq update
-RUN apt-get -yqq install openjdk-8-jre
-RUN apt-get -yqq install wget 
+RUN apt-get --no-install-recommends install -yqq update
+RUN apt-get --no-install-recommends install -yqq install openjdk-8-jre
+RUN apt-get --no-install-recommends install -yqq install wget 
 RUN apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys 46095ACC8548582C1A2699A9D27D666CD88E42B4
 
 ENV LOGSTASH_VERSION 1:2.3.4-1
@@ -29,8 +29,8 @@ RUN echo "deb $LOGSTASH_REPO_BASE stable main" > /etc/apt/sources.list.d/logstas
 
 # install logstash
 RUN set -x \
-	&& apt-get -yqq update \
-	&& apt-get -yqq install --no-install-recommends logstash=$LOGSTASH_VERSION \
+	&& apt-get --no-install-recommends install -yqq update \
+	&& apt-get --no-install-recommends install -yqq install --no-install-recommends logstash=$LOGSTASH_VERSION \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV PATH /opt/logstash/bin:$PATH

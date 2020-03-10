@@ -82,7 +82,7 @@ Vagrant.configure("2") do |config|
   # documentation for more information about their specific syntax and use.
   # config.vm.provision "shell", inline: <<-SHELL
   #   apt-get update
-  #   apt-get install -y apache2
+  #   apt-get --no-install-recommends install -y apache2
   # SHELL
   config.vm.provision "file", source: "vagrant/bash_aliases", destination: ".bash_aliases"
 

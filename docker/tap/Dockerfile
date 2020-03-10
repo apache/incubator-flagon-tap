@@ -17,14 +17,14 @@ FROM python:3.4
 MAINTAINER Michelle Beard <msbeard@apache.org>
 
 # Install system wide dependencies
-RUN apt-get -yqq update && apt-get -yqq install \
+RUN apt-get --no-install-recommends install -yqq update && apt-get --no-install-recommends install -yqq install \
 	curl \
 	sudo
 
 # Install NodeJS 4.x
 RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
 
-RUN sudo -E apt-get -yqq install \
+RUN sudo -E apt-get --no-install-recommends install -yqq install \
 	nodejs \
 	build-essential 
 
@@ -36,7 +36,7 @@ WORKDIR /usr/src
 RUN npm install -g bower gulp
 
 # Install git
-RUN sudo -E apt-get -yqq install \
+RUN sudo -E apt-get --no-install-recommends install -yqq install \
   git
 
 # Clone TAP

@@ -17,8 +17,8 @@
 FROM ubuntu:16.04
 
 # install system wide deps
-RUN apt-get -yqq update
-RUN apt-get -yqq install netcat
+RUN apt-get --no-install-recommends install -yqq update
+RUN apt-get --no-install-recommends install -yqq install netcat
 
 RUN apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys 46095ACC8548582C1A2699A9D27D666CD88E42B4
 
@@ -29,8 +29,8 @@ RUN echo "deb $KIBANA_REPO_BASE stable main" > /etc/apt/sources.list.d/kibana.li
 
 # install kibana
 RUN set -x \
-	&& apt-get -yqq update \
-	&& apt-get -yqq install --no-install-recommends kibana=$KIBANA_VERSION \
+	&& apt-get --no-install-recommends install -yqq update \
+	&& apt-get --no-install-recommends install -yqq install --no-install-recommends kibana=$KIBANA_VERSION \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV PATH /opt/kibana/bin:$PATH
