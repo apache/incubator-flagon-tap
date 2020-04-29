@@ -6,12 +6,12 @@ RUN curl -sL https://deb.nodesource.com/setup | bash -
 echo "apt-get"
 RUN apt-get -y install nodejs
 
+COPY requirements.txt /requirements.txt
+RUN pip install -r /requirements.txt --no-cache-dir
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY . /usr/src/app
-
-RUN pip install -r requirements.txt
 
 RUN npm install -g gulp
 RUN npm install 
