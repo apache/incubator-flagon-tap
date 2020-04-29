@@ -18,6 +18,10 @@ FROM python:2
 # install system wide deps
 RUN apt-get -yqq update
 
+# Install Distill dependencies
+COPY requirements.txt /requirements.txt
+RUN pip install -r /requirements.txt --no-cache-dir
+
 # Set the work directory
 RUN mkdir -p /usr/src
 WORKDIR /usr/src
@@ -31,15 +35,10 @@ RUN git clone https://github.com/apache/incubator-senssoft-distill.git distill
 WORKDIR /usr/src/distill
 RUN git pull
 
-
 # Add code
 ##WORKDIR /app
 ##ADD setup.py /app
 
-ADD requirements.txt /distill
-
-# Install Distill dependencies
-RUN pip install -r requirements.txt
 
 # Expose Ports
 EXPOSE 8090
