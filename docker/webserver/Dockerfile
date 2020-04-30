@@ -20,7 +20,7 @@ RUN apt-get -yqq update
 RUN apt-get -yqq install nginx
 
 # Install Supervisord
-RUN pip install supervisor-stdout
+RUN pip install supervisor-stdout --no-cache-dir
 
 # Add configuration files
 ADD ./supervisord.conf /etc/supervisord.conf
@@ -31,4 +31,4 @@ ADD ./nginx.conf /etc/nginx/nginx.conf
 RUN service nginx stop
 
 # start supervisor to run our wsgi server
-CMD supervisord -c /etc/supervisord.conf -n 
+CMD ["supervisord", "-c", "/etc/supervisord.conf", "-n"] 

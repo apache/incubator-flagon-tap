@@ -48,7 +48,7 @@ RUN git pull
 RUN npm install 
 
 # Install TAP requirements
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt --no-cache-dir
 
 # Add application files
 ADD secret.py /usr/src/app/tap/settings
