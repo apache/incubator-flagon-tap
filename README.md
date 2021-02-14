@@ -1,6 +1,7 @@
 # Apache Flagon TAP (Incubating)
 
 ![Maintenance](https://img.shields.io/maintenance/no/2019)
+[![deprecated](http://badges.github.io/stability-badges/dist/deprecated.svg)](http://github.com/badges/stability-badges)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 ## Disclaimer
