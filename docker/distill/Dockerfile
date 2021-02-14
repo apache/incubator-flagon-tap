@@ -16,7 +16,7 @@
 FROM python:2
 
 # install system wide deps
-RUN apt-get -yqq update
+RUN apt-get --no-install-recommends install -yqq update
 
 # Install Distill dependencies
 COPY requirements.txt /requirements.txt
@@ -27,7 +27,7 @@ RUN mkdir -p /usr/src
 WORKDIR /usr/src
 
 # Install git
-##RUN sudo -E apt-get -yqq install \
+##RUN sudo -E apt-get --no-install-recommends install -yqq install \
   ##git
 
 # Clone Distill

@@ -16,8 +16,8 @@
 FROM python:2
 
 # install system wide deps
-RUN apt-get -yqq update
-RUN apt-get -yqq install nginx
+RUN apt-get --no-install-recommends install -yqq update
+RUN apt-get --no-install-recommends install -yqq install nginx
 
 # Install Supervisord
 RUN pip install supervisor-stdout --no-cache-dir

@@ -4,7 +4,7 @@ echo "curl"
 RUN curl -sL https://deb.nodesource.com/setup | bash -
 
 echo "apt-get"
-RUN apt-get -y install nodejs
+RUN apt-get --no-install-recommends install -y install nodejs
 
 COPY requirements.txt /requirements.txt
 RUN pip install -r /requirements.txt --no-cache-dir
