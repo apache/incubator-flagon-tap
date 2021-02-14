@@ -1,9 +1,13 @@
-# Apache Flagon TAP
+# Apache Flagon TAP (Incubating)
 
-NOTE: This project is not currently maintained and will be refactored. If you are interested in TAP, join the discussion on our [dev list](mailto:dev-subscribe@flagon.incubator.apache.org). 
+![Maintenance](https://img.shields.io/maintenance/no/2019)
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
+
+## Disclaimer
+
+Apache Flagon TAP is a deprecated product and is no longer maintained. It will be retired soon.
 
 Apache TAP is part of the Flagon software stack. It's a React based app with a Django backend that allows you to access your applications' usage data via custom D3 visualizations.
-
 
 
 ## Configure TAP
