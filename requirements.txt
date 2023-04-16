@@ -1,4 +1,4 @@
-Django==1.9.7
+Django==2.2.28
 django-axes==1.7.0
 django-custom-user==0.6
 django-extensions==1.6.7
